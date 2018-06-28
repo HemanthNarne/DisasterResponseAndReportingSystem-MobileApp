@@ -9,13 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ForgotPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { SignupPage } from '../pages/signup/signup';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ForgotPasswordPage
   ],
   providers: [
     StatusBar,
