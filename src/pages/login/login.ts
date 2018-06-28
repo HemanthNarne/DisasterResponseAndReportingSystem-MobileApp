@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StartRegisPage } from '../start-regis/start-regis';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,6 +27,11 @@ export class LoginPage {
     //in future you need to connect Api connections
     this.navCtrl.push(StartRegisPage);
   }
+  
+  forgot(){
+    this.navCtrl.push(ForgotPasswordPage);
+  }
+
 }
 
 
