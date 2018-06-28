@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StartRegisPage } from '../start-regis/start-regis';
 
 /**
  * Generated class for the LoginPage page.
@@ -21,5 +22,10 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
+  login(){
+    //in future you need to connect Api connections
+    this.navCtrl.push(StartRegisPage);
+  }
 }
+
+
