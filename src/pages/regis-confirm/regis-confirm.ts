@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NgProgressService} from "ng2-progressbar";
 
 /**
  * Generated class for the RegisConfirmPage page.
@@ -15,11 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisConfirmPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private varngpService:NgProgressService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisConfirmPage');
+  }
+
+  run()
+  {
+    this.varngpService.start()
+    setTimeout(()=>{this.varngpService.done()},2000)
   }
 
 }

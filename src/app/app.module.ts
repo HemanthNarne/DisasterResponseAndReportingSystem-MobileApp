@@ -13,6 +13,7 @@ import { StartRegisPage } from '../pages/start-regis/start-regis';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { RegisFormPage } from "../pages/regis-form/regis-form";
 import { RegisConfirmPage } from "../pages/regis-confirm/regis-confirm";
+import {NgProgressModule} from "ng2-progressbar";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RegisConfirmPage } from "../pages/regis-confirm/regis-confirm";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    NgProgressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
