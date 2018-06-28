@@ -8,11 +8,14 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    HomePage,
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,9 @@ import { LoginPage } from '../pages/login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    HomePage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
