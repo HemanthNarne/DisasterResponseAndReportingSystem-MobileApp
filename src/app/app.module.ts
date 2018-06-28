@@ -13,9 +13,9 @@ import { SignupPage } from '../pages/signup/signup';
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     LoginPage,
-    SignupPage,
-    HomePage
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -24,9 +24,9 @@ import { SignupPage } from '../pages/signup/signup';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
     LoginPage,
-    SignupPage,
-    HomePage
+    SignupPage
   ],
   providers: [
     StatusBar,

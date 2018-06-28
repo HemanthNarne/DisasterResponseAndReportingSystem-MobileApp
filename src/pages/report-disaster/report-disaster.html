@@ -6,12 +6,39 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>reportDisaster</ion-title>
+    <ion-title color="primary">Report Form</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-label color="primary">Please fill the below details correctly</ion-label>
+  <ion-item>
+    <ion-label color="primary" stacked>Incident</ion-label>
+      <ion-select [(ngModel)]="incident">
+        <ion-option value="w">Wildfire</ion-option>
+        <ion-option value="e">Earthquake</ion-option>
+        <ion-option value="f">Floods</ion-option>
+        <ion-option value="t">Tornado</ion-option>
+        <ion-option value="h">Hurricane</ion-option>
+        <ion-option value="o">Others</ion-option>
+      </ion-select>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label color="primary" stacked>Picture/Video
+      <br>Choose a file to upload</ion-label>
+    <ion-input color="primary" type="file" placeholder="File"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-label color="primary" stacked>GPS</ion-label>
+    <ion-icon name="locate"></ion-icon>
+    <ion-input color="primary" type="text" placeholder="Location"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-label color="primary" stacked>Brief Description</ion-label>
+    <ion-input color="primary" type="text" placeholder="Brief Description"></ion-input>
+  </ion-item><br>
+  <button ion-button (click)="Submit()" block> Submit </button>
 </ion-content>
