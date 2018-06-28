@@ -11,6 +11,8 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { StartRegisPage } from '../pages/start-regis/start-regis';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { RegisFormPage } from "../pages/regis-form/regis-form";
+import { RegisConfirmPage } from "../pages/regis-confirm/regis-confirm";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     LoginPage,
     SignupPage,
     StartRegisPage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    RegisFormPage,
+    RegisConfirmPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     LoginPage,
     SignupPage,
     StartRegisPage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    RegisFormPage,
+    RegisConfirmPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisConfirmPage } from "../regis-confirm/regis-confirm";
 
 /**
  * Generated class for the RegisFormPage page.
@@ -20,6 +21,10 @@ export class RegisFormPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisFormPage');
+  }
+
+  onSubmit(){
+    this.navCtrl.push(RegisConfirmPage);
   }
 
 }

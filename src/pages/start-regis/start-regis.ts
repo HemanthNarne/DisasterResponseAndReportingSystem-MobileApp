@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { RegisFormPage } from '../regis-form/regis-form';
+
 /**
  * Generated class for the StartRegisPage page.
  *
@@ -21,5 +23,7 @@ export class StartRegisPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StartRegisPage');
   }
-
+  onStart(){
+    this.navCtrl.push(RegisFormPage);
+  }
 }

@@ -13,5 +13,101 @@
 
 
 <ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label><b>FirstName:</b></ion-label>
+      <ion-input type="text" placeholder="abc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>LastName:</b></ion-label>
+      <ion-input type="text" placeholder="xyz"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Email:</b></ion-label>
+      <ion-input type="text" placeholder="something@gmail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Date of Birth:</b></ion-label>
+      <ion-input type="text" placeholder="MM/DD/YYYY"></ion-input>
+    </ion-item>
+    <h5 padding> Address </h5>
+    <ion-item>
+      <ion-label>Address line1*:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address line2:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country:</ion-label>
+      <ion-input type="text" placeholder="United states"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>State: </ion-label>
+      <ion-input type="text" placeholder="Missouri"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>City:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>County:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <h5><b> Push Notification:</b></h5>
+      <label class="item item-radio">
+                          <input type = "radio" name = "group1" />
+                          <div class = "item-content">Yes</div>
+                          <i class = "radio-icon ion-checkmark"></i>
+                       </label>
+      <label class="item item-radio">
+                          <input type = "radio" name = "group2" />
+                          <div class = "item-content">No</div>
+                          <i class = "radio-icon ion-checkmark"></i>
+                       </label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone Number:</ion-label>
+      <ion-input type="text" placeholder="1234567890"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Skills:</ion-label>
+      <ion-input type="text" placeholder="Fire Safety,Light search and Rescue"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>License:</ion-label>
+      <ion-input type="text" placeholder="32484810942341"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Certification:</ion-label>
+      <ion-input type="text" placeholder="32484810942341"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Upload the file::</ion-label>
+      <ion-input type="text" placeholder="Camera/Folder"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Limitations:</ion-label>
+      <ion-input type="text" placeholder="Deaf, Dumb"></ion-input>
+    </ion-item>
+
+    <button ion-button full class="style" (click)="onSubmit()">Submit</button>
+
+  </ion-list>
 
 </ion-content>
