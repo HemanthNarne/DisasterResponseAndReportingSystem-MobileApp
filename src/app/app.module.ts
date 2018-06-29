@@ -14,6 +14,8 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { RegisFormPage } from "../pages/regis-form/regis-form";
 import { RegisConfirmPage } from "../pages/regis-confirm/regis-confirm";
 import {NgProgressModule} from "ng2-progressbar";
+import { DashboardPage } from '../pages/dashboard/dashboard';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {NgProgressModule} from "ng2-progressbar";
     StartRegisPage,
     ForgotPasswordPage,
     RegisFormPage,
-    RegisConfirmPage
+    RegisConfirmPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {NgProgressModule} from "ng2-progressbar";
     StartRegisPage,
     ForgotPasswordPage,
     RegisFormPage,
-    RegisConfirmPage
+    RegisConfirmPage,
+    DashboardPage
   ],
   providers: [
     StatusBar,
