@@ -65,12 +65,12 @@
 
     <ion-item>
       <h5><b> Push Notification:</b></h5>
-      <label class="item item-radio">
+      <label class="radio-inline">
                           <input type = "radio" name = "group1" />
                           <div class = "item-content">Yes</div>
                           <i class = "radio-icon ion-checkmark"></i>
                        </label>
-      <label class="item item-radio">
+      <label class="radio-inline">
                           <input type = "radio" name = "group2" />
                           <div class = "item-content">No</div>
                           <i class = "radio-icon ion-checkmark"></i>
@@ -96,9 +96,10 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Upload the file::</ion-label>
-      <ion-input type="text" placeholder="Camera/Folder"></ion-input>
-    </ion-item>
+      <ion-label color="primary" stacked>Picture/Video
+        <br>Choose a file to upload</ion-label>
+      <ion-input color="primary" type="file" placeholder="File"></ion-input>
+    </ion-item><br>
 
 
     <ion-item>
