@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the ReportDisasterPage page.
@@ -20,6 +21,10 @@ export class ReportDisasterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReportDisasterPage');
+  }
+
+  Submit(){
+    this.navCtrl.push(DashboardPage);
   }
 
 }
