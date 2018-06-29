@@ -26,8 +26,10 @@ export class RegisConfirmPage {
   }
   
   Dashboardrun1(){
+    window.alert("There is a flood disaster at South of Mozingo Lake, Polk Township, MO 64468 \n Do you want to accept this EOC request and visit the location?")
   this.navCtrl.push(DashboardPage);
   }
+
 
   // run()
   // {
