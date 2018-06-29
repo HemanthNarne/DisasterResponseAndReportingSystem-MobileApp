@@ -6,7 +6,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,11 +24,8 @@
   </button> -->
 
 
-<ion-item>
-    <!-- <ng-progress>  </ng-progress> -->
-    <button ion-button  (click)="report()">
-    <img src="../../assets/imgs/Floods.jpg" width="304%" height="236" >
-  </button> 
-    
-  </ion-item>
+  <ion-card  (click)="report()">
+      <img src="../../assets/imgs/Floods.jpg"/>
+      <div class="card-title">Floods</div>
+    </ion-card>
 </ion-content>
