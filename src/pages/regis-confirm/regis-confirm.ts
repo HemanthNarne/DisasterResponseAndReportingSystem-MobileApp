@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {NgProgressService} from "ng2-progressbar";
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the RegisConfirmPage page.
@@ -21,12 +22,17 @@ export class RegisConfirmPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisConfirmPage');
+    // this.navCtrl.push(DashboardPage);
+  }
+  
+  Dashboardrun1(){
+  this.navCtrl.push(DashboardPage);
   }
 
-  run()
-  {
-    this.varngpService.start()
-    setTimeout(()=>{this.varngpService.done()},2000)
-  }
+  // run()
+  // {
+  //   this.varngpService.start()
+  //   setTimeout(()=>{this.varngpService.done()},2000)
+  // }
 
 }
