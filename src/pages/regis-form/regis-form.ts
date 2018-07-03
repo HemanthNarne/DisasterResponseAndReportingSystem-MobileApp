@@ -27,4 +27,9 @@ export class RegisFormPage {
     this.navCtrl.push(RegisConfirmPage);
   }
 
+  
+  
+
+
+
 }

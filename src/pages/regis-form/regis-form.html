@@ -1,8 +1,11 @@
 <!--
   Generated template for the RegisFormPage page.
 
-  Assigned to Sreevani
+  @author Sreevani Anoohya Tadiboina
+  This page deals with the development of registration form
+
 -->
+
 <ion-header>
 
   <ion-navbar>
@@ -13,28 +16,38 @@
 
 
 <ion-content padding>
-  <ion-list>
-
+    <ion-list>
+  <h4> Personal Details:</h4>
+  
+    <!-- The field deals with first name and includes validation such as   -->
     <ion-item>
-      <ion-label><b>FirstName:</b></ion-label>
-      <ion-input type="text" placeholder="abc"></ion-input>
+      <!-- <ion-label><b></b></ion-label> -->
+      <ion-input type="text" (keypress)="onKeyPressed($event)" id="fn" placeholder="First Name"></ion-input>
     </ion-item>
 
+
+    <!-- This field deals with the last name and includes the validation such as   -->
     <ion-item>
-      <ion-label><b>LastName:</b></ion-label>
-      <ion-input type="text" placeholder="xyz"></ion-input>
+      <!-- <ion-label><b>LastName:</b></ion-label> -->
+      <ion-input type="text" placeholder="Last Name"></ion-input>
     </ion-item>
 
+    <!-- This field deals with the email address and includes the validation such as  -->
     <ion-item>
-      <ion-label><b>Email:</b></ion-label>
-      <ion-input type="text" placeholder="something@gmail.com"></ion-input>
+      <!-- <ion-label><b>Email:</b></ion-label> -->
+      <ion-input type="text" placeholder="Email"></ion-input>
     </ion-item>
 
+    <!-- This field deals with the date of birth -->
     <ion-item>
-      <ion-label><b>Date of Birth:</b></ion-label>
       <ion-input type="text" placeholder="MM/DD/YYYY"></ion-input>
     </ion-item>
-    <h5 padding> Address </h5>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Phone Number"></ion-input>
+    </ion-item>
+
+    <h4> Address:</h4>
     <ion-item>
       <ion-label>Address line1*:</ion-label>
       <ion-input type="text"></ion-input>
@@ -44,46 +57,102 @@
       <ion-label>Address line2:</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
+
+    <ion-item>
+        <ion-label>County:</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    
+    <ion-item>
+      <ion-label>City:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label>State: </ion-label>
+        <ion-input type="text" placeholder="Missouri"></ion-input>
+  
+      </ion-item>
+
     <ion-item>
       <ion-label>Country:</ion-label>
       <ion-input type="text" placeholder="United states"></ion-input>
 
     </ion-item>
-    <ion-item>
-      <ion-label>State: </ion-label>
-      <ion-input type="text" placeholder="Missouri"></ion-input>
+    
+    
+        <h4> Skills:</h4>
+      <h6 left-padding> Choose multiple skill sets as applies to you: </h6>
+      
+      <ion-item>
+        <ion-label>CERT</ion-label>
+        <ion-checkbox [(ngModel)]="CERT"></ion-checkbox>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Firefighter</ion-label>
+        <ion-checkbox [(ngModel)]="Firefighter" ></ion-checkbox>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Sworn LE Officer</ion-label>
+        <ion-checkbox [(ngModel)]="SwornLEOfficer"></ion-checkbox>
+      </ion-item>
 
-    </ion-item>
-    <ion-item>
-      <ion-label>City:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>County:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label>EMR</ion-label>
+        <ion-checkbox [(ngModel)]="EMR"></ion-checkbox>
+      </ion-item>
 
-    <ion-item>
-      <h5><b> Push Notification:</b></h5>
-      <label class="inline-radio">
-                          <input type = "radio" name = "group1" />Yes 
-                          <!-- <div class = "item-content">Yes</div> -->
-                          <i class = "radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
-                       </label>
-      <label class="inline-radio">
-                          <input type = "radio" name = "group2" />No
-                          <!-- <div class = "item-content">No</div> -->
-                          <i class = "radio-icon ion-checkmark"></i>
-                       </label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Phone Number:</ion-label>
-      <ion-input type="text" placeholder="1234567890"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Skills:</ion-label>
-      <ion-input type="text" placeholder="Fire Safety,Light search and Rescue"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label>EMT-B</ion-label>
+        <ion-checkbox [(ngModel)]="EMT-B"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>EMT-A</ion-label>
+        <ion-checkbox [(ngModel)]="EMT-A"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>EMT-P</ion-label>
+        <ion-checkbox [(ngModel)]="EMT-P"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>LPN</ion-label>
+        <ion-checkbox [(ngModel)]="LPN"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>RN</ion-label>
+        <ion-checkbox [(ngModel)]="RN"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>RN-NP</ion-label>
+        <ion-checkbox [(ngModel)]="RN-NP"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>PA</ion-label>
+        <ion-checkbox [(ngModel)]="PA"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>MD/DO</ion-label>
+        <ion-checkbox [(ngModel)]="MD/DO"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Others</ion-label>
+        <ion-checkbox [(ngModel)]="Others"></ion-checkbox>
+      </ion-item>
+
+      
+    
+    
 
     <ion-item>
       <ion-label>License:</ion-label>
@@ -104,11 +173,32 @@
 
     <ion-item>
       <ion-label>Limitations:</ion-label>
-      <ion-input type="text" placeholder="Deaf, Dumb"></ion-input>
+      <ion-input type="text" placeholder="Deaf, Dumb"></ion-input><br>
     </ion-item>
+
+    
+
+    <ion-item>
+        <h5>I agree to recieve push notification:</h5>
+        <label class="inline-radio">
+                            <input type = "radio" name = "group1" />Yes 
+                            <!-- <div class = "item-content">Yes</div> -->
+                            <i class = "radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
+                         </label>
+        <label class="inline-radio">
+                            <input type = "radio" name = "group2" />No
+                            <!-- <div class = "item-content">No</div> -->
+                            <i class = "radio-icon ion-checkmark"></i>
+                         </label>
+      </ion-item>
+     
 
     <button ion-button full class="style" (click)="onSubmit()">Submit</button>
 
   </ion-list>
 
+  
+
+  
 </ion-content>
+<!-- </div> -->
