@@ -3,9 +3,11 @@
 
   Assigned to Chandra Mouli
 -->
+<!-- @author Chandra Mouli Kantipudi-->
 <ion-header>
 
   <ion-navbar>
+    <!-- Title of page Report form -->
     <ion-title color="primary">Report Form</ion-title>
   </ion-navbar>
 
@@ -13,32 +15,40 @@
 
 
 <ion-content padding>
+
   <ion-label color="primary">Please fill the below details correctly</ion-label>
+
   <ion-item>
+    <!-- Stacked makes it to small text heading -->
     <ion-label color="primary" stacked>Incident</ion-label>
-      <ion-select [(ngModel)]="incident">
-        <ion-option value="w">Wildfire</ion-option>
-        <ion-option value="e">Earthquake</ion-option>
-        <ion-option value="f">Floods</ion-option>
-        <ion-option value="t">Tornado</ion-option>
-        <ion-option value="h">Hurricane</ion-option>
-        <ion-option value="o">Others</ion-option>
-      </ion-select>
+    <!-- Should still work on incident it should fetch its value from dashboard -->
+    <ion-label color="primary">Incident</ion-label>
   </ion-item>
   <br>
+
   <ion-item>
     <ion-label color="primary" stacked>Picture/Video
       <br>Choose a file to upload</ion-label>
+      <!-- Provided choose file option to select from local files -->
     <ion-input color="primary" type="file" placeholder="File"></ion-input>
-  </ion-item><br>
-  <ion-item>
-    <ion-label color="primary" stacked>GPS</ion-label>
-    <ion-icon name="locate"></ion-icon>
-    <ion-input color="primary" type="text" placeholder="Coordinates"></ion-input>
-  </ion-item><br>
+  </ion-item>
+  <br>
+
+  <ion-label color="primary" stacked>GPS</ion-label>
+  <!-- Button to fetch gps coordinates should still work on the functionality -->
+  <button ion-button icon-only></button>
+  <ion-icon name="locate"></ion-icon>
+  </button>
+
+
   <ion-item>
     <ion-label color="primary" stacked>Brief Description</ion-label>
+    <!-- Textbox to provide brief description of incident not more than 100 words -->
     <ion-input color="primary" type="text" placeholder="Not more than 100 words"></ion-input>
-  </ion-item><br>
+  </ion-item>
+  <br>
+
+  <!-- Submit button to upload the details -->
   <button ion-button (click)="Submit()" block> Submit </button>
+
 </ion-content>
