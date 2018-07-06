@@ -63,7 +63,7 @@
   </ion-list>
   
     <ion-list radio-group [(ngModel)]="relationship">
-      <ion-list-header color="primary">
+      <ion-list-header>
          Structure Damage
         </ion-list-header>
       <ion-item>
@@ -79,6 +79,25 @@
         <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
       </ion-item>
     </ion-list>
+
+    <ion-list radio-group [(ngModel)]="relationship">
+      <ion-list-header>
+         Fire
+        </ion-list-header>
+      <ion-item>
+        <ion-label>Small</ion-label>
+        <ion-radio value="small" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Medium</ion-label>
+        <ion-radio value="medium"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Large</ion-label>
+        <ion-radio value="large" [disabled]="isDisabled"></ion-radio>
+      </ion-item>
+    </ion-list>
+
 
 
   <ion-item>
