@@ -29,7 +29,7 @@
   <ion-item>
     <ion-label color="primary" stacked>Picture/Video
       <br>Choose a file to upload</ion-label>
-      <!-- Provided choose file option to select from local files -->
+    <!-- Provided choose file option to select from local files -->
     <ion-input color="primary" type="file" placeholder="File"></ion-input>
   </ion-item>
   <br>
@@ -37,13 +37,14 @@
   <ion-label color="primary" stacked>GPS</ion-label>
   <!-- Button to fetch gps coordinates should still work on the functionality -->
   <button ion-button icon-only>
-  <ion-icon name="locate"></ion-icon>
-  </button><br>
+    <ion-icon name="locate"></ion-icon>
+  </button>
+  <br>
 
   <ion-list>
     <ion-list-header>
-       Casualities
-      </ion-list-header>
+      Casualities
+    </ion-list-header>
     <ion-item>
       <ion-label color="primary" Fixed>Red</ion-label>
       <ion-input type="number" placeholder="Number Input with no label"></ion-input>
@@ -61,71 +62,79 @@
       <ion-input type="number" placeholder="Number Input with no label"></ion-input>
     </ion-item>
   </ion-list>
-  
-    <ion-list radio-group [(ngModel)]="relationship">
-      <ion-list-header>
-         Structure Damage
-        </ion-list-header>
-      <ion-item>
-        <ion-label>Low</ion-label>
-        <ion-radio value="low" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Medium</ion-label>
-        <ion-radio value="medium"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>High</ion-label>
-        <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
-      </ion-item>
-    </ion-list>
 
-    <ion-list radio-group [(ngModel)]="relationship">
-      <ion-list-header>
-         Fire
-        </ion-list-header>
-      <ion-item>
-        <ion-label>Small</ion-label>
-        <ion-radio value="small" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Medium</ion-label>
-        <ion-radio value="medium"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Large</ion-label>
-        <ion-radio value="large" [disabled]="isDisabled"></ion-radio>
-      </ion-item>
-    </ion-list>
+  <ion-list radio-group [(ngModel)]="relationship">
+    <ion-list-header>
+      Structure Damage
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Low</ion-label>
+      <ion-radio value="low" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Medium</ion-label>
+      <ion-radio value="medium"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>High</ion-label>
+      <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
+    </ion-item>
+  </ion-list>
 
-    <ion-list>
-      <ion-list-header>
-          Utilities
-        </ion-list-header>
-      <ion-item>
-        <ion-label>Electricity</ion-label>
-        <ion-checkbox [(ngModel)]="electricity"></ion-checkbox>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label>Gas</ion-label>
-        <ion-checkbox [(ngModel)]="gas"></ion-checkbox>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label>Chemical</ion-label>
-        <ion-checkbox [(ngModel)]="chemical"></ion-checkbox>
-      </ion-item>
-    
-    </ion-list>
+  <ion-list radio-group [(ngModel)]="relationship">
+    <ion-list-header>
+      Fire
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Small</ion-label>
+      <ion-radio value="small" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Medium</ion-label>
+      <ion-radio value="medium"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Large</ion-label>
+      <ion-radio value="large" [disabled]="isDisabled"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Utilities
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Electricity</ion-label>
+      <ion-checkbox [(ngModel)]="electricity"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gas</ion-label>
+      <ion-checkbox [(ngModel)]="gas"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Chemical</ion-label>
+      <ion-checkbox [(ngModel)]="chemical"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
 
 
   <ion-item>
-    <ion-label color="primary" stacked>Brief Description</ion-label>
+    <ion-label color="primary" stacked>HazMat</ion-label>
     <!-- Textbox to provide brief description of incident not more than 100 words -->
-    <ion-input color="primary" type="text" placeholder="Not more than 100 words"></ion-input>
+    <ion-input color="primary" type="text" placeholder="Type in here"></ion-input>
   </ion-item>
   <br>
+
+  <ion-item>
+    <ion-label color="primary" stacked>Others</ion-label>
+    <!-- Textbox to provide brief description of incident not more than 100 words -->
+    <ion-input color="primary" type="text" placeholder="Type in here"></ion-input>
+  </ion-item>
+  <br>
+
 
   <!-- Submit button to upload the details -->
   <button ion-button (click)="Submit()" block> Submit </button>
