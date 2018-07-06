@@ -38,10 +38,10 @@
   <!-- Button to fetch gps coordinates should still work on the functionality -->
   <button ion-button icon-only>
   <ion-icon name="locate"></ion-icon>
-  </button>
+  </button><br>
 
   <ion-list>
-    <ion-list-header color="primary">
+    <ion-list-header>
        Casualities
       </ion-list-header>
     <ion-item>
@@ -61,8 +61,25 @@
       <ion-input type="number" placeholder="Number Input with no label"></ion-input>
     </ion-item>
   </ion-list>
-    <br>
   
+    <ion-list radio-group [(ngModel)]="relationship">
+      <ion-list-header color="primary">
+         Structure Damage
+        </ion-list-header>
+      <ion-item>
+        <ion-label>Low</ion-label>
+        <ion-radio value="low" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Medium</ion-label>
+        <ion-radio value="medium"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>High</ion-label>
+        <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
+      </ion-item>
+    </ion-list>
+
 
   <ion-item>
     <ion-label color="primary" stacked>Brief Description</ion-label>
