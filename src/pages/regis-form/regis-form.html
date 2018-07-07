@@ -17,66 +17,121 @@
 
 <ion-content padding>
   <ion-list>
-    <h4> Personal Details:</h4>
+      <h4> Personal Details:</h4>
+      <form [formGroup]="regisForm"> 
+
+    
 
     <!-- The field deals with first name and includes validation such as   -->
     <ion-item>
-      <!-- <ion-label><b></b></ion-label> -->
-      <ion-input type="text" (keypress)="onKeyPressed($event)" id="fn" placeholder="First Name"></ion-input>
+      <ion-label floating>First Name</ion-label>
+      <ion-input formControlName="firstName" type="text"></ion-input>
     </ion-item>
 
+    <ion-item no-lines>
+        <p *ngIf="firstName" style="color: #ea6153;">
+            Please fill in your first name correctly.</p>
+    </ion-item>
 
     <!-- This field deals with the last name and includes the validation such as   -->
     <ion-item>
-      <!-- <ion-label><b>LastName:</b></ion-label> -->
-      <ion-input type="text" placeholder="Last Name"></ion-input>
+      <ion-label floating>LastName:</ion-label> 
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+        <p *ngIf="lastName" style="color: #ea6153;">
+            Please fill in your last name correctly.</p>
     </ion-item>
 
     <!-- This field deals with the email address and includes the validation such as  -->
     <ion-item>
-      <!-- <ion-label><b>Email:</b></ion-label> -->
-      <ion-input type="text" placeholder="Email"></ion-input>
+      <ion-label floating>EmailID:</ion-label> 
+      <ion-input type="text" formControlName="EmailID" ></ion-input>
     </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="emailId" style="color: #ea6153;">
+            Please fill  in EmailID accurately.</p>
+    </ion-item>
+
 
     <!-- This field deals with the date of birth -->
     <ion-item>
-      <ion-input type="text" placeholder="MM/DD/YYYY"></ion-input>
+        <ion-label floating>Date Of Birth(MM/DD/YYYY):</ion-label> 
+      <ion-input type="text" formControlName="DOB" ></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="dob" style="color: #ea6153;">
+            Please fill in your DOB accurately.</p>
     </ion-item>
 
     <ion-item>
-      <ion-input type="text" placeholder="Phone Number"></ion-input>
+      <ion-label floating>Phone Number:</ion-label>
+      <ion-input type="number" formControlName="pnumber"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="phone" style="color: #ea6153;">
+            Please fill in your phone number accurately.</p>
     </ion-item>
 
     <h4> Address:</h4>
     <ion-item>
-      <ion-label>Address line1*:</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>Address line1*:</ion-label>
+      <ion-input type="text" formControlName="Address1" ></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="address1" style="color: #ea6153;">
+            Please fill in your address.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label>Address line2:</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>Address line2:</ion-label>
+      <ion-input type="text" ></ion-input><br>
     </ion-item>
 
     <ion-item>
-      <ion-label>County:</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>County:</ion-label>
+      <ion-input type="text" formControlName="County"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="county" style="color: #ea6153;">
+            Please fill in the County that you belong to.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label>City:</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>City:</ion-label>
+      <ion-input type="text" formControlName="City"></ion-input>
+    </ion-item>
+
+    
+    <ion-item no-lines>
+        <p *ngIf="city" style="color: #ea6153;">
+            Please fill in the City you belong to.</p>
     </ion-item>
 
 
     <ion-item>
-      <ion-label>State: </ion-label>
-      <ion-input type="text" placeholder="Missouri"></ion-input>
+      <ion-label floating>State: </ion-label>
+      <ion-input type="text" formControlName="State"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="state" style="color: #ea6153;">
+            Please fill in the State you belong to.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label>Country:</ion-label>
-      <ion-input type="text" placeholder="United states"></ion-input>
+      <ion-label floating>Country:</ion-label>
+      <ion-input type="text" formControlName="Country"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <p *ngIf="country" style="color: #ea6153;">
+            Please fill in the Country you belong to.</p>
     </ion-item>
 
 
@@ -156,49 +211,29 @@
       <i class="radio-icon ion-checkmark"></i>
     </label>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <ion-item>
-      <ion-label>License:</ion-label>
-      <ion-input type="text" placeholder="32484810942341"></ion-input>
+      <ion-label floating>License/Certification:</ion-label>
+      <ion-input type="text" formControlName="License"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+        <p *ngIf="certification" style="color: #ea6153;">
+            Please fill in your license/Certification number</p>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Certification:</ion-label>
-      <ion-input type="text" placeholder="32484810942341"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="primary" stacked>Picture/Video
-        <br>Choose a file to upload</ion-label>
-      <ion-input color="primary" type="file" placeholder="File"></ion-input>
-    </ion-item>
-    <br>
+  
+     <ion-item>
+        <ion-label color="primary" stacked>Picture/Video
+          <br>Choose a file to upload</ion-label>
+        <ion-input color="primary" type="file" placeholder="File" id="Image"></ion-input>
+        <button ion-button icon-only item-right (click)="cancel()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+      </ion-item><br>
 
 
     <ion-item>
-      <ion-label>Limitations:</ion-label>
-      <ion-input type="text" placeholder="Deaf, Dumb"></ion-input>
+      <ion-label floating>Limitations:</ion-label>
+      <ion-input type="text" ></ion-input>
       <br>
     </ion-item>
 
@@ -207,20 +242,22 @@
     <ion-item>
       <h5>I agree to recieve push notification:</h5>
       <label class="inline-radio">
-        <input type="radio" name="group1" />Yes
+        <input type="radio" name="group1" checked="true" value="value1"/>Yes
         <!-- <div class = "item-content">Yes</div> -->
         <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
       </label>
       <label class="inline-radio">
-        <input type="radio" name="group2" />No
+        <input type="radio" name="group1" value="value2" />No
         <!-- <div class = "item-content">No</div> -->
         <i class="radio-icon ion-checkmark"></i>
       </label>
     </ion-item>
 
+    
+
 
     <button ion-button full class="style" (click)="onSubmit()">Submit</button>
-
+   </form>
   </ion-list>
 
 
