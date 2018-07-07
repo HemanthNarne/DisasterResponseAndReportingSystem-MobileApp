@@ -39,14 +39,14 @@ export class RegisFormPage {
     this.regisForm = formBuilder.group({
       firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      EmailID: ['', Validators.compose([Validators.minLength(8), Validators.pattern('[a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
+      EmailID: ['', Validators.compose([Validators.minLength(8), Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
       DOB: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(10), Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
       pnumber: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      Address1 : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      County : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      City : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      State : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      Country : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
+      Address1 : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
+      County : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
+      City : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
+      State : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
+      Country : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
       License : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(16), Validators.required])]
 
     });
@@ -57,12 +57,7 @@ export class RegisFormPage {
     console.log('ionViewDidLoad RegisFormPage');
   }
 
-  cancel()
-  {
-    
-      this.regisForm.controls.myElement=null;
-    
-  }
+ 
 
   // onSubmit() method refers to navigation to regis-confirmation page only if the 
   // validation criteria is satisfied.
