@@ -1,3 +1,6 @@
+// @author Sreevani Anoohya Tadiboina
+//   This page refers to development of registration start form
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -23,6 +26,7 @@ export class StartRegisPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StartRegisPage');
   }
+  // onStart() deals with the navigation code
   onStart(){
     this.navCtrl.push(RegisFormPage);
   }

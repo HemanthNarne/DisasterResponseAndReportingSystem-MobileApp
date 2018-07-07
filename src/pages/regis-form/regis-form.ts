@@ -9,6 +9,9 @@ import { empty } from 'rxjs/Observer';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ * @author Sreevani Anoohya Tadiboina
+  This page refers to development of registration form
+
  */
 
 @IonicPage()
@@ -61,7 +64,8 @@ export class RegisFormPage {
     
   }
 
-
+  // onSubmit() method refers to navigation to regis-confirmation page only if the 
+  // validation criteria is satisfied.
   onSubmit() {
     if (!this.regisForm.controls.firstName.valid || !this.regisForm.controls.lastName.valid ||
       !this.regisForm.controls.EmailID.valid || !this.regisForm.controls.DOB.valid || !this.regisForm.controls.pnumber.valid||

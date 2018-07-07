@@ -2,10 +2,10 @@
   Generated template for the RegisFormPage page.
 
   @author Sreevani Anoohya Tadiboina
-  This page deals with the development of registration form
+  This page refers to development of registration form
 
 -->
-
+<!-- The header part deals with the heading of the page  -->
 <ion-header>
 
   <ion-navbar>
@@ -22,32 +22,46 @@
 
     
 
-    <!-- The field deals with first name and includes validation such as   -->
+    <!-- The field deals with first name and includes validation such 
+      as required field,maximum length of the field is 30 characters and 
+      the pattern of the field is it only takes lower characters,upper characters, 
+      space and no numerics  -->
     <ion-item>
       <ion-label floating>First Name</ion-label>
       <ion-input formControlName="firstName" type="text"></ion-input>
     </ion-item>
-
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="firstName" style="color: #ea6153;">
             Please fill in your first name correctly.</p>
     </ion-item>
 
-    <!-- This field deals with the last name and includes the validation such as   -->
+    <!-- This field deals with the last name and includes the validation such as 
+    required field, maximum length of the field is 30 characters and the pattern of the
+  field is it takes lower characters, upper characters, space and no numerics   -->
     <ion-item>
       <ion-label floating>LastName:</ion-label> 
       <ion-input type="text" formControlName="lastName"></ion-input>
     </ion-item>
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="lastName" style="color: #ea6153;">
             Please fill in your last name correctly.</p>
     </ion-item>
 
-    <!-- This field deals with the email address and includes the validation such as  -->
+    <!-- This field deals with the email address and includes the validation such as
+    required field, minimum length of the field is 8 characters and the pattern of the
+  field is any number of charaters followed @ followed by any number of characters 
+ follwed by . follwed by any number of characters. ex: emailId@email.com  -->
     <ion-item>
       <ion-label floating>EmailID:</ion-label> 
       <ion-input type="text" formControlName="EmailID" ></ion-input>
     </ion-item>
+
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
 
     <ion-item no-lines>
         <p *ngIf="emailId" style="color: #ea6153;">
@@ -55,86 +69,124 @@
     </ion-item>
 
 
-    <!-- This field deals with the date of birth -->
+    <!-- This field deals with the date of birth and includes validation such as
+    required field, minimum length of the field is 8 characters and the includes 
+    pattern such as numerics followed by / followed by numerics followed by / 
+   followed by numerics. ex: 09/09/1999   -->
     <ion-item>
         <ion-label floating>Date Of Birth(MM/DD/YYYY):</ion-label> 
       <ion-input type="text" formControlName="DOB" ></ion-input>
     </ion-item>
+
+     <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
 
     <ion-item no-lines>
         <p *ngIf="dob" style="color: #ea6153;">
             Please fill in your DOB accurately.</p>
     </ion-item>
 
+    <!-- This field deals with phone number and includes validation such as
+    required field, minimum length of the field is 10 characters and maximum length
+    of the field is 12 characters -->
     <ion-item>
       <ion-label floating>Phone Number:</ion-label>
       <ion-input type="number" formControlName="pnumber"></ion-input>
     </ion-item>
-
+    
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="phone" style="color: #ea6153;">
             Please fill in your phone number accurately.</p>
     </ion-item>
 
     <h4> Address:</h4>
+    <!-- This field deals with address and includes validation such as required field,
+    mimimum length of the field is 10 characters and maximum length of the field is 60
+    characters. -->
     <ion-item>
       <ion-label floating>Address line1*:</ion-label>
       <ion-input type="text" formControlName="Address1" ></ion-input>
     </ion-item>
 
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="address1" style="color: #ea6153;">
             Please fill in your address.</p>
     </ion-item>
 
+    <!-- This field deals with address line 2. It is an optional field  -->
     <ion-item>
       <ion-label floating>Address line2:</ion-label>
       <ion-input type="text" ></ion-input><br>
     </ion-item>
 
+    <!-- This field deals with county and includes validation such as required field,
+    minimum length of the field is 10 characters and maximum length of the field is 
+    30 characters -->
     <ion-item>
       <ion-label floating>County:</ion-label>
       <ion-input type="text" formControlName="County"></ion-input>
     </ion-item>
 
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="county" style="color: #ea6153;">
             Please fill in the County that you belong to.</p>
     </ion-item>
 
+    <!-- This field deals with city and includes validation such as required field,
+    minimum length of the field is 10 characters and maximum length of the field is 
+    30 characters -->
     <ion-item>
       <ion-label floating>City:</ion-label>
       <ion-input type="text" formControlName="City"></ion-input>
     </ion-item>
 
-    
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="city" style="color: #ea6153;">
             Please fill in the City you belong to.</p>
     </ion-item>
 
 
+    <!-- This field deals with state and includes validation such as required field,
+    minimum length of the field is 10 characters and maximum length of the field is 
+    30 characters -->
     <ion-item>
       <ion-label floating>State: </ion-label>
       <ion-input type="text" formControlName="State"></ion-input>
     </ion-item>
 
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="state" style="color: #ea6153;">
             Please fill in the State you belong to.</p>
     </ion-item>
 
+    <!-- This field deals with country and includes validation such as required field,
+    minimum length of the field is 10 characters and maximum length of the field is 
+    30 characters -->
     <ion-item>
       <ion-label floating>Country:</ion-label>
       <ion-input type="text" formControlName="Country"></ion-input>
     </ion-item>
 
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="country" style="color: #ea6153;">
             Please fill in the Country you belong to.</p>
     </ion-item>
 
 
+    <!-- This field deals with skills that include check boxes, through which the 
+    user can select more than one skill of his/her choice -->
     <h4> Skills:</h4>
     <h6 left-padding> Choose multiple skill sets as applies to you: </h6>
 
@@ -211,17 +263,23 @@
       <i class="radio-icon ion-checkmark"></i>
     </label>
 
+    <!-- This field deals with license/certification and includes validation such as required field,
+    minimum length of the field is 10 characters and maximum length of the field is 
+    16 characters -->
     <ion-item>
       <ion-label floating>License/Certification:</ion-label>
       <ion-input type="text" formControlName="License"></ion-input>
     </ion-item>
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="certification" style="color: #ea6153;">
             Please fill in your license/Certification number</p>
     </ion-item>
 
   
-     <ion-item>
+     <!--this field deals with file upload   -->
+    <ion-item>
         <ion-label color="primary" stacked>Picture/Video
           <br>Choose a file to upload</ion-label>
         <ion-input color="primary" type="file" placeholder="File" id="Image"></ion-input>
@@ -231,7 +289,8 @@
       </ion-item><br>
 
 
-    <ion-item>
+    <!-- This field deals with limitations  -->
+      <ion-item>
       <ion-label floating>Limitations:</ion-label>
       <ion-input type="text" ></ion-input>
       <br>
@@ -239,6 +298,7 @@
 
 
 
+    <!-- This field deals with notification, which includes radio buttons. -->
     <ion-item>
       <h5>I agree to recieve push notification:</h5>
       <label class="inline-radio">
@@ -252,10 +312,9 @@
         <i class="radio-icon ion-checkmark"></i>
       </label>
     </ion-item>
+     
 
-    
-
-
+    <!-- This field includes button, which on clicking navigates to regis-confirm page   -->
     <button ion-button full class="style" (click)="onSubmit()">Submit</button>
    </form>
   </ion-list>
