@@ -43,10 +43,10 @@ export class RegisFormPage {
       DOB: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(10), Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
       pnumber: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
       Address1 : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
-      County : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
-      City : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
-      State : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
-      Country : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(30), Validators.required])],
+      County : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      City : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      State : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      Country : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
       License : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(16), Validators.required])]
 
     });
