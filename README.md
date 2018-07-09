@@ -17,9 +17,9 @@ team members to perform operations like mobile application signup, login, submit
 notificaitons about disaster and sending of disaster report after visit.
 
 ## All repositories involved:  
-Disaster Response And Mitigtion System(For project artifacts):  https://github.com/HemanthNarne/DisasterResponseAndMitigationSystem    
-Disaster Response And Mitigtion System Website(For web application):  https://github.com/HemanthNarne/DisasterResponseAndMitigationSystem-Website    
-Disaster Response And Mitigtion System Mobile(For mobile application):    https://github.com/HemanthNarne/DisasterResponseAndMitigationSystem-MobileApp  
+Disaster Response And Mitigtion System(For project artifacts):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem   
+Disaster Response And Mitigtion System Website(For web application):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-Website   
+Disaster Response And Mitigtion System Mobile(For mobile application):    https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-MobileApp
 
 ## About this repository:
   This repository deals with web related aspects, which includes the EOC(admin) part. 
@@ -31,10 +31,10 @@ Link: https://docs.google.com/spreadsheets/d/1m398aXr_zSr4an6LZbqqsNyIClPgpmom-6
 Link: https://trello.com/b/AYCIVIOL/web-application-development
 
 # Mobile Application Repo
-Link: https://github.com/HemanthNarne/DisasterResponseAndMitigationSystem-MobileApp
+Link: https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-MobileApp
 
 # Web Application Repo
-Link: https://github.com/HemanthNarne/DisasterResponseAndMitigationSystem-Website
+Link: https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-Website
 
 # Team Contact Info
 
