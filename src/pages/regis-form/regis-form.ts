@@ -24,15 +24,15 @@ export class RegisFormPage {
   lastName: boolean = false;
   emailId: boolean = false;
   dob: boolean = false;
-  phone:boolean=false;
-  address1:boolean=false;
-  county:boolean=false;
-  city:boolean=false;
-  state:boolean=false;
-  country:boolean=false;
-  certification:boolean=false;
+  phone: boolean = false;
+  address1: boolean = false;
+  county: boolean = false;
+  city: boolean = false;
+  state: boolean = false;
+  country: boolean = false;
+  certification: boolean = false;
   // Image:any;
-  
+
 
   regisForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
@@ -42,12 +42,12 @@ export class RegisFormPage {
       EmailID: ['', Validators.compose([Validators.minLength(8), Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
       DOB: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(10), Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
       pnumber: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
-      Address1 : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
-      County : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      City : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      State : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      Country : ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      License : ['', Validators.compose([Validators.minLength(10), Validators.maxLength(16), Validators.required])]
+      Address1: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
+      County: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      City: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      State: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      Country: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
+      License: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(16), Validators.required])]
 
     });
   }
@@ -57,50 +57,154 @@ export class RegisFormPage {
     console.log('ionViewDidLoad RegisFormPage');
   }
 
- 
+
 
   // onSubmit() method refers to navigation to regis-confirmation page only if the 
   // validation criteria is satisfied.
   onSubmit() {
     if (!this.regisForm.controls.firstName.valid || !this.regisForm.controls.lastName.valid ||
-      !this.regisForm.controls.EmailID.valid || !this.regisForm.controls.DOB.valid || !this.regisForm.controls.pnumber.valid||
-      !this.regisForm.controls.Address1.valid || !this.regisForm.controls.County.valid||
-      !this.regisForm.controls.City.valid||!this.regisForm.controls.State.valid||
-      !this.regisForm.controls.Country.valid|| !this.regisForm.controls.License.valid) {
-      if (!this.regisForm.controls.firstName.valid) {
+      !this.regisForm.controls.EmailID.valid || !this.regisForm.controls.DOB.valid || !this.regisForm.controls.pnumber.valid ||
+      !this.regisForm.controls.Address1.valid || !this.regisForm.controls.County.valid ||
+      !this.regisForm.controls.City.valid || !this.regisForm.controls.State.valid ||
+      !this.regisForm.controls.Country.valid || !this.regisForm.controls.License.valid) {
+      if (!this.regisForm.controls.firstName.valid && (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) {
         this.firstName = true;
+      }
+
+      else (this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty))
+      {
+        if (this.regisForm.controls.firstName.valid && (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) {
+          this.firstName = false;
+        }
+
       }
       if (!this.regisForm.controls.lastName.valid) {
         this.lastName = true;
       }
+
+      else if(this.regisForm.controls.lastName.valid || (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty))
+    {
+      if(this.regisForm.controls.lastName.valid && (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty))
+      {
+        this.lastName=false;
+      }
+
+    } 
+
       if (!this.regisForm.controls.EmailID.valid) {
         this.emailId = true;
       }
+
+      else if(this.regisForm.controls.EmailID.valid || (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty))
+    {
+      if(this.regisForm.controls.EmailID.valid && (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty))
+      {
+        this.emailId=false;
+      }
+
+    } 
+
       if (!this.regisForm.controls.DOB.valid) {
         this.dob = true;
       }
+
+      else if(this.regisForm.controls.DOB.valid || (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty))
+    {
+      if(this.regisForm.controls.DOB.valid && (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty))
+      {
+        this.dob=false;
+      }
+
+    } 
+
       if (!this.regisForm.controls.pnumber.valid) {
         this.phone = true;
       }
+
+      else if(this.regisForm.controls.pnumber.valid || (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty))
+    {
+      if(this.regisForm.controls.pnumber.valid && (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty))
+      {
+        this.phone=false;
+      }
+
+    } 
       if (!this.regisForm.controls.Address1.valid) {
         this.address1 = true;
       }
+
+      else if(this.regisForm.controls.Address1.valid || (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty))
+    {
+      if(this.regisForm.controls.Address1.valid && (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty))
+      {
+        this.address1=false;
+      }
+
+    } 
       if (!this.regisForm.controls.County.valid) {
         this.county = true;
       }
+
+      else if(this.regisForm.controls.County.valid || (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty))
+    {
+      if(this.regisForm.controls.County.valid && (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty))
+      {
+        this.county=false;
+      }
+
+    } 
       if (!this.regisForm.controls.City.valid) {
         this.city = true;
       }
+
+      else if(this.regisForm.controls.City.valid || (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty))
+    {
+      if(this.regisForm.controls.City.valid && (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty))
+      {
+        this.city=false;
+      }
+
+    } 
       if (!this.regisForm.controls.State.valid) {
         this.state = true;
       }
+
+      else if(this.regisForm.controls.State.valid || (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty))
+    {
+      if(this.regisForm.controls.State.valid && (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty))
+      {
+        this.state=false;
+      }
+
+    } 
       if (!this.regisForm.controls.Country.valid) {
         this.country = true;
       }
+
+      else if(this.regisForm.controls.Country.valid || (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty))
+    {
+      if(this.regisForm.controls.Country.valid && (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty))
+      {
+        this.country=false;
+      }
+
+    } 
+
+
       if (!this.regisForm.controls.License.valid) {
         this.certification = true;
       }
+
+      else if(this.regisForm.controls.License.valid || (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty))
+    {
+      if(this.regisForm.controls.License.valid && (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty))
+      {
+        this.certification=false;
+      }
+
+    } 
     }
+
 
     else {
       this.navCtrl.push(RegisConfirmPage);
