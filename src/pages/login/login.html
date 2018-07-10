@@ -16,19 +16,34 @@
 
 <ion-content padding>
     <ion-list>
-
+      <form [formGroup]="loginForm"> 
         <ion-item>
-        
-          <ion-input placeholder="Email Id" value=""></ion-input>
+          <ion-label floating>EmailID*</ion-label> 
+          <ion-input type="text" formControlName="EmailID" ></ion-input>
         </ion-item>
-      
-        <ion-item>
-          
-            <ion-input placeholder="Password" value=""></ion-input>
-        </ion-item><br>
+
+        <ion-item no-lines>
+          <p *ngIf="emailId" style="color: #ea6153;">
+            Format: Example1@Email.com<br>
+               </p>
+      </ion-item>
+
+
+    
+      <ion-item>
+        <ion-label floating>Password*</ion-label> 
+        <ion-input type="text" formControlName="Password" ></ion-input>
+      </ion-item>
+
+      <ion-item no-lines>
+        <p *ngIf="password" style="color: #ea6153;">
+          Password should have atleast 8 characters<br>
+             </p>
+    </ion-item>
+
         <button ion-button block color="lightprimary"(click)="login()">Login</button>
         <button ion-button block color="lightprimary"(click)="signup()">Sign Up</button><br>
         <button ion-button block color="lightprimary"(click)="forgot()">Forgot Password</button>
-      
+      </form>
       </ion-list>
 </ion-content>
