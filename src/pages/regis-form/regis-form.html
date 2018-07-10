@@ -34,7 +34,8 @@
       conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="firstName" style="color: #ea6153;">
-            Please fill in your first name correctly.</p>
+            Please fill in your first name which<br>
+             includes only alphabets.</p>
     </ion-item>
 
     <!-- This field deals with the last name and includes the validation such as 
@@ -48,11 +49,12 @@
       conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="lastName" style="color: #ea6153;">
-            Please fill in your last name correctly.</p>
+            Please fill in your last name which<br>
+             includes only alphabets .</p>
     </ion-item>
 
     <!-- This field deals with the email address and includes the validation such as
-    required field, minimum length of the field is 8 characters and the pattern of the
+    required field, minimum length of the field is 1 character and the pattern of the
   field is any number of charaters followed @ followed by any number of characters 
  follwed by . follwed by any number of characters. ex: emailId@email.com  -->
     <ion-item>
@@ -65,7 +67,8 @@
 
     <ion-item no-lines>
         <p *ngIf="emailId" style="color: #ea6153;">
-            Please fill  in EmailID accurately.</p>
+          Format: Example1@Email.com<br>
+             </p>
     </ion-item>
 
 
@@ -83,7 +86,8 @@
 
     <ion-item no-lines>
         <p *ngIf="dob" style="color: #ea6153;">
-            Please fill in your DOB accurately.</p>
+          Format: MM/DD/YYYY<br>
+            </p>
     </ion-item>
 
     <!-- This field deals with phone number and includes validation such as

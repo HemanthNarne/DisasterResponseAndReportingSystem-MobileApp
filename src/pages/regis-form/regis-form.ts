@@ -37,9 +37,9 @@ export class RegisFormPage {
   regisForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
     this.regisForm = formBuilder.group({
-      firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      firstName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      EmailID: ['', Validators.compose([Validators.minLength(8), Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
+      EmailID: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
       DOB: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(10), Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
       pnumber: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
       Address1: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
@@ -62,16 +62,17 @@ export class RegisFormPage {
   // onSubmit() method refers to navigation to regis-confirmation page only if the 
   // validation criteria is satisfied.
   onSubmit() {
+    // If condition checks for whether all the fields are not correctly validated  
     if (!this.regisForm.controls.firstName.valid || !this.regisForm.controls.lastName.valid ||
       !this.regisForm.controls.EmailID.valid || !this.regisForm.controls.DOB.valid || !this.regisForm.controls.pnumber.valid ||
       !this.regisForm.controls.Address1.valid || !this.regisForm.controls.County.valid ||
       !this.regisForm.controls.City.valid || !this.regisForm.controls.State.valid ||
       !this.regisForm.controls.Country.valid || !this.regisForm.controls.License.valid) {
-      if (!this.regisForm.controls.firstName.valid && (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) {
+      if (!this.regisForm.controls.firstName.valid) {
         this.firstName = true;
       }
 
-      else (this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty))
+      else if(this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty))
       {
         if (this.regisForm.controls.firstName.valid && (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) {
           this.firstName = false;
