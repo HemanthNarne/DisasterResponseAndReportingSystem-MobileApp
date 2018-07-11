@@ -22,21 +22,21 @@
     <!-- Stacked makes it to small text heading -->
     <ion-label color="primary" stacked>ReportID</ion-label>
     <!-- Should still work on Report ID it should automatically generate -->
-    <ion-label color="primary">ReportID</ion-label>
+    <ion-label color="primary">FLOODS_0907</ion-label>
   </ion-item>
 
   <ion-item>
     <!-- Stacked makes it to small text heading -->
     <ion-label color="primary" stacked>Reported By</ion-label>
     <!-- Should still work on reported by it should fetch its value from dashboard -->
-    <ion-label color="primary">Reported By</ion-label>
+    <ion-label color="primary">John</ion-label>
   </ion-item>
 
   <ion-item>
     <!-- Stacked makes it to small text heading -->
     <ion-label color="primary" stacked>Incident</ion-label>
     <!-- Should still work on incident it should fetch its value from dashboard -->
-    <ion-label color="primary">Incident</ion-label>
+    <ion-label color="primary">Floods</ion-label>
   </ion-item>
 
   <ion-item>
@@ -76,10 +76,10 @@
     </ion-item>
   </ion-list>
 
-  <ion-list radio-group [(ngModel)]="relationship">
+  <!-- <ion-list radio-group [(ngModel)]="relationship">
     <ion-list-header>
       Structure Damage
-      <!-- Structure damage is classified as low, high and medium one can be choosen (radio button) -->
+       Structure damage is classified as low, high and medium one can be choosen (radio button)
     </ion-list-header>
     <ion-item>
       <ion-label>Low</ion-label>
@@ -93,12 +93,21 @@
       <ion-label>High</ion-label>
       <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
-  <ion-list radio-group [(ngModel)]="relationship1">
+  <ion-item>
+    <ion-label>Structure Damage</ion-label>
+    <ion-select [(ngModel)]="structuredamage">
+      <ion-option value="low">Low</ion-option>
+      <ion-option value="medium">Medium</ion-option>
+      <ion-option value="high">High</ion-option>
+    </ion-select>
+  </ion-item><br>
+
+  <!-- <ion-list radio-group [(ngModel)]="relationship1">
     <ion-list-header>
       Fire
-      <!-- Fire is classified as small, large and medium one can be choosen (radio button) -->
+      Fire is classified as small, large and medium one can be choosen (radio button)
     </ion-list-header>
     <ion-item>
       <ion-label>Small</ion-label>
@@ -112,7 +121,16 @@
       <ion-label>Large</ion-label>
       <ion-radio value="large" [disabled]="isDisabled"></ion-radio>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+
+  <ion-item>
+    <ion-label>Fire</ion-label>
+    <ion-select [(ngModel)]="fire">
+      <ion-option value="small">Small</ion-option>
+      <ion-option value="mediumfire">Medium</ion-option>
+      <ion-option value="large">Large</ion-option>
+    </ion-select>
+  </ion-item><br>
 
   <ion-list>
     <ion-list-header>
