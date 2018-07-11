@@ -13,32 +13,87 @@
 
 
 <ion-content padding>
+  <ion-list>
+      <h4> Personal Details:</h4>
+      <form [formGroup]="signupForm"> 
   
-    <ion-list>
+    
         <!-- <ion-header> Create an Account</ion-header> -->
           <ion-label f>Create an Account</ion-label>
-          <ion-item>
-              <ion-input placeholder="FirstName" value=""></ion-input>
-            </ion-item> 
-          <ion-item>
-            <ion-input placeholder="LastName" value=""></ion-input>
-            </ion-item>
-  
-            <ion-item>
-              
-                <ion-input placeholder="Email" value=""></ion-input>
-              </ion-item>
-  
-          <ion-item>
-            
-              <ion-input placeholder="Password" value=""></ion-input>
-          </ion-item>
-        
-          <ion-item>
-              <ion-input placeholder="Confirm Password" value=""></ion-input>
-          </ion-item>
+          <!-- The field deals with first name and includes validation such 
+      as required field,maximum length of the field is 30 characters and 
+      the pattern of the field is it only takes lower characters,upper characters, 
+      space and no numerics  -->
+    <ion-item>
+      <ion-label floating>First Name*</ion-label>
+      <ion-input formControlName="firstName" type="text"></ion-input>
+    </ion-item>
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+    <ion-item no-lines>
+        <p *ngIf="firstName" style="color: #ea6153;">
+            Please fill in your first name which<br>
+             includes only alphabets.</p>
+    </ion-item>
+
+    <!-- This field deals with the last name and includes the validation such as 
+    required field, maximum length of the field is 30 characters and the pattern of the
+  field is it takes lower characters, upper characters, space and no numerics   -->
+    <ion-item>
+      <ion-label floating>LastName*</ion-label> 
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+    <ion-item no-lines>
+        <p *ngIf="lastName" style="color: #ea6153;">
+            Please fill in your last name which<br>
+             includes only alphabets .</p>
+    </ion-item>
+
+    <!-- This field deals with the email address and includes the validation such as
+    required field, minimum length of the field is 1 character and the pattern of the
+  field is any number of charaters followed @ followed by any number of characters 
+ follwed by . follwed by any number of characters. ex: emailId@email.com  -->
+    <ion-item>
+      <ion-label floating>EmailID*</ion-label> 
+      <ion-input type="text" formControlName="EmailID" ></ion-input>
+    </ion-item>
+
+    <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+
+    <ion-item no-lines>
+        <p *ngIf="emailId" style="color: #ea6153;">
+          Format: Example1@Email.com<br>
+             </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password*</ion-label> 
+      <ion-input type="text" formControlName="Password" ></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <p *ngIf="password" style="color: #ea6153;">
+        Password should have atleast 8 characters<br>
+           </p>
+  </ion-item>
+             
+  <ion-item>
+    <ion-label floating>Confirm Password*</ion-label> 
+    <ion-input type="text" formControlName="ConfirmPassword" ></ion-input>
+  </ion-item>
+
+  <ion-item no-lines>
+    <p *ngIf="confirmpassword" style="color: #ea6153;">
+      Please re-enter the same password<br>
+         </p>
+</ion-item>
+           
+          
           <button ion-button block color="lightprimary"(click)="signup()">Signup</button>
           <!-- <img src="assets/imgs/Signup.png"/> -->
-        
+        </form>
         </ion-list>
 </ion-content>
