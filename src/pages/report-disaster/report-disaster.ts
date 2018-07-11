@@ -24,7 +24,8 @@ export class ReportDisasterPage {
   }
 
   Submit(){
-    this.navCtrl.push(DashboardPage);
+    this.navCtrl.setRoot(DashboardPage);
+   
   }
 
 }
