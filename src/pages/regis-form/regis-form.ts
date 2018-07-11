@@ -38,16 +38,16 @@ export class RegisFormPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
     this.regisForm = formBuilder.group({
       firstName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      lastName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       EmailID: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
-      DOB: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(10), Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
-      pnumber: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(12), Validators.required])],
+      DOB: ['', Validators.compose([Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
+      pnumber: ['', Validators.compose([Validators.minLength(10), Validators.required])],
       Address1: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(60), Validators.required])],
-      County: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      City: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      State: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      Country: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-      License: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(16), Validators.required])]
+      County: ['', Validators.compose([Validators.required])],
+      City: ['', Validators.compose([Validators.required])],
+      State: ['', Validators.compose([Validators.required])],
+      Country: ['', Validators.compose([Validators.required])],
+      License: ['', Validators.compose([Validators.maxLength(16), Validators.required])]
 
     });
   }
@@ -205,16 +205,48 @@ export class RegisFormPage {
 
     } 
     }
-
-
     else {
+      if((this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) &&
+      (this.regisForm.controls.lastName.valid || (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty)) &&
+      (this.regisForm.controls.EmailID.valid || (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty)) &&
+      (this.regisForm.controls.DOB.valid || (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty)) &&
+      (this.regisForm.controls.pnumber.valid || (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty)) &&
+      (this.regisForm.controls.Address1.valid || (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty)) &&
+      (this.regisForm.controls.County.valid || (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty)) &&
+      (this.regisForm.controls.City.valid || (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty)) &&
+      (this.regisForm.controls.State.valid || (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty)) &&
+      (this.regisForm.controls.Country.valid || (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty)) &&
+      (this.regisForm.controls.License.valid || (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty)))
+      {
+
+      this.firstName=false;
+      this.lastName=false;
+      this.emailId=false;
+      this.dob=false;
+      this.phone=false;
+      this.address1=false;
+      this.county=false;
+      this.city=false;
+      this.state=false;
+      this.country=false;
+      this.certification=false;
       this.navCtrl.push(RegisConfirmPage);
+      }
+      else{
+      this.navCtrl.push(RegisConfirmPage);
+      }
+
+
+    
+      
     }
   }
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+

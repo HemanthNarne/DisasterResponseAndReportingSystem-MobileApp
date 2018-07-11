@@ -28,6 +28,8 @@ export class StartRegisPage {
   }
   // onStart() deals with the navigation code
   onStart(){
+    // When the button is clicked onStart() method is triggered. 
+    // push() method is used to navigate from one page to another
     this.navCtrl.push(RegisFormPage);
   }
 }

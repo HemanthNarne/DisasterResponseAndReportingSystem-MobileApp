@@ -27,7 +27,7 @@ export class DashboardPage {
 
   report()
   {
-    this.navCtrl.popTo(ReportDisasterPage);
+    this.navCtrl.push(ReportDisasterPage);
   }
 
 }
