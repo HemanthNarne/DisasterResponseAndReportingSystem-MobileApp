@@ -78,9 +78,9 @@
     </ion-item>
 
 
+    
     <!-- This field deals with the date of birth and includes validation such as
-    required field, minimum length of the field is 8 characters and the includes 
-    pattern such as numerics followed by / followed by numerics followed by / 
+    required field and the includes pattern such as numerics followed by / followed by numerics followed by / 
    followed by numerics. ex: 09/09/1999   -->
     <ion-item>
         <ion-label floating>Date Of Birth(MM/DD/YYYY)*</ion-label> 
@@ -96,12 +96,13 @@
             </p>
     </ion-item>
 
+    
+    
     <!-- This field deals with phone number and includes validation such as
-    required field, minimum length of the field is 10 characters and maximum length
-    of the field is 12 characters -->
+    required field -->
     <ion-item>
       <ion-label floating>Phone Number*</ion-label>
-      <ion-input type="number" formControlName="pnumber"></ion-input>
+      <ion-input type="text" formControlName="pnumber"></ion-input>
     </ion-item>
     
     <!-- The below code refers to incase the above validation 
@@ -112,10 +113,11 @@
             accurately. Example: 1234567890</p>
     </ion-item>
 
+    
+    
     <h4> Address:</h4>
     <!-- This field deals with address and includes validation such as required field,
-    mimimum length of the field is 10 characters and maximum length of the field is 60
-    characters. -->
+    mimimum length of the field is 10 characters  -->
     <ion-item>
       <ion-label floating>Address line1*:</ion-label>
       <ion-input type="text" formControlName="Address1" ></ion-input>
@@ -129,15 +131,20 @@
             Takes in only 60 characters</p>
     </ion-item>
 
+    
+    
     <!-- This field deals with address line 2. It is an optional field  -->
     <ion-item>
       <ion-label floating>Address line2:</ion-label>
       <ion-input type="text" ></ion-input><br>
     </ion-item>
+    <ion-item>
 
-    <!-- This field deals with county and includes validation such as required field,
-    minimum length of the field is 1 character and maximum length of the field is 
-    30 characters -->
+    </ion-item>
+
+    
+    
+    <!-- This field deals with county and includes validation such as required field -->
     <ion-item>
       <ion-label floating>County*</ion-label>
       <ion-input type="text" formControlName="County"></ion-input>
@@ -150,9 +157,9 @@
             Please fill in the County you belong to</p>
     </ion-item>
 
-    <!-- This field deals with city and includes validation such as required field,
-    minimum length of the field is 1 character and maximum length of the field is 
-    30 characters -->
+    
+    
+    <!-- This field deals with city and includes validation such as required field -->
     <ion-item>
       <ion-label floating>City*</ion-label>
       <ion-input type="text" formControlName="City"></ion-input>
@@ -166,9 +173,8 @@
     </ion-item>
 
 
-    <!-- This field deals with state and includes validation such as required field,
-    minimum length of the field is 1 character and maximum length of the field is 
-    30 characters -->
+    
+    <!-- This field deals with state and includes validation such as required field -->
     <ion-item>
       <ion-label floating>State*</ion-label>
       <ion-input type="text" formControlName="State"></ion-input>
@@ -181,9 +187,9 @@
             Please fill in the State you belong to.</p>
     </ion-item>
 
-    <!-- This field deals with country and includes validation such as required field,
-    minimum length of the field is 1 character and maximum length of the field is 
-    30 characters -->
+   
+   
+    <!-- This field deals with country and includes validation such as required field -->
     <ion-item>
       <ion-label floating>Country*</ion-label>
       <ion-input type="text" formControlName="Country"></ion-input>
