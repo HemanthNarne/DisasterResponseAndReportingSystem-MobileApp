@@ -17,9 +17,9 @@ team members to perform operations like mobile application signup, login, submit
 notificaitons about disaster and sending of disaster report after visit.
 
 ## All repositories involved:  
-Disaster Response And Mitigtion System(For project artifacts):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem   
-Disaster Response And Mitigtion System Website(For web application):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-Website   
-Disaster Response And Mitigtion System Mobile(For mobile application):    https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-MobileApp
+Disaster Response And Reporting System(For project artifacts):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem   
+Disaster Response And Reporting System Website(For web application):  https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-Website   
+Disaster Response And Reporting System Mobile(For mobile application):    https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-MobileApp
 
 ## About this repository:
   This repository deals with web related aspects, which includes the EOC(admin) part. 
