@@ -127,8 +127,8 @@
       conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="address1" style="color: #ea6153;">
-            Please fill in your address.<br>
-            Takes in only 60 characters</p>
+            Please fill in your address. </p>
+           
     </ion-item>
 
     
@@ -138,9 +138,9 @@
       <ion-label floating>Address line2:</ion-label>
       <ion-input type="text" ></ion-input><br>
     </ion-item>
-    <ion-item>
+    <ion-item no-lines>
 
-    </ion-item>
+    </ion-item >
 
     
     
@@ -203,97 +203,121 @@
     </ion-item>
 
 
+    
     <!-- This field deals with skills that include check boxes, through which the 
     user can select more than one skill of his/her choice -->
     <h4> Skills:</h4>
     <h6 left-padding> Choose multiple skill sets as applies to you: </h6>
 
 
+    <!-- Check box for CERT option -->
     <label class="inline-radio" ng-mouseover="">
       <input type="checkbox" name="s1" />&nbsp;&nbsp;CERT
-      <!-- <div class = "item-content">Yes</div> -->
+      
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
     </label>
+    
+    <!-- Check box for EMR option-->
     <label class="inline-radio">
       <input type="checkbox" name="S4" />&nbsp;&nbsp;EMR
-      <!-- <div class = "item-content">No</div> -->
+     
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
     </label>
+
+    <!-- Check box for Firefighter option -->
     <label class="inline-radio">
       <input type="checkbox" name="S2" />&nbsp;&nbsp;Firefighter
-      <!-- <div class = "item-content">No</div> -->
+     
       <i class="radio-icon ion-checkmark"></i>
       <br>
     </label>
+
+    <!-- Check box for EMT-B option -->
     <label class="inline-radio">
       <input type="checkbox" name="S5" />&nbsp;&nbsp;EMT-B
-      <!-- <div class = "item-content">No</div> -->
+     
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
     </label>
+
+    <!-- Check box for EMT-A option -->
     <label class="inline-radio">
       <input type="checkbox" name="S6" />&nbsp;&nbsp;EMT-A
-      <!-- <div class = "item-content">No</div> -->
+     
       <i class="radio-icon ion-checkmark">&nbsp;</i>
     </label>
+
+    <!-- Check box for Sworn LE Officer option -->
     <label class="inline-radio">
       <input type="checkbox" name="S3" />&nbsp;&nbsp;Sworn LE Officer
-      <!-- <div class = "item-content">No</div> -->
+     
       <i class="radio-icon ion-checkmark"></i>
       <br>
     </label>
 
 
+    <!-- Check box for EMT-P option -->
     <label class="inline-radio">
       <input type="checkbox" name="S7" />&nbsp;&nbsp;EMT-P
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
     </label>
+
+    <!-- Check box for LPN option -->
     <label class="inline-radio">
       <input type="checkbox" name="S8" />&nbsp;&nbsp;LPN
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
     </label>
+
+    <!-- Check box for RNT option -->
     <label class="inline-radio">
       <input type="checkbox" name="S9" />&nbsp;&nbsp;RN
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark"></i>
       <br>
     </label>
+
+    <!-- Check box for RN-NP option -->
     <label class="inline-radio">
       <input type="checkbox" name="S10" />&nbsp;&nbsp;RN-NP
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark">&nbsp;</i>
     </label>
+
+    <!-- Check box for PA option -->
     <label class="inline-radio">
       <input type="checkbox" name="S11" />&nbsp;&nbsp;PA
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
     </label>
+
+    <!-- Check box for MD/DO option -->
     <label class="inline-radio">
       <input type="checkbox" name="S12" />&nbsp;&nbsp;MD/DO
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark"></i>
       <br>
     </label>
+
+    <!-- Text box for Others option -->
     <label >Others
       <input type="text" name="S13" />
       <!-- <div class = "item-content">No</div> -->
       <i class="radio-icon ion-checkmark"></i>
     </label>
 
-    <!-- This field deals with license/certification and includes validation such as required field,
-    minimum length of the field is 10 characters and maximum length of the field is 
-    16 characters -->
+    <!-- This field deals with license/certification and includes validation such as required field -->
     <ion-item>
       <ion-label floating>License/Certification</ion-label>
       <ion-input type="text" formControlName="License"></ion-input>
     </ion-item>
+    
     <!-- The below code refers to incase the above validation 
       conditions fail then an error message is displayed -->
     <ion-item no-lines>
         <p *ngIf="certification" style="color: #ea6153;">
             Please fill in your license/Certification<br> 
-            number. Takes in 16 characters</p>
+            number. </p>
     </ion-item>
 
   
@@ -306,7 +330,7 @@
       </ion-item><br>
 
 
-    <!-- This field deals with limitations  -->
+    <!-- This field deals with limitations   -->
       <ion-item>
       <ion-label floating>Limitations:</ion-label>
       <ion-input type="text" ></ion-input>
@@ -318,11 +342,14 @@
     <!-- This field deals with notification, which includes radio buttons. -->
     <ion-item>
       <h5>I agree to recieve push notification:</h5>
+      <!-- Radio button for yes -->
       <label class="inline-radio">
         <input type="radio" name="group1" checked="true" value="value1"/>Yes
         <!-- <div class = "item-content">Yes</div> -->
         <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
       </label>
+
+      <!-- Radio button for no -->
       <label class="inline-radio">
         <input type="radio" name="group1" value="value2" />No
         <!-- <div class = "item-content">No</div> -->
@@ -340,4 +367,3 @@
 
 
 </ion-content>
-<!-- </div> -->
