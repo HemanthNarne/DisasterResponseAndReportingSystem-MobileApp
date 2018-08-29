@@ -28,7 +28,7 @@ Disaster Response And Reporting System Mobile(For mobile application):    https:
 Link: https://drrs.herokuapp.com/#/login
 
 # Standup Meeting
-Link: https://docs.google.com/spreadsheets/d/1m398aXr_zSr4an6LZbqqsNyIClPgpmom-6kOa_aVrUw/edit?usp=sharing
+Link: https://docs.google.com/spreadsheets/d/1oba20-C9Ck3_rfVDDcBtPLBP5_tIzrSAu-iQAdMinQA/edit#gid=1790837576
 
 # Trello
 Link: https://trello.com/b/AYCIVIOL/web-application-development
