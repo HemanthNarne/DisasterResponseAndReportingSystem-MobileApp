@@ -19,348 +19,355 @@
 <ion-content padding>
   <ion-list>
     <!-- h4 tag is used for the pupose of heading -->
-      <h4> Personal Details:</h4>
-      <!-- formGroup is used to set the id for the entire form -->
-      <form [formGroup]="regisForm"> 
+    <h4> Personal Details:</h4>
+    <!-- formGroup is used to set the id for the entire form -->
+    <form [formGroup]="regisForm">
 
-    
 
-    <!-- The field deals with first name and includes validation such 
+
+      <!-- The field deals with first name and includes validation such 
       as required field and the pattern of the field is it only takes lower characters,upper characters, 
       space and no numerics  -->
-    <ion-item>
-      <ion-label floating>First Name*</ion-label>
-      <ion-input formControlName="firstName" type="text"></ion-input>
-    </ion-item>
-    
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="firstName" style="color: #ea6153;">
-            Please fill in your first name which<br>
-             includes only alphabets.</p>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>First Name*</ion-label>
+        <ion-input formControlName="firstName" type="text"></ion-input>
+      </ion-item>
 
-    
-    
-    <!-- This field deals with the last name and includes the validation such as 
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="firstName" style="color: #ea6153;">
+          Please fill in your first name which
+          <br> includes only alphabets.</p>
+      </ion-item>
+
+
+
+      <!-- This field deals with the last name and includes the validation such as 
     required field and the pattern of the field is it takes lower characters, 
     upper characters, space and no numerics   -->
-    <ion-item>
-      <ion-label floating>LastName*</ion-label> 
-      <ion-input type="text" formControlName="lastName"></ion-input>
-    </ion-item>
-    <!-- The below code refers to incase the above validation 
+      <ion-item>
+        <ion-label floating>LastName*</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <!-- The below code refers to incase the above validation 
       conditions fail then an error message is displayed -->
-    <ion-item no-lines>
+      <ion-item no-lines>
         <p *ngIf="lastName" style="color: #ea6153;">
-            Please fill in your last name which<br>
-             includes only alphabets .</p>
-    </ion-item>
+          Please fill in your last name which
+          <br> includes only alphabets .</p>
+      </ion-item>
 
-    
-    
-    <!-- This field deals with the email address and includes the validation such as
+
+
+      <!-- This field deals with the email address and includes the validation such as
     required field and the pattern of the field is any number of charaters followed @ 
     followed by any number of characters follwed by . followed by any number of characters. ex: emailId@email.com  -->
-    <ion-item>
-      <ion-label floating>EmailID*</ion-label> 
-      <ion-input type="text" formControlName="EmailID" ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>EmailID*</ion-label>
+        <ion-input type="text" formControlName="EmailID"></ion-input>
+      </ion-item>
 
-    <!-- The below code refers to incase the above validation 
+      <!-- The below code refers to incase the above validation 
       conditions fail then an error message is displayed -->
 
-    <ion-item no-lines>
+      <ion-item no-lines>
         <p *ngIf="emailId" style="color: #ea6153;">
-          Format: Example1@Email.com<br>
-             </p>
-    </ion-item>
+          Format: Example1@Email.com
+          <br>
+        </p>
+      </ion-item>
 
 
-    
-    <!-- This field deals with the date of birth and includes validation such as
+
+      <!-- This field deals with the date of birth and includes validation such as
     required field and the includes pattern such as numerics followed by / followed by numerics followed by / 
    followed by numerics. ex: 09/09/1999   -->
-    <ion-item>
-        <ion-label floating>Date Of Birth(MM/DD/YYYY)*</ion-label> 
-      <ion-input type="text" formControlName="DOB" ></ion-input>
-    </ion-item>
-
-     <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-
-    <ion-item no-lines>
-        <p *ngIf="dob" style="color: #ea6153;">
-          Format: MM/DD/YYYY<br>
-            </p>
-    </ion-item>
-
-    
-    
-    <!-- This field deals with phone number and includes validation such as
-    required field -->
-    <ion-item>
-      <ion-label floating>Phone Number*</ion-label>
-      <ion-input type="text" formControlName="pnumber"></ion-input>
-    </ion-item>
-    
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="phone" style="color: #ea6153;">
-            Please fill in your phone number<br> 
-            accurately. Example: 1234567890</p>
-    </ion-item>
-
-    
-    
-    <h4> Address:</h4>
-    <!-- This field deals with address and includes validation such as required field,
-    mimimum length of the field is 10 characters  -->
-    <ion-item>
-      <ion-label floating>Address line1*:</ion-label>
-      <ion-input type="text" formControlName="Address1" ></ion-input>
-    </ion-item>
-
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="address1" style="color: #ea6153;">
-            Please fill in your address. </p>
-           
-    </ion-item>
-
-    
-    
-    <!-- This field deals with address line 2. It is an optional field  -->
-    <ion-item>
-      <ion-label floating>Address line2:</ion-label>
-      <ion-input type="text" ></ion-input><br>
-    </ion-item>
-    <ion-item no-lines>
-
-    </ion-item >
-
-    
-    
-    <!-- This field deals with county and includes validation such as required field -->
-    <ion-item>
-      <ion-label floating>County*</ion-label>
-      <ion-input type="text" formControlName="County"></ion-input>
-    </ion-item>
-
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="county" style="color: #ea6153;">
-            Please fill in the County you belong to</p>
-    </ion-item>
-
-    
-    
-    <!-- This field deals with city and includes validation such as required field -->
-    <ion-item>
-      <ion-label floating>City*</ion-label>
-      <ion-input type="text" formControlName="City"></ion-input>
-    </ion-item>
-
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="city" style="color: #ea6153;">
-            Please fill in the City you belong to.</p>
-    </ion-item>
-
-
-    
-    <!-- This field deals with state and includes validation such as required field -->
-    <ion-item>
-      <ion-label floating>State*</ion-label>
-      <ion-input type="text" formControlName="State"></ion-input>
-    </ion-item>
-
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="state" style="color: #ea6153;">
-            Please fill in the State you belong to.</p>
-    </ion-item>
-
-   
-   
-    <!-- This field deals with country and includes validation such as required field -->
-    <ion-item>
-      <ion-label floating>Country*</ion-label>
-      <ion-input type="text" formControlName="Country"></ion-input>
-    </ion-item>
-
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="country" style="color: #ea6153;">
-            Please fill in the Country you belong to.</p>
-    </ion-item>
-
-
-    
-    <!-- This field deals with skills that include check boxes, through which the 
-    user can select more than one skill of his/her choice -->
-    <h4> Skills:</h4>
-    <h6 left-padding> Choose multiple skill sets as applies to you: </h6>
-
-
-    <!-- Check box for CERT option -->
-    <label class="inline-radio" ng-mouseover="">
-      <input type="checkbox" name="s1" />&nbsp;&nbsp;CERT
-      
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
-    </label>
-    
-    <!-- Check box for EMR option-->
-    <label class="inline-radio">
-      <input type="checkbox" name="S4" />&nbsp;&nbsp;EMR
-     
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
-    </label>
-
-    <!-- Check box for Firefighter option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S2" />&nbsp;&nbsp;Firefighter
-     
-      <i class="radio-icon ion-checkmark"></i>
-      <br>
-    </label>
-
-    <!-- Check box for EMT-B option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S5" />&nbsp;&nbsp;EMT-B
-     
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
-    </label>
-
-    <!-- Check box for EMT-A option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S6" />&nbsp;&nbsp;EMT-A
-     
-      <i class="radio-icon ion-checkmark">&nbsp;</i>
-    </label>
-
-    <!-- Check box for Sworn LE Officer option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S3" />&nbsp;&nbsp;Sworn LE Officer
-     
-      <i class="radio-icon ion-checkmark"></i>
-      <br>
-    </label>
-
-
-    <!-- Check box for EMT-P option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S7" />&nbsp;&nbsp;EMT-P
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
-    </label>
-
-    <!-- Check box for LPN option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S8" />&nbsp;&nbsp;LPN
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
-    </label>
-
-    <!-- Check box for RNT option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S9" />&nbsp;&nbsp;RN
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark"></i>
-      <br>
-    </label>
-
-    <!-- Check box for RN-NP option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S10" />&nbsp;&nbsp;RN-NP
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark">&nbsp;</i>
-    </label>
-
-    <!-- Check box for PA option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S11" />&nbsp;&nbsp;PA
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
-    </label>
-
-    <!-- Check box for MD/DO option -->
-    <label class="inline-radio">
-      <input type="checkbox" name="S12" />&nbsp;&nbsp;MD/DO
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark"></i>
-      <br>
-    </label>
-
-    <!-- Text box for Others option -->
-    <label >Others
-      <input type="text" name="S13" />
-      <!-- <div class = "item-content">No</div> -->
-      <i class="radio-icon ion-checkmark"></i>
-    </label>
-
-    <!-- This field deals with license/certification and includes validation such as required field -->
-    <ion-item>
-      <ion-label floating>License/Certification</ion-label>
-      <ion-input type="text" formControlName="License"></ion-input>
-    </ion-item>
-    
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="certification" style="color: #ea6153;">
-            Please fill in your license/Certification<br> 
-            number. </p>
-    </ion-item>
-
-  
-     <!--this field deals with file upload   -->
-    <ion-item>
-        <ion-label color="primary" stacked>Picture/Video
-          <br>Choose a file to upload</ion-label>
-        <ion-input color="primary" type="file" placeholder="File" id="Image" (click)="takePicture()"></ion-input>
-        
-      </ion-item><br>
-
-
-    <!-- This field deals with limitations   -->
       <ion-item>
-      <ion-label floating>Limitations:</ion-label>
-      <ion-input type="text" ></ion-input>
-      <br>
-    </ion-item>
+        <ion-label floating>Date Of Birth(MM/DD/YYYY)*</ion-label>
+        <ion-input type="text" formControlName="DOB"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+
+      <ion-item no-lines>
+        <p *ngIf="dob" style="color: #ea6153;">
+          Format: MM/DD/YYYY
+          <br>
+        </p>
+      </ion-item>
 
 
 
-    <!-- This field deals with notification, which includes radio buttons. -->
-    <ion-item>
-      <h5>I agree to recieve push notification:</h5>
-      <!-- Radio button for yes -->
-      <label class="inline-radio">
-        <input type="radio" name="group1" checked="true" value="value1"/>Yes
-        <!-- <div class = "item-content">Yes</div> -->
-        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
+      <!-- This field deals with phone number and includes validation such as
+    required field -->
+      <ion-item>
+        <ion-label floating>Phone Number*</ion-label>
+        <ion-input type="text" formControlName="pnumber"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="phone" style="color: #ea6153;">
+          Please fill in your phone number
+          <br> accurately. Example: 1234567890</p>
+      </ion-item>
+
+
+
+      <h4> Address:</h4>
+      <!-- This field deals with address and includes validation such as required field,
+    mimimum length of the field is 10 characters  -->
+      <ion-item>
+        <ion-label floating>Address line1*:</ion-label>
+        <ion-input type="text" formControlName="Address1"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="address1" style="color: #ea6153;">
+          Please fill in your address. </p>
+
+      </ion-item>
+
+
+
+      <!-- This field deals with address line 2. It is an optional field  -->
+      <ion-item>
+        <ion-label floating>Address line2:</ion-label>
+        <ion-input type="text"></ion-input>
+        <br>
+      </ion-item>
+      <ion-item no-lines>
+
+      </ion-item>
+
+
+
+      <!-- This field deals with county and includes validation such as required field -->
+      <ion-item>
+        <ion-label floating>County*</ion-label>
+        <ion-input type="text" formControlName="County"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="county" style="color: #ea6153;">
+          Please fill in the County you belong to</p>
+      </ion-item>
+
+
+
+      <!-- This field deals with city and includes validation such as required field -->
+      <ion-item>
+        <ion-label floating>City*</ion-label>
+        <ion-input type="text" formControlName="City"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="city" style="color: #ea6153;">
+          Please fill in the City you belong to.</p>
+      </ion-item>
+
+
+
+      <!-- This field deals with state and includes validation such as required field -->
+      <ion-item>
+        <ion-label floating>State*</ion-label>
+        <ion-input type="text" formControlName="State"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="state" style="color: #ea6153;">
+          Please fill in the State you belong to.</p>
+      </ion-item>
+
+
+
+      <!-- This field deals with country and includes validation such as required field -->
+      <ion-item>
+        <ion-label floating>Country*</ion-label>
+        <ion-input type="text" formControlName="Country"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="country" style="color: #ea6153;">
+          Please fill in the Country you belong to.</p>
+      </ion-item>
+
+
+
+      <!-- This field deals with skills that include check boxes, through which the 
+    user can select more than one skill of his/her choice -->
+      <h4> Skills:</h4>
+      <h6 left-padding> Choose multiple skill sets as applies to you: </h6>
+
+
+      <!-- Check box for CERT option -->
+      <label class="inline-radio" ng-mouseover="">
+        <input type="checkbox" name="s1" />&nbsp;&nbsp;CERT
+
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
       </label>
 
-      <!-- Radio button for no -->
+      <!-- Check box for EMR option-->
       <label class="inline-radio">
-        <input type="radio" name="group1" value="value2" />No
+        <input type="checkbox" name="S4" />&nbsp;&nbsp;EMR
+
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+      </label>
+
+      <!-- Check box for Firefighter option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S2" />&nbsp;&nbsp;Firefighter
+
+        <i class="radio-icon ion-checkmark"></i>
+        <br>
+      </label>
+
+      <!-- Check box for EMT-B option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S5" />&nbsp;&nbsp;EMT-B
+
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
+      </label>
+
+      <!-- Check box for EMT-A option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S6" />&nbsp;&nbsp;EMT-A
+
+        <i class="radio-icon ion-checkmark">&nbsp;</i>
+      </label>
+
+      <!-- Check box for Sworn LE Officer option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S3" />&nbsp;&nbsp;Sworn LE Officer
+
+        <i class="radio-icon ion-checkmark"></i>
+        <br>
+      </label>
+
+
+      <!-- Check box for EMT-P option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S7" />&nbsp;&nbsp;EMT-P
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;</i>
+      </label>
+
+      <!-- Check box for LPN option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S8" />&nbsp;&nbsp;LPN
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+      </label>
+
+      <!-- Check box for RNT option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S9" />&nbsp;&nbsp;RN
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark"></i>
+        <br>
+      </label>
+
+      <!-- Check box for RN-NP option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S10" />&nbsp;&nbsp;RN-NP
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark">&nbsp;</i>
+      </label>
+
+      <!-- Check box for PA option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S11" />&nbsp;&nbsp;PA
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+      </label>
+
+      <!-- Check box for MD/DO option -->
+      <label class="inline-radio">
+        <input type="checkbox" name="S12" />&nbsp;&nbsp;MD/DO
+        <!-- <div class = "item-content">No</div> -->
+        <i class="radio-icon ion-checkmark"></i>
+        <br>
+      </label>
+
+      <!-- Text box for Others option -->
+      <label>Others
+        <input type="text" name="S13" />
         <!-- <div class = "item-content">No</div> -->
         <i class="radio-icon ion-checkmark"></i>
       </label>
-    </ion-item>
-     
 
-    <!-- This field includes button, which on clicking navigates to regis-confirm page   -->
-    <button ion-button full class="style" (click)="onSubmit()">Submit</button>
-   </form>
+      <!-- This field deals with license/certification and includes validation such as required field -->
+      <ion-item>
+        <ion-label floating>License/Certification</ion-label>
+        <ion-input type="text" formControlName="License"></ion-input>
+      </ion-item>
+
+      <!-- The below code refers to incase the above validation 
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="certification" style="color: #ea6153;">
+          Please fill in your license/Certification
+          <br> number. </p>
+      </ion-item>
+
+
+      <!--this field deals with file upload   -->
+      <ion-item>
+        <ion-label color="primary" stacked>Picture/Video
+          <br>Choose a file to upload</ion-label>
+        <ion-input color="primary" type="file" placeholder="File" id="Image"></ion-input>
+        
+      </ion-item>
+      <button ion-button (click)="takePicture()">Camera</button>
+        Picture Camptured:
+        <img [src]="base64Image" *ngIf="base64Image" />
+      <br>
+
+
+      <!-- This field deals with limitations   -->
+      <ion-item>
+        <ion-label floating>Limitations:</ion-label>
+        <ion-input type="text"></ion-input>
+        <br>
+      </ion-item>
+
+
+
+      <!-- This field deals with notification, which includes radio buttons. -->
+      <ion-item>
+        <h5>I agree to recieve push notification:</h5>
+        <!-- Radio button for yes -->
+        <label class="inline-radio">
+          <input type="radio" name="group1" checked="true" value="value1" />Yes
+          <!-- <div class = "item-content">Yes</div> -->
+          <i class="radio-icon ion-checkmark">&nbsp;&nbsp;&nbsp;</i>
+        </label>
+
+        <!-- Radio button for no -->
+        <label class="inline-radio">
+          <input type="radio" name="group1" value="value2" />No
+          <!-- <div class = "item-content">No</div> -->
+          <i class="radio-icon ion-checkmark"></i>
+        </label>
+      </ion-item>
+
+
+      <!-- This field includes button, which on clicking navigates to regis-confirm page   -->
+      <button ion-button full class="style" (click)="onSubmit()">Submit</button>
+    </form>
   </ion-list>
 
 
