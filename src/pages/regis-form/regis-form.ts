@@ -4,6 +4,9 @@ import { RegisConfirmPage } from "../regis-confirm/regis-confirm";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { empty } from 'rxjs/Observer';
 
+// for camera
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 /**
  * Generated class for the RegisFormPage page.
  *
@@ -43,12 +46,18 @@ export class RegisFormPage {
   country: boolean = false;
    // Setting a boolean value to the variable certification which refers to the field License/Certification
   certification: boolean = false;
+  // for camera
+  public base64Image: string;
   
 
 
   regisForm: FormGroup;
   // The constructor is used for the purpose of validation
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public formBuilder: FormBuilder,
+    private camera: Camera) {
     this.regisForm = formBuilder.group({
       // Validation criteria of First Name field
       firstName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -319,6 +328,24 @@ export class RegisFormPage {
     
       
     }
+  }
+
+  // for camera
+  takePicture(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
+    });
   }
 }
 
