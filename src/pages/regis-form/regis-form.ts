@@ -24,6 +24,13 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class RegisFormPage {
 
+  @ViewChild('signupSlider') signupSlider: any;
+ 
+    slideOneForm: FormGroup;
+    slideTwoForm: FormGroup;
+    slideThreeForm: FormGroup;
+ 
+
   // Setting a boolean value to the variable firstName which refers to the field First Name
   firstName: boolean = false;
   // Setting a boolean value to the variable lastName which refers to the field Last Name
@@ -58,17 +65,20 @@ export class RegisFormPage {
     public navParams: NavParams, 
     public formBuilder: FormBuilder,
     private camera: Camera) {
-    this.regisForm = formBuilder.group({
-      // Validation criteria of First Name field
-      firstName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      // Validation criteria of Last Name field
-      lastName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      // Validation criteria of EmailID field
-      EmailID: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
-      // Validation criteria of Date of Birth field
-      DOB: ['', Validators.compose([Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
-      // Validation criteria of Phone Number field
-      pnumber: ['', Validators.compose([Validators.minLength(10), Validators.required])],
+      this.slideOneForm = formBuilder.group({
+        // Validation criteria of First Name field
+     firstName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+     // Validation criteria of Last Name field
+     lastName: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+     // Validation criteria of EmailID field
+     EmailID: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
+     // Validation criteria of Date of Birth field
+     DOB: ['', Validators.compose([Validators.pattern('[0-9]+[/]+[0-9]+[/]+[0-9]+'), Validators.required])],
+     // Validation criteria of Phone Number field
+     pnumber: ['', Validators.compose([Validators.minLength(10), Validators.required])]
+     
+   });
+   this.slideTwoForm=formBuilder.group({
       // Validation criteria of Address Line1 field
       Address1: ['', Validators.compose([Validators.required])],
       // Validation criteria of County field
@@ -78,11 +88,16 @@ export class RegisFormPage {
       // Validation criteria of State field
       State: ['', Validators.compose([Validators.required])],
       // Validation criteria of Country field
-      Country: ['', Validators.compose([Validators.required])],
-      // Validation criteria of License/certification field
-      License: ['', Validators.compose([ Validators.required])]
+      Country: ['', Validators.compose([Validators.required])]
+     
 
-    });
+   });
+
+   this.slideThreeForm=formBuilder.group({
+
+       // Validation criteria of License/certification field
+       License: ['', Validators.compose([ Validators.required])]
+   });
   }
  
 
@@ -90,43 +105,51 @@ export class RegisFormPage {
     console.log('ionViewDidLoad RegisFormPage');
   }
 
+  next(){
+    this.signupSlider.slideNext();
+}
+
+prev(){
+    this.signupSlider.slidePrev();
+}
+
 
 
   // onSubmit() method refers to navigation to regis-confirmation page only if the 
   // validation criteria is satisfied.
   onSubmit() {
-    // If condition is checked for the validation criteria of any field is not satified  
-    if (!this.regisForm.controls.firstName.valid || !this.regisForm.controls.lastName.valid ||
-      !this.regisForm.controls.EmailID.valid || !this.regisForm.controls.DOB.valid || !this.regisForm.controls.pnumber.valid ||
-      !this.regisForm.controls.Address1.valid || !this.regisForm.controls.County.valid ||
-      !this.regisForm.controls.City.valid || !this.regisForm.controls.State.valid ||
-      !this.regisForm.controls.Country.valid || !this.regisForm.controls.License.valid) {
+     // If condition is checked for the validation criteria of any field is not satified  
+     if (!this.slideOneForm.controls.firstName.valid || !this.slideOneForm.controls.lastName.valid ||
+      !this.slideOneForm.controls.EmailID.valid || !this.slideOneForm.controls.DOB.valid || !this.slideOneForm.controls.pnumber.valid ||
+      !this.slideTwoForm.controls.Address1.valid || !this.slideTwoForm.controls.County.valid ||
+      !this.slideTwoForm.controls.City.valid || !this.slideTwoForm.controls.State.valid ||
+      !this.slideTwoForm.controls.Country.valid || !this.slideThreeForm.controls.License.valid) {
         // if condition checks for the validation criteria of the firstname is not satisfied
-      if (!this.regisForm.controls.firstName.valid) {
+      if (!this.slideOneForm.controls.firstName.valid) {
         // sets the variable to false
         this.firstName = true;
       }
 
       // else if checks for the validation criteria of the First Name field is satisfied and if the firstName field is touched or modified
-      else if(this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty))
+      else if(this.slideOneForm.controls.firstName.valid || (this.slideOneForm.controls.firstName.touched || this.slideOneForm.controls.firstName.dirty))
       {
         // else if checks for the validation criteria of the First Name field is satisfied and if the firstName field is touched or modified
-        if (this.regisForm.controls.firstName.valid && (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) {
+        if (this.slideOneForm.controls.firstName.valid && (this.slideOneForm.controls.firstName.touched || this.slideOneForm.controls.firstName.dirty)) {
           // sets the variable to false
           this.firstName = false;
         }
 
       }
       //if condition checks for the validation criteria of the lastname field is not satisfied
-      if (!this.regisForm.controls.lastName.valid) {
+      if (!this.slideOneForm.controls.lastName.valid) {
         // sets the variable to true
         this.lastName = true;
       }
       // else if checks for if the validation criteria of the Last Name field is satisfied and if the LastName field is touched or modified
-      else if(this.regisForm.controls.lastName.valid || (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty))
+      else if(this.slideOneForm.controls.lastName.valid || (this.slideOneForm.controls.lastName.touched || this.slideOneForm.controls.lastName.dirty))
     {
       // else if checks for if the validation criteria of the Last Name field is satisfied and if the LastName field is touched or modified
-      if(this.regisForm.controls.lastName.valid && (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty))
+      if(this.slideOneForm.controls.lastName.valid && (this.slideOneForm.controls.lastName.touched || this.slideOneForm.controls.lastName.dirty))
       {
         // sets the variable to false
         this.lastName=false;
@@ -135,15 +158,15 @@ export class RegisFormPage {
     } 
 
       // if condition checks forthe validation criteria of the EmailID field is not satisfied
-    if (!this.regisForm.controls.EmailID.valid) {
+    if (!this.slideOneForm.controls.EmailID.valid) {
         this.emailId = true;
       }
 
       // else if checks for the validation criteria of the EmailID field is satisfied and if the EmailID field is touched or modified
-      else if(this.regisForm.controls.EmailID.valid || (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty))
+      else if(this.slideOneForm.controls.EmailID.valid || (this.slideOneForm.controls.EmailID.touched || this.slideOneForm.controls.EmailID.dirty))
     {
       // else if checks for if the validation criteria of the EmailID field is satisfied and if the EmailID field is touched or modified
-      if(this.regisForm.controls.EmailID.valid && (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty))
+      if(this.slideOneForm.controls.EmailID.valid && (this.slideOneForm.controls.EmailID.touched || this.slideOneForm.controls.EmailID.dirty))
       {
         // sets the variable to false
         this.emailId=false;
@@ -152,15 +175,15 @@ export class RegisFormPage {
     } 
 
     // If condition checks for validation criteria of the Date of birth field is not satisfied   
-    if (!this.regisForm.controls.DOB.valid) {
+    if (!this.slideOneForm.controls.DOB.valid) {
       // sets the variable to true
         this.dob = true;
       }
       // else if checks for if the validation criteria of the Date of Birth field is satisfied and if the Date of Birth field is touched or modified
-      else if(this.regisForm.controls.DOB.valid || (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty))
+      else if(this.slideOneForm.controls.DOB.valid || (this.slideOneForm.controls.DOB.touched || this.slideOneForm.controls.DOB.dirty))
     {
       // else if checks for if the validation criteria of the Date of Birth field is satisfied and if the Date of Birth field is touched or modified
-      if(this.regisForm.controls.DOB.valid && (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty))
+      if(this.slideOneForm.controls.DOB.valid && (this.slideOneForm.controls.DOB.touched || this.slideOneForm.controls.DOB.dirty))
       {
         // sets the variable to false
         this.dob=false;
@@ -169,17 +192,17 @@ export class RegisFormPage {
     } 
 
       //If condition checks for validation criteria of the Phone Number field is not satisfied 
-    if (!this.regisForm.controls.pnumber.valid) {
+    if (!this.slideOneForm.controls.pnumber.valid) {
       // sets the variable to true
         this.phone = true;
       }
 
       
       // else if checks for if the validation criteria of the Phone number field is satisfied and if the Phone Number field is touched or modified 
-      else if(this.regisForm.controls.pnumber.valid || (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty))
+      else if(this.slideOneForm.controls.pnumber.valid || (this.slideOneForm.controls.pnumber.touched || this.slideOneForm.controls.pnumber.dirty))
     {
       // else if checks for if the validation criteria of the Phone Number field is satisfied and if the Phone Numberh field is touched or modified
-      if(this.regisForm.controls.pnumber.valid && (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty))
+      if(this.slideOneForm.controls.pnumber.valid && (this.slideOneForm.controls.pnumber.touched || this.slideOneForm.controls.pnumber.dirty))
       {
         // sets the variable to false
         this.phone=false;
@@ -187,16 +210,16 @@ export class RegisFormPage {
 
     } 
     // If condition checks for validation of the Address line 1 field is not ssatisfied
-      if (!this.regisForm.controls.Address1.valid) {
+      if (!this.slideTwoForm.controls.Address1.valid) {
         // sets the variable to true
         this.address1 = true;
       }
       // else if checks for if the validation criteria of the Address line 1 field is satisfied and if the Address line 1 field is touched or modified
 
-      else if(this.regisForm.controls.Address1.valid || (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty))
+      else if(this.slideTwoForm.controls.Address1.valid || (this.slideTwoForm.controls.Address1.touched || this.slideTwoForm.controls.Address1.dirty))
     {
       // else if checks for if the validation criteria of the Address Line 1 field is satisfied and if the Address Line 1 field is touched or modified
-      if(this.regisForm.controls.Address1.valid && (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty))
+      if(this.slideTwoForm.controls.Address1.valid && (this.slideTwoForm.controls.Address1.touched || this.slideTwoForm.controls.Address1.dirty))
       {
         // sets the variable to false
         this.address1=false;
@@ -204,16 +227,16 @@ export class RegisFormPage {
 
     } 
       //If condition checks for the validation of County field is not satisfied 
-    if (!this.regisForm.controls.County.valid) {
+    if (!this.slideTwoForm.controls.County.valid) {
       // sets the variable to true
         this.county = true;
       }
 
       //  else if checks for if the validation criteria of the County field is satisfied and if the County field is touched or modified
-      else if(this.regisForm.controls.County.valid || (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty))
+      else if(this.slideTwoForm.controls.County.valid || (this.slideTwoForm.controls.County.touched || this.slideTwoForm.controls.County.dirty))
     {
       //  else if checks for if the validation criteria of the County field is satisfied and if the County field is touched or modified
-      if(this.regisForm.controls.County.valid && (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty))
+      if(this.slideTwoForm.controls.County.valid && (this.slideTwoForm.controls.County.touched || this.slideTwoForm.controls.County.dirty))
       {
         // sets the variable to false
         this.county=false;
@@ -221,16 +244,16 @@ export class RegisFormPage {
 
     } 
     // If conditionchecks for the validation of City field is not satisfied
-      if (!this.regisForm.controls.City.valid) {
+      if (!this.slideTwoForm.controls.City.valid) {
         // sets the variable to true
         this.city = true;
       }
 
       //  else if checks for if the validation criteria of the City field is satisfied and if the City field is touched or modified
-      else if(this.regisForm.controls.City.valid || (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty))
+      else if(this.slideTwoForm.controls.City.valid || (this.slideTwoForm.controls.City.touched || this.slideTwoForm.controls.City.dirty))
     {
       //  else if checks for if the validation criteria of the City field is satisfied and if the City field is touched or modified
-      if(this.regisForm.controls.City.valid && (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty))
+      if(this.slideTwoForm.controls.City.valid && (this.slideTwoForm.controls.City.touched || this.slideTwoForm.controls.City.dirty))
       {
         // sets the variable to false
         this.city=false;
@@ -238,16 +261,16 @@ export class RegisFormPage {
 
     } 
     // If condition checks for the validation of State field is not satisfied
-      if (!this.regisForm.controls.State.valid) {
+      if (!this.slideTwoForm.controls.State.valid) {
         // sets the variable to true
         this.state = true;
       }
 
       //  else if checks for if the validation criteria of the State field is satisfied and if the State field is touched or modified
-      else if(this.regisForm.controls.State.valid || (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty))
+      else if(this.slideTwoForm.controls.State.valid || (this.slideTwoForm.controls.State.touched || this.slideTwoForm.controls.State.dirty))
     {
       //  else if checks for if the validation criteria of the State field is satisfied and if the State field is touched or modified
-      if(this.regisForm.controls.State.valid && (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty))
+      if(this.slideTwoForm.controls.State.valid && (this.slideTwoForm.controls.State.touched || this.slideTwoForm.controls.State.dirty))
       {
         // sets the variable to false
         this.state=false;
@@ -255,16 +278,16 @@ export class RegisFormPage {
 
     } 
     // If condition checks for the validation of Country field is not satified
-      if (!this.regisForm.controls.Country.valid) {
+      if (!this.slideTwoForm.controls.Country.valid) {
         // sets the varianle to true
         this.country = true;
       }
 
       //  else if checks for if the validation criteria of the Country field is satisfied and if the Country field is touched or modified
-      else if(this.regisForm.controls.Country.valid || (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty))
+      else if(this.slideTwoForm.controls.Country.valid || (this.slideTwoForm.controls.Country.touched || this.slideTwoForm.controls.Country.dirty))
     {
       //  else if checks for if the validation criteria of the Country field is satisfied and if the Country field is touched or modified
-      if(this.regisForm.controls.Country.valid && (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty))
+      if(this.slideTwoForm.controls.Country.valid && (this.slideTwoForm.controls.Country.touched || this.slideTwoForm.controls.Country.dirty))
       {
         // sets the variable to false
         this.country=false;
@@ -273,16 +296,16 @@ export class RegisFormPage {
     } 
 
       // If condition checks for the validation of the License field is not satisfied
-      if (!this.regisForm.controls.License.valid) {
+      if (!this.slideThreeForm.controls.License.valid) {
         // sets the variable to true
         this.certification = true;
       }
 
       //  else if checks for if the validation criteria of the License field is satisfied and if the License field is touched or modified
-      else if(this.regisForm.controls.License.valid || (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty))
+      else if(this.slideThreeForm.controls.License.valid || (this.slideThreeForm.controls.License.touched || this.slideThreeForm.controls.License.dirty))
     {
       //  else if checks for if the validation criteria of the License field is satisfied and if the License field is touched or modified
-      if(this.regisForm.controls.License.valid && (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty))
+      if(this.slideThreeForm.controls.License.valid && (this.slideThreeForm.controls.License.touched || this.slideThreeForm.controls.License.dirty))
       {
         // sets the variable to false
         this.certification=false;
@@ -292,17 +315,17 @@ export class RegisFormPage {
     }
     // else if checks if all the fields are according to the validation criteria and if all the fields are touched or modified 
     else {
-      if((this.regisForm.controls.firstName.valid || (this.regisForm.controls.firstName.touched || this.regisForm.controls.firstName.dirty)) &&
-      (this.regisForm.controls.lastName.valid || (this.regisForm.controls.lastName.touched || this.regisForm.controls.lastName.dirty)) &&
-      (this.regisForm.controls.EmailID.valid || (this.regisForm.controls.EmailID.touched || this.regisForm.controls.EmailID.dirty)) &&
-      (this.regisForm.controls.DOB.valid || (this.regisForm.controls.DOB.touched || this.regisForm.controls.DOB.dirty)) &&
-      (this.regisForm.controls.pnumber.valid || (this.regisForm.controls.pnumber.touched || this.regisForm.controls.pnumber.dirty)) &&
-      (this.regisForm.controls.Address1.valid || (this.regisForm.controls.Address1.touched || this.regisForm.controls.Address1.dirty)) &&
-      (this.regisForm.controls.County.valid || (this.regisForm.controls.County.touched || this.regisForm.controls.County.dirty)) &&
-      (this.regisForm.controls.City.valid || (this.regisForm.controls.City.touched || this.regisForm.controls.City.dirty)) &&
-      (this.regisForm.controls.State.valid || (this.regisForm.controls.State.touched || this.regisForm.controls.State.dirty)) &&
-      (this.regisForm.controls.Country.valid || (this.regisForm.controls.Country.touched || this.regisForm.controls.Country.dirty)) &&
-      (this.regisForm.controls.License.valid || (this.regisForm.controls.License.touched || this.regisForm.controls.License.dirty)))
+      if((this.slideOneForm.controls.firstName.valid || (this.slideOneForm.controls.firstName.touched || this.slideOneForm.controls.firstName.dirty)) &&
+      (this.slideOneForm.controls.lastName.valid || (this.slideOneForm.controls.lastName.touched || this.slideOneForm.controls.lastName.dirty)) &&
+      (this.slideOneForm.controls.EmailID.valid || (this.slideOneForm.controls.EmailID.touched || this.slideOneForm.controls.EmailID.dirty)) &&
+      (this.slideOneForm.controls.DOB.valid || (this.slideOneForm.controls.DOB.touched || this.slideOneForm.controls.DOB.dirty)) &&
+      (this.slideOneForm.controls.pnumber.valid || (this.slideOneForm.controls.pnumber.touched || this.slideOneForm.controls.pnumber.dirty)) &&
+      (this.slideTwoForm.controls.Address1.valid || (this.slideTwoForm.controls.Address1.touched || this.slideTwoForm.controls.Address1.dirty)) &&
+      (this.slideTwoForm.controls.County.valid || (this.slideTwoForm.controls.County.touched || this.slideTwoForm.controls.County.dirty)) &&
+      (this.slideTwoForm.controls.City.valid || (this.slideTwoForm.controls.City.touched || this.slideTwoForm.controls.City.dirty)) &&
+      (this.slideTwoForm.controls.State.valid || (this.slideTwoForm.controls.State.touched || this.slideTwoForm.controls.State.dirty)) &&
+      (this.slideTwoForm.controls.Country.valid || (this.slideTwoForm.controls.Country.touched || this.slideTwoForm.controls.Country.dirty)) &&
+      (this.slideThreeForm.controls.License.valid || (this.slideThreeForm.controls.License.touched || this.slideThreeForm.controls.License.dirty)))
       {
       // sets the above declared variables to false
       this.firstName=false;
@@ -329,6 +352,7 @@ export class RegisFormPage {
       
     }
   }
+  
 
   // for camera
   takePicture(){
