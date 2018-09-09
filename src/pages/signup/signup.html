@@ -14,86 +14,131 @@
 
 <ion-content padding>
   <ion-list>
-      <h4> Personal Details:</h4>
-      <form [formGroup]="signupForm"> 
-  
-    
-        <!-- <ion-header> Create an Account</ion-header> -->
-          <ion-label f>Create an Account</ion-label>
-          <!-- The field deals with first name and includes validation such 
-      as required field,maximum length of the field is 30 characters and 
-      the pattern of the field is it only takes lower characters,upper characters, 
-      space and no numerics  -->
-    <ion-item>
-      <ion-label floating>First Name*</ion-label>
-      <ion-input formControlName="firstName" type="text"></ion-input>
-    </ion-item>
-    <!-- The below code refers to incase the above validation 
-      conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="firstName" style="color: #ea6153;">
-            Please fill in your first name which<br>
-             includes only alphabets.</p>
-    </ion-item>
+    <h4> Personal Details:</h4>
+    <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
 
-    <!-- This field deals with the last name and includes the validation such as 
+      <!-- <ion-header> Create an Account</ion-header> -->
+      <ion-label>Create an Account</ion-label>
+      <!-- The field deals with first name and includes validation such
+      as required field,maximum length of the field is 30 characters and
+      the pattern of the field is it only takes lower characters,upper characters,
+      space and no numerics  -->
+      <ion-item>
+        <ion-label floating>First Name *</ion-label>
+        <ion-input
+          type="text"
+          name="firstName"
+          ngModel
+          #firstName="ngModel"
+          pattern='[a-zA-Z ]+'
+          required></ion-input>
+      </ion-item>
+      <!-- The below code refers to incase the above validation
+      conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="(signupForm.submitted || firstName.touched) && firstName.invalid" style="color: #ea6153;">
+          <span *ngIf="firstName.errors.required">
+            Please fill in your first name
+          </span>
+          <span *ngIf="firstName.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
+
+      <!-- This field deals with the last name and includes the validation such as
     required field, maximum length of the field is 30 characters and the pattern of the
   field is it takes lower characters, upper characters, space and no numerics   -->
-    <ion-item>
-      <ion-label floating>LastName*</ion-label> 
-      <ion-input type="text" formControlName="lastName"></ion-input>
-    </ion-item>
-    <!-- The below code refers to incase the above validation 
+      <ion-item>
+        <ion-label floating>LastName *</ion-label>
+        <ion-input
+          type="text"
+          name="lastName"
+          ngModel
+          #lastName="ngModel"
+          pattern= '[a-zA-Z ]+'
+          required></ion-input>
+      </ion-item>
+      <!-- The below code refers to incase the above validation
       conditions fail then an error message is displayed -->
-    <ion-item no-lines>
-        <p *ngIf="lastName" style="color: #ea6153;">
-            Please fill in your last name which<br>
-             includes only alphabets .</p>
-    </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(signupForm.submitted || lastName.touched) && lastName.invalid" style="color: #ea6153;">
+          <span *ngIf="lastName.errors.required">
+            Please fill in your last name
+          </span>
+          <span *ngIf="lastName.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
-    <!-- This field deals with the email address and includes the validation such as
+      <!-- This field deals with the email address and includes the validation such as
     required field, minimum length of the field is 1 character and the pattern of the
-  field is any number of charaters followed @ followed by any number of characters 
+  field is any number of charaters followed @ followed by any number of characters
  follwed by . follwed by any number of characters. ex: emailId@email.com  -->
-    <ion-item>
-      <ion-label floating>EmailID*</ion-label> 
-      <ion-input type="text" formControlName="EmailID" ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>Email *</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          email="true"
+          ngModel
+          #email="ngModel"
+          required></ion-input>
+      </ion-item>
 
-    <!-- The below code refers to incase the above validation 
+      <!-- The below code refers to incase the above validation
       conditions fail then an error message is displayed -->
+      <ion-item no-lines>
+        <p *ngIf="(signupForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
+          <span *ngIf="email.errors.required">
+            Please fill in your email
+          </span>
+          <span *ngIf="!email.errors.required && email.errors.email">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
-    <ion-item no-lines>
-        <p *ngIf="emailId" style="color: #ea6153;">
-          Format: Example1@Email.com<br>
-             </p>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>Password*</ion-label>
+        <ion-input
+          type="text"
+          name="password"
+          ngModel
+          #password="ngModel"
+          minlength=8
+          required></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>Password*</ion-label> 
-      <ion-input type="text" formControlName="Password" ></ion-input>
-    </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(signupForm.submitted || password.touched) && password.invalid" style="color: #ea6153;">
+          <span *ngIf="password.errors.required">
+            Please fill in your password
+          </span>
+          <span *ngIf="password.errors.minlength" >
+            <!-- Your password must include both <br> lower, upper case, a number, and <br> a special  characters <br> -->
+            Minimum length should be 8
+          </span>
+        </p>
+      </ion-item>
 
-    <ion-item no-lines>
-      <p *ngIf="password" style="color: #ea6153;">
-        Password should have atleast 8 characters<br>
-           </p>
-  </ion-item>
-             
-  <ion-item>
-    <ion-label floating>Confirm Password*</ion-label> 
-    <ion-input type="text" formControlName="ConfirmPassword" ></ion-input>
-  </ion-item>
+      <!-- <ion-item>
+        <ion-label floating>Confirm Password*</ion-label>
+        <ion-input
+          type="text"
+          #confirmPassword="ngModel"></ion-input>
+      </ion-item>
 
-  <ion-item no-lines>
-    <p *ngIf="confirmpassword" style="color: #ea6153;">
-      Please re-enter the same password<br>
-         </p>
-</ion-item>
-           
-          
-          <button ion-button block color="lightprimary"(click)="signup()">Signup</button>
-          <!-- <img src="assets/imgs/Signup.png"/> -->
-        </form>
-        </ion-list>
+      <ion-item no-lines>
+        <p *ngIf="confirmPassword != password" style="color: #ea6153;">
+          Please re-enter the same password<br>
+        </p>
+      </ion-item> -->
+
+
+      <button ion-button block color="lightprimary" type="submit">Signup</button>
+      <!-- <img src="assets/imgs/Signup.png"/> -->
+    </form>
+  </ion-list>
 </ion-content>
