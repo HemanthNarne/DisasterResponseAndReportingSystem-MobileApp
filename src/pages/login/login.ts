@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { StartRegisPage } from '../start-regis/start-regis';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { SignupPage } from '../signup/signup';
 // import { FormGroup, Validators } from '@angular/forms';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { User } from '../../common/model/user';
+import { DataService } from '../../common/data.service';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,65 +21,36 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  emailId:boolean=false;
-  password:boolean=false;
 
-  loginForm: FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
-    this.loginForm = formBuilder.group({
-      EmailID: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+'), Validators.required])],
-      Password:['',Validators.compose([Validators.minLength(8), Validators.required])]
-      
-    });
+  user: User;
+  wrongPassword = false;
+
+  constructor(public navCtrl: NavController, public dataService: DataService) {
+    this.wrongPassword = false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-  login(){
-    //in future you need to connect Api connections
-    if (!this.loginForm.controls.EmailID.valid || !this.loginForm.controls.Password.valid) 
-      {
-      if (!this.loginForm.controls.EmailID.valid) {
-        this.emailId = true;
-      }
 
-      else if(this.loginForm.controls.EmailID.valid || (this.loginForm.controls.EmailID.touched || this.loginForm.controls.EmailID.dirty))
-      {
-        if (this.loginForm.controls.EmailID.valid && (this.loginForm.controls.EmailID.touched || this.loginForm.controls.EmailID.dirty)) {
-          this.emailId = false;
-        }
-
-      }
-      if (!this.loginForm.controls.Password.valid) {
-        this.password = true;
-      }
-
-      else if(this.loginForm.controls.Password.valid || (this.loginForm.controls.Password.touched || this.loginForm.controls.Password.dirty))
-    {
-      if(this.loginForm.controls.Password.valid && (this.loginForm.controls.Password.touched || this.loginForm.controls.Password.dirty))
-      {
-        this.password=false;
-      }
-
-    } 
-  }
-    else
-    {
-      this.navCtrl.push(StartRegisPage);
+  onLogin(loginForm: NgForm){
+    if(loginForm.invalid){
+      return;
     }
-    
+    this.dataService.login(loginForm.value)
+      .subscribe((data) => {
+        console.log(data);
+        this.navCtrl.push(StartRegisPage);
+      });
   }
-
 
   signup(){
     this.navCtrl.push(SignupPage);
   }
-  
+
   forgot(){
     this.navCtrl.push(ForgotPasswordPage);
   }
-
 }
 
 

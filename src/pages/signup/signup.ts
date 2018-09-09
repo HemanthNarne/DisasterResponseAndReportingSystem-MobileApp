@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { DataService } from '../../common/data.service';
 import { User } from '../../common/model/user';
 /**
@@ -21,6 +21,10 @@ export class SignupPage {
   user: User;
 
   constructor(public navCtrl: NavController, public dataService: DataService ) {}
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SignupPage');
+  }
 
   onSignup(signupForm: NgForm) {
     // console.log(signupForm);

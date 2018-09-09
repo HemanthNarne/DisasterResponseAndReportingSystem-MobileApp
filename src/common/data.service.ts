@@ -9,8 +9,12 @@ export class DataService {
   // private users: User[] = [];
   constructor(private http: HttpClient) { }
 
-  signup(signup) {
-    return this.http.post("https://drrs.herokuapp.com/signup", signup);
+  signup(signupData) {
+    return this.http.post("https://drrs.herokuapp.com/signup", signupData);
     // return true;
+  }
+
+  login(loginData){
+    return this.http.post("https://drrs.herokuapp.com/signin", loginData);
   }
 }

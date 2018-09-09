@@ -16,32 +16,60 @@
 
 <ion-content padding>
     <ion-list>
-      <form [formGroup]="loginForm"> 
+       <!-- <p *ngIf="wrongPassword" style="color: #ea6153;">
+          Invalid Email/Password
+      </p> -->
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
         <ion-item>
-          <ion-label floating>EmailID*</ion-label> 
-          <ion-input type="text" formControlName="EmailID" ></ion-input>
+          <ion-label floating>Email *</ion-label>
+          <ion-input
+            type="email"
+            name="email"
+            email="true"
+            ngModel
+            #email="ngModel"
+            required></ion-input>
+        </ion-item>
+
+        <!-- The below code refers to incase the above validation
+        conditions fail then an error message is displayed -->
+        <ion-item no-lines>
+          <p *ngIf="(loginForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
+            <span *ngIf="email.errors.required">
+              Please fill in your email
+            </span>
+            <span *ngIf="!email.errors.required && email.errors.email">
+              Invaild pattern
+            </span>
+          </p>
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-label floating>Password *</ion-label>
+          <ion-input
+            type="text"
+            name="password"
+            ngModel
+            #password="ngModel"
+            minlength=8
+            required></ion-input>
         </ion-item>
 
         <ion-item no-lines>
-          <p *ngIf="emailId" style="color: #ea6153;">
-            Format: Example1@Email.com<br>
-               </p>
-      </ion-item>
+          <p *ngIf="(loginForm.submitted || password.touched) && password.invalid" style="color: #ea6153;">
+            <span *ngIf="password.errors.required">
+              Please fill in your password
+            </span>
+            <span *ngIf="password.errors.minlength" >
+              <!-- Your password must include both <br> lower, upper case, a number, and <br> a special  characters <br> -->
+              Minimum length should be 8
+            </span>
+          </p>
+        </ion-item>
 
-
-    
-      <ion-item>
-        <ion-label floating>Password*</ion-label> 
-        <ion-input type="password" formControlName="Password" ></ion-input>
-      </ion-item>
-
-      <ion-item no-lines>
-        <p *ngIf="password" style="color: #ea6153;">
-          Password should have atleast 8 characters<br>
-             </p>
-    </ion-item>
-
-        <button ion-button block color="lightprimary"(click)="login()">Login</button>
+        <button ion-button block color="lightprimary" type="submit">Login</button>
         <button ion-button block color="lightprimary"(click)="signup()">Sign Up</button><br>
         <button ion-button block color="lightprimary"(click)="forgot()">Forgot Password</button>
       </form>
