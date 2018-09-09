@@ -17,4 +17,9 @@ export class DataService {
   login(loginData){
     return this.http.post("https://drrs.herokuapp.com/signin", loginData);
   }
+
+  saveApplicant(regisFormData){
+    return this.http.post("https://drrs.herokuapp.com/saveApplicant", regisFormData);
+  }
+
 }

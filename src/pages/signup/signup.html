@@ -80,8 +80,8 @@
         <ion-label floating>Email *</ion-label>
         <ion-input
           type="email"
-          name="email"
           email="true"
+          name="email"
           ngModel
           #email="ngModel"
           required></ion-input>
@@ -95,7 +95,7 @@
             Please fill in your email
           </span>
           <span *ngIf="!email.errors.required && email.errors.email">
-            Invaild pattern
+            Fomate should be abc@xyz.com
           </span>
         </p>
       </ion-item>
