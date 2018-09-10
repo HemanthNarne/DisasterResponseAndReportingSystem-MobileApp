@@ -18,7 +18,7 @@ import { StartRegisPage } from '../pages/start-regis/start-regis';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = RegisFormPage  ;
+  rootPage: any = LoginPage  ;
   // LoginPage ;
   // RegisFormPage
 
