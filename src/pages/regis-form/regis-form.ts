@@ -26,6 +26,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class RegisFormPage {
 
   user: User;
+  pushNotification='Yes';
 
   @ViewChild('signupSlider') signupSlider: any;
  
