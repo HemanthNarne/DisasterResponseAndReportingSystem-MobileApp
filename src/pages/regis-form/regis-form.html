@@ -167,6 +167,9 @@
                   ngModel
                   #address2="ngModel"></ion-input>
             </ion-item>
+            <ion-item no-lines>
+
+            </ion-item>
 
             <ion-item>
                 <ion-label floating>County *</ion-label>
@@ -262,11 +265,53 @@
       </ion-slide>
       <ion-slide>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label color="primary">Skills</ion-label>
-        </ion-item>
-            <ion-label>CERT</ion-label>
-            <ion-checkbox></ion-checkbox>
+        </ion-item> -->
+            <!-- <ion-label>CERT</ion-label>
+            <ion-checkbox ></ion-checkbox>  -->
+
+
+
+                <ion-item>
+                  <ion-label color="primary">Skills</ion-label>
+                  <!-- <ion-input
+                  name="skills"
+                  ngModel
+                  #skills="ngModel"
+                  required> -->
+                  <ion-select multiple="true"
+                  name="skills"
+                  ngModel
+                  #skills="ngModel"
+                  required>
+                    <ion-option>CERT</ion-option>
+                    <ion-option>EMR</ion-option>
+                    <ion-option>Firefighter</ion-option>
+                    <ion-option>EMT-B</ion-option>
+                    <ion-option>EMT-A</ion-option>
+                    <ion-option>Sworn LE Officer</ion-option>
+                    <ion-option>EMT-P</ion-option>
+                    <ion-option>LPN</ion-option>
+                    <ion-option>RN</ion-option>
+                    <ion-option>RN-NP</ion-option>
+                    <ion-option>PA</ion-option>
+                    <ion-option>MD/DO</ion-option>
+                    <ion-option>Others</ion-option>
+                  <!-- </ion-input>   -->
+                  </ion-select>
+                </ion-item>
+                <ion-item no-lines>
+                  <p *ngIf="(regisForm.submitted || skills.touched) && skills.invalid" style="color: #ea6153;">
+                    <span *ngIf="skills.errors.required">
+                      Please select your skills
+                    </span>
+                    <!-- <span *ngIf="skills.errors.pattern">
+                      Invaild pattern
+                    </span> -->
+                  </p>
+                </ion-item>
+
 
 
         <ion-item>
@@ -329,6 +374,38 @@
                 </span>
               </p>
             </ion-item>
+
+            <ion-item>
+              <ion-label>I agree to recieve push<br> notification</ion-label>
+              <!-- <ion-input
+              name="skills"
+              ngModel
+              #skills="ngModel"
+              required> -->
+              <ion-select
+              name="pushNotification"
+              ngModel
+              #pushNotification="ngModel"
+              required>
+                <ion-option checked="true">Yes</ion-option>
+                <ion-option>No</ion-option>
+
+              <!-- </ion-input>   -->
+              </ion-select>
+            </ion-item>
+            <ion-item no-lines>
+              <p *ngIf="(regisForm.submitted || pushNotification.touched) && pushNotification.invalid" style="color: #ea6153;">
+                <span *ngIf="pushNotification.errors.required">
+                  Please select your skills
+                </span>
+                <!-- <span *ngIf="skills.errors.pattern">
+                  Invaild pattern
+                </span> -->
+              </p>
+            </ion-item>
+
+
+
 
         <button ion-button block color="lightprimary" type="submit">Submit</button>
       </ion-slide>

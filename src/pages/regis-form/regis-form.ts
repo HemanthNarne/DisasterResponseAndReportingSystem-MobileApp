@@ -26,6 +26,7 @@ import { DataService } from '../../common/data.service';
 export class RegisFormPage {
 
   user: User;
+  pushNotification='Yes';
 
   @ViewChild('signupSlider') signupSlider: any;
 

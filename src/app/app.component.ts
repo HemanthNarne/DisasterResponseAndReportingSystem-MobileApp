@@ -22,6 +22,7 @@ export class MyApp {
   rootPage: any = LoginPage;
   // LoginPage ;
   // RegisFormPage
+  // ReportDisasterPage
 
   pages: Array<{ title: string, component: any }>;
 
