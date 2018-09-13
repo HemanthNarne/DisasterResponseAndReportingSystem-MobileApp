@@ -21,6 +21,7 @@ import { NgProgressModule } from "ng2-progressbar";
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 import { DataService } from '../common/data.service';
+import { Push } from '@ionic-native/push';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { DataService } from '../common/data.service';
   providers: [
     StatusBar,
     SplashScreen,
+    Push,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataService

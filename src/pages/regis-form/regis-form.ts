@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { RegisConfirmPage } from "../regis-confirm/regis-confirm";
 import { NgForm } from '@angular/forms';
-import { empty } from 'rxjs/Observer';
 import { User } from '../../common/model/user';
 
 // for camera
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { DataService } from '../../common/data.service';
 
 /**
  * Generated class for the RegisFormPage page.
@@ -28,13 +28,14 @@ export class RegisFormPage {
   user: User;
 
   @ViewChild('signupSlider') signupSlider: any;
- 
+
   public base64Image: string;
   // The constructor is used for the purpose of validation
   constructor(
-    public navCtrl: NavController, 
-    private camera: Camera) {}
- 
+    public navCtrl: NavController,
+    private camera: Camera,
+    private dataService: DataService) {}
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisFormPage');
@@ -50,12 +51,20 @@ prev(){
 
 
 
-  // onSubmit() method refers to navigation to regis-confirmation page only if the 
+  // onSubmit() method refers to navigation to regis-confirmation page only if the
   // validation criteria is satisfied.
   onSubmit(regisForm: NgForm) {
-    console.log(regisForm.value);
+    if(regisForm.invalid){
+      return;
+    }
+    this.dataService.saveApplicant(regisForm.value)
+      .subscribe((data) => {
+        console.log(data);
+        console.log("success");
+        this.navCtrl.push(RegisConfirmPage);
+      });
   }
-  
+
 
   // for camera
   takePicture(){
@@ -65,7 +74,7 @@ prev(){
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
-    
+
     this.camera.getPicture(options).then((imageData) => {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
@@ -75,11 +84,3 @@ prev(){
     });
   }
 }
-
-
-
-
-
-
-
-

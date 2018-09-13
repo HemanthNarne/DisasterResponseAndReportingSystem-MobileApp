@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { StartRegisPage } from '../start-regis/start-regis';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { SignupPage } from '../signup/signup';
@@ -23,10 +23,10 @@ import { DataService } from '../../common/data.service';
 export class LoginPage {
 
   user: User;
-  wrongPassword = false;
+  // wrongPassword = false;
 
-  constructor(public navCtrl: NavController, public dataService: DataService) {
-    this.wrongPassword = false;
+  constructor(public navCtrl: NavController, public dataService: DataService, private alertCtrl: AlertController) {
+    // this.wrongPassword = false;
   }
 
   ionViewDidLoad() {
@@ -41,7 +41,17 @@ export class LoginPage {
       .subscribe((data) => {
         console.log(data);
         this.navCtrl.push(StartRegisPage);
+      },(err)=> {
+        let alert = this.alertCtrl.create({
+          title: 'Incorrect email/password',
+          // subTitle: '10% of battery remaining',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+        // alert("Incorrect email/password");
+        // console.log("error");
       });
+
   }
 
   signup(){

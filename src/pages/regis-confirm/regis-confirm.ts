@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {NgProgressService} from "ng2-progressbar";
 import { DashboardPage } from '../dashboard/dashboard';
 
 /**
@@ -17,14 +16,14 @@ import { DashboardPage } from '../dashboard/dashboard';
 })
 export class RegisConfirmPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private varngpService:NgProgressService) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisConfirmPage');
     // this.navCtrl.push(DashboardPage);
   }
-  
+
   Dashboardrun1(){
     window.alert("There is a flood disaster at South of Mozingo Lake, Polk Township, MO 64468 \n Do you want to accept this EOC request and visit the location?")
   this.navCtrl.setRoot(DashboardPage);
