@@ -65,3 +65,6 @@ Vineeth Agarwal
 6605413180	
 vineeth.agarwal06@gmail.com	
 S530671@nwmissouri.edu
+
+
+<ion-img width="80" height="80" src="..."></ion-img> code for image
