@@ -4,40 +4,44 @@
   Assigned to Vineeth
 -->
 <ion-header>
-  
-
   <ion-navbar>
-      <!-- The below code is used to display the menu button on the top left corner of the screen -->
-      <ion-buttons start>
-          <button ion-button icon-only menuToggle>
-            <ion-icon name="menu"></ion-icon>
-    
-    
-          </button>
-    
-    
-        </ion-buttons>
-    
+    <!-- The below code is used to display the menu button on the top left corner of the screen -->
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Dashboard</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-<!-- <h1>There is a flood disaster at South of Mozingo Lake, Polk Township, MO 64468</h1>
+  <!-- <h1>There is a flood disaster at South of Mozingo Lake, Polk Township, MO 64468</h1>
 
 <h3>Do you want to accept this EOC request and visit the location?</h3>
 <button ion-button block color="white"(click)="Dashboardrun1()">
-    Yes  
+    Yes
   </button>
   <button ion-button block color="white"(click)="Dashboardrun1()">
     No
   </button> -->
 
 
-  <ion-card  (click)="report()">
-      <img src="../../assets/imgs/Floods.jpg"/>
-      <div class="card-title">Floods</div>
-    </ion-card>
+  <ion-card (click)="report()">
+    <img src="../../assets/imgs/Floods.jpg" />
+    <!-- <div>Floods</div> -->
+    <ion-row>
+      <ion-col center text-center>
+        <p>Floods</p>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      <ion-col center text-right>
+        <div icon-start padding-vertical clear small>
+          <ion-icon name="more"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

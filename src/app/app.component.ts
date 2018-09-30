@@ -4,14 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
-import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
-import { RegisConfirmPage } from '../pages/regis-confirm/regis-confirm';
-import { RegisFormPage } from '../pages/regis-form/regis-form';
-import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
-import { SignupPage } from '../pages/signup/signup';
-import { StartRegisPage } from '../pages/start-regis/start-regis';
 
 @Component({
   templateUrl: 'app.html'
