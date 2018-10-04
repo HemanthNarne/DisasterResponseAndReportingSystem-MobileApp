@@ -15,162 +15,242 @@
 
 
 <ion-content padding>
-
-  <ion-label color="primary">Please fill the below details correctly</ion-label>
-
-  <ion-item>
-    <!-- Stacked makes it to small text heading -->
-    <ion-label color="primary" stacked>ReportID</ion-label>
-    <!-- Should still work on Report ID it should automatically generate -->
-    <ion-label color="primary">FLOODS_0907</ion-label>
-  </ion-item>
-
-  <ion-item>
-    <!-- Stacked makes it to small text heading -->
-    <ion-label color="primary" stacked>Reported By</ion-label>
-    <!-- Should still work on reported by it should fetch its value from dashboard -->
-    <ion-label color="primary">John</ion-label>
-  </ion-item>
-
-  <ion-item>
-    <!-- Stacked makes it to small text heading -->
-    <ion-label color="primary" stacked>Incident</ion-label>
-    <!-- Should still work on incident it should fetch its value from dashboard -->
-    <ion-label color="primary">Floods</ion-label>
-  </ion-item>
-
-  <ion-item>
-    <ion-label color="primary" stacked>Picture/Video
-      <br>Choose a file to upload</ion-label>
-    <!-- Provided choose file option to select from local files -->
-    <ion-input color="primary" type="file" placeholder="File"></ion-input>
-  </ion-item>
-
-
-  <ion-label color="primary" stacked>GPS</ion-label>
-  <!-- Button to fetch gps coordinates should still work on the functionality -->
-  <button ion-button icon-only>
-    <ion-icon name="locate"></ion-icon>
-  </button>
-
-  <ion-list>
-    <ion-list-header>
-      Casualities
-      <!-- List of types of casualities are provided user have to provide number for each type -->
-    </ion-list-header>
-    <ion-item>
-      <ion-label color="primary" Fixed>Red</ion-label>
-      <ion-input type="number" placeholder="Number Input with no label"></ion-input>
+  <form (submit)="onSubmit(reportForm)" #reportForm="ngForm">
+    <ion-item no-lines>
+      <ion-label color="primary">Please fill the below details</ion-label>
     </ion-item>
-    <ion-item>
-      <ion-label color="primary" Fixed>Yellow</ion-label>
-      <ion-input type="number" placeholder="Number Input with no label"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" Fixed>Green</ion-label>
-      <ion-input type="number" placeholder="Number Input with no label"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" Fixed>Black</ion-label>
-      <ion-input type="number" placeholder="Number Input with no label"></ion-input>
-    </ion-item>
-  </ion-list>
+    <!-- <ion-item>
+      <ion-label floating>ReportID</ion-label>
+      <ion-input
+        type="text"
+        name="reportID"
+        ngModel
+        #reportID="ngModel"></ion-input>
+    </ion-item> -->
 
-  <!-- <ion-list radio-group [(ngModel)]="relationship">
-    <ion-list-header>
-      Structure Damage
-       Structure damage is classified as low, high and medium one can be choosen (radio button)
-    </ion-list-header>
     <ion-item>
-      <ion-label>Low</ion-label>
-      <ion-radio value="low" checked></ion-radio>
+      <ion-label floating>Reported By</ion-label>
+      <ion-input
+        type="text"
+        name="reportedBy"
+        ngModel
+        #reportedBy="ngModel"
+        pattern='[a-zA-Z ]+'
+        required></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Medium</ion-label>
-      <ion-radio value="medium"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>High</ion-label>
-      <ion-radio value="high" [disabled]="isDisabled"></ion-radio>
-    </ion-item>
-  </ion-list> -->
-
-  <ion-item>
-    <ion-label>Structure Damage</ion-label>
-    <ion-select [(ngModel)]="structuredamage">
-      <ion-option value="low">Low</ion-option>
-      <ion-option value="medium">Medium</ion-option>
-      <ion-option value="high">High</ion-option>
-    </ion-select>
-  </ion-item><br>
-
-  <!-- <ion-list radio-group [(ngModel)]="relationship1">
-    <ion-list-header>
-      Fire
-      Fire is classified as small, large and medium one can be choosen (radio button)
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Small</ion-label>
-      <ion-radio value="small" checked></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>Medium</ion-label>
-      <ion-radio value="mediumfire"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>Large</ion-label>
-      <ion-radio value="large" [disabled]="isDisabled"></ion-radio>
-    </ion-item>
-  </ion-list> -->
-
-  <ion-item>
-    <ion-label>Fire</ion-label>
-    <ion-select [(ngModel)]="fire">
-      <ion-option value="small">Small</ion-option>
-      <ion-option value="mediumfire">Medium</ion-option>
-      <ion-option value="large">Large</ion-option>
-    </ion-select>
-  </ion-item><br>
-
-  <ion-list>
-    <ion-list-header>
-      Utilities
-      <!-- Three types of utilities are provided the user can choose from them (Check box) -->
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Electricity</ion-label>
-      <ion-checkbox [(ngModel)]="electricity"></ion-checkbox>
+    <ion-item no-lines>
+      <p *ngIf="(reportForm.submitted || reportedBy.touched) && reportedBy.invalid" style="color: #ea6153;">
+        <span *ngIf="reportedBy.errors.required">
+          Please fill in your first name
+        </span>
+        <span *ngIf="reportedBy.errors.pattern">
+          Invaild pattern
+        </span>
+      </p>
     </ion-item>
 
     <ion-item>
-      <ion-label>Gas</ion-label>
-      <ion-checkbox [(ngModel)]="gas"></ion-checkbox>
+      <ion-label floating>Incident</ion-label>
+      <ion-input
+        type="text"
+        name="incidentName"
+        ngModel
+        #incidentName="ngModel"
+        pattern='[a-zA-Z ]+'
+        required></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <p *ngIf="(reportForm.submitted || incidentName.touched) && incidentName.invalid" style="color: #ea6153;">
+        <span *ngIf="incidentName.errors.required">
+          Please fill in your first name
+        </span>
+        <span *ngIf="incidentName.errors.pattern">
+          Invaild pattern
+        </span>
+      </p>
+    </ion-item>
+
+    <ion-item><ion-label color="primary">Choose a file to upload <br></ion-label></ion-item>
+    <ion-item>
+        <ion-input
+          type="file"
+          name="files"
+          ngModel
+          #files="ngModel"
+          accept="file_extension"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <ion-icon name="camera" (click)="takePicture()"></ion-icon>
     </ion-item>
 
     <ion-item>
-      <ion-label>Chemical</ion-label>
-      <ion-checkbox [(ngModel)]="chemical"></ion-checkbox>
+      <ion-label color="primary">GPS</ion-label>
+      <!-- Button to fetch gps coordinates should still work on the functionality -->
+    </ion-item>
+    <ion-item no-lines>
+      <ion-icon name="locate"></ion-icon>
     </ion-item>
 
-  </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-input
+              type="number"
+              placeholder="Latitude: 40.350258"
+              value ="40.350258"
+              name="location.lat"
+              ngModel
+              #location.lat="ngModel"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+              type="number"
+              placeholder="Longitude: -94.887089"
+              value ="-94.887089"
+              name="location.lng"
+              ngModel
+              #location.lng="ngModel"></ion-input>
+        </ion-item>
+    </ion-list>
 
 
-  <ion-item>
-    <ion-label color="primary" stacked>HazMat</ion-label>
-    <!-- Textbox is provided to enter about harzadous materials -->
-    <ion-input color="primary" type="text" placeholder="Type in here"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item>
+      <ion-label color="primary">
+          Casualities
+          <!-- List of types of casualities are provided user have to provide number for each type -->
+      </ion-label>
+    </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary" Fixed>Red</ion-label>
+            <ion-input
+              type="number"
+              placeholder="Enter number"
+              name="casualties.red"
+              ngModel
+              #casualties.red="ngModel"
+              pattern='[0-9]+'
+              required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" Fixed>Yellow</ion-label>
+            <ion-input
+              type="number"
+              placeholder="Enter number"
+              name="casualties.yellow"
+              ngModel
+              #casualties.yellow="ngModel"
+              pattern='[0-9]+'
+              required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" Fixed>Green</ion-label>
+            <ion-input
+              type="number"
+              placeholder="Enter number"
+              name="casualties.green"
+              ngModel
+              #casualties.green="ngModel"
+              pattern='[0-9]+'
+              required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" Fixed>Black</ion-label>
+            <ion-input
+              type="number"
+              placeholder="Enter number"
+              name="casualties.black"
+              ngModel
+              #casualties.black="ngModel"
+              pattern='[0-9]+'
+              required></ion-input>
+        </ion-item>
+    </ion-list>
 
-  <ion-item>
-    <ion-label color="primary" stacked>Others</ion-label>
-    <!-- Textbox is provided to enter about any other not mentioned above -->
-    <ion-input color="primary" type="text" placeholder="Type in here"></ion-input>
-  </ion-item>
-  <br>
+
+    <ion-item>
+        <ion-label color="primary">Structure Damage</ion-label>
+        <ion-select multiple="false"
+        name="structuralDamage"
+        ngModel
+        #structuralDamage="ngModel"
+        required>
+          <ion-option>Low</ion-option>
+          <ion-option>Medium</ion-option>
+          <ion-option>High</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Fire</ion-label>
+        <ion-select multiple="false"
+        name="fire"
+        ngModel
+        #fire="ngModel"
+        required>
+          <ion-option>Low</ion-option>
+          <ion-option>Medium</ion-option>
+          <ion-option>High</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- utilities -->
+      <ion-item>
+          <ion-label color="primary">Utilities</ion-label>
+          <ion-select multiple="true"
+          name="utilities"
+          ngModel
+          #utilities="ngModel"
+          required>
+            <ion-option>Electricity</ion-option>
+            <ion-option>Gas</ion-option>
+            <ion-option>Chemical</ion-option>
+          </ion-select>
+      </ion-item>
 
 
-  <!-- Submit button to upload the details -->
-  <button ion-button (click)="Submit()" block> Submit </button>
+      <ion-item>
+        <ion-label floating>HazMat</ion-label>
+        <ion-input
+          type="text"
+          name="hazmat"
+          ngModel
+          #hazmat="ngModel"
+          pattern='[a-zA-Z]+'
+          required></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || hazmat.touched) && hazmat.invalid" style="color: #ea6153;">
+          <span *ngIf="hazmat.errors.required">
+            Please fill in your first name
+          </span>
+          <span *ngIf="hazmat.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
+      <ion-item>
+          <ion-label floating>Others</ion-label>
+          <ion-input
+            type="text"
+            name="others"
+            ngModel
+            #others="ngModel"
+            pattern='[a-zA-Z]+'
+            required></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <p *ngIf="(reportForm.submitted || others.touched) && others.invalid" style="color: #ea6153;">
+            <span *ngIf="others.errors.required">
+              Please fill in your first name
+            </span>
+            <span *ngIf="others.errors.pattern">
+              Invaild pattern
+            </span>
+          </p>
+        </ion-item>
+
+    <button ion-button block color="lightprimary" type="submit">Submit</button>
+  </form>
 </ion-content>
