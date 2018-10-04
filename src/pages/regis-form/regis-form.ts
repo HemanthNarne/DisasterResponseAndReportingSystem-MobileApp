@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { RegisConfirmPage } from "../regis-confirm/regis-confirm";
 import { NgForm } from '@angular/forms';
 import { User } from '../../common/model/user';
@@ -26,7 +26,7 @@ import { DataService } from '../../common/data.service';
 export class RegisFormPage {
 
   user: User;
-  pushNotification='Yes';
+  pushNotification = 'Yes';
 
   @ViewChild('signupSlider') signupSlider: any;
 
@@ -35,53 +35,67 @@ export class RegisFormPage {
   constructor(
     public navCtrl: NavController,
     private camera: Camera,
-    private dataService: DataService) {}
+    private dataService: DataService,
+    private alertCtrl: AlertController) { }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisFormPage');
   }
 
-  next(){
+  next() {
     this.signupSlider.slideNext();
-}
+  }
 
-prev(){
+  prev() {
     this.signupSlider.slidePrev();
-}
+  }
 
 
 
   // onSubmit() method refers to navigation to regis-confirmation page only if the
   // validation criteria is satisfied.
   onSubmit(regisForm: NgForm) {
-    if(regisForm.invalid){
+    if (regisForm.invalid) {
       return;
     }
     this.dataService.saveApplicant(regisForm.value)
       .subscribe((data) => {
         console.log(data);
         console.log("success");
+        let alert = this.alertCtrl.create({
+          title: 'Your Application is\nsubmitted successfully',
+          // subTitle: '10% of battery remaining',
+          buttons: ['ok']
+        });
+        alert.present();
         this.navCtrl.push(RegisConfirmPage);
-      });
-  }
-
-
-  // for camera
-  takePicture(){
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      }), (err) => {
+        let alert = this.alertCtrl.create({
+          title: 'Something went wrong/try again later',
+          // subTitle: '10% of battery remaining',
+          buttons: ['ok']
+        });
+        alert.present();
+      }
     }
 
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
-    });
+
+    // for camera
+    takePicture(){
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.FILE_URI,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
+      }
+
+      this.camera.getPicture(options).then((imageData) => {
+        // imageData is either a base64 encoded string or a file URI
+        // If it's base64 (DATA_URL):
+        this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      }, (err) => {
+        // Handle error
+      });
+    }
   }
-}

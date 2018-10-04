@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { NgForm } from '@angular/forms';
 import { DataService } from '../../common/data.service';
@@ -20,7 +20,10 @@ export class SignupPage {
 
   user: User;
 
-  constructor(public navCtrl: NavController, public dataService: DataService ) {}
+  constructor(
+    public navCtrl: NavController,
+    public dataService: DataService,
+    private alertCtrl: AlertController) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
@@ -28,15 +31,28 @@ export class SignupPage {
 
   onSignup(signupForm: NgForm) {
     // console.log(signupForm);
-    if(signupForm.invalid){
+    if (signupForm.invalid) {
       return;
     }
     this.dataService.signup(signupForm.value)
       .subscribe((data) => {
         console.log(data);
         console.log("success");
+        let alert = this.alertCtrl.create({
+          title: 'Thank you for signing up',
+          // subTitle: '',
+          buttons: ['Dismiss']
+        });
+        alert.present();
         this.navCtrl.push(LoginPage);
-      });
-    // console.log(signupForm.value);
+      }), (err) => {
+        let alert = this.alertCtrl.create({
+          title: 'Something went wrong/try again later',
+          // subTitle: '10% of battery remaining',
+          buttons: ['Dismiss']
+        });
+        alert.present();;
+        // console.log(signupForm.value);
+      }
   }
 }
