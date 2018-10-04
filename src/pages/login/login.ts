@@ -40,18 +40,23 @@ export class LoginPage {
     this.dataService.login(loginForm.value)
       .subscribe((data) => {
         console.log(data);
+        let alert = this.alertCtrl.create({
+          title: 'Login successfully',
+          // subTitle: '10% of battery remaining',
+          buttons: ['ok']
+        });
+        alert.present();
         this.navCtrl.push(StartRegisPage);
       },(err)=> {
         let alert = this.alertCtrl.create({
           title: 'Incorrect email/password',
           // subTitle: '10% of battery remaining',
-          buttons: ['Dismiss']
+          buttons: ['ok']
         });
         alert.present();
         // alert("Incorrect email/password");
         // console.log("error");
       });
-
   }
 
   signup(){

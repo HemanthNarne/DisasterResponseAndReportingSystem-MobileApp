@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
 import { NgForm } from '@angular/forms';
 import { CameraOptions, Camera } from '@ionic-native/camera';
@@ -27,7 +27,8 @@ export class ReportDisasterPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private camera: Camera,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -35,7 +36,7 @@ export class ReportDisasterPage {
   }
 
   // for camera
-  takePicture(){
+  takePicture() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -44,11 +45,11 @@ export class ReportDisasterPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
-     // Handle error
+      // Handle error
     });
   }
 
@@ -59,15 +60,27 @@ export class ReportDisasterPage {
     // reportForm.value.location = this.location;
     // console.log("after" + reportForm.value.location);
 
-    if(reportForm.invalid){
+    if (reportForm.invalid) {
       return;
     }
     this.dataService.saveReport(reportForm.value)
       .subscribe((data) => {
         console.log(data);
         console.log("success");
-        this.navCtrl.push(DashboardPage);
-      });
+        let alert = this.alertCtrl.create({
+          title: 'Report submitted\nsuccessfully',
+          // subTitle: '',
+          buttons: ['ok']
+        });
+        alert.present();
+        this.navCtrl.setRoot(DashboardPage);
+      }), (err) => {
+        let alert = this.alertCtrl.create({
+          title: 'Something went wrong/try again later',
+          // subTitle: '10% of battery remaining',
+          buttons: ['ok']
+        });
+        alert.present();
+      }
   }
-
 }

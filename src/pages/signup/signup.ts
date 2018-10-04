@@ -41,7 +41,7 @@ export class SignupPage {
         let alert = this.alertCtrl.create({
           title: 'Thank you for signing up',
           // subTitle: '',
-          buttons: ['Dismiss']
+          buttons: ['ok']
         });
         alert.present();
         this.navCtrl.push(LoginPage);
@@ -49,7 +49,7 @@ export class SignupPage {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',
           // subTitle: '10% of battery remaining',
-          buttons: ['Dismiss']
+          buttons: ['ok']
         });
         alert.present();;
         // console.log(signupForm.value);
