@@ -39,6 +39,10 @@ Link: https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-MobileA
 # Web Application Repo
 Link: https://github.com/HemanthNarne/DisasterResponseAndReportingSystem-Website
 
+# ionic build for android
+
+ionic cordova build android
+
 # Team Contact Info
 
 Chandra Mouli Kantipudi	
