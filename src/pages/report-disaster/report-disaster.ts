@@ -44,8 +44,10 @@ export class ReportDisasterPage {
   getLocation(){  
     console.log("ng items value is "+ "")
  this.geolocation.getCurrentPosition().then((resp) => {
-    console.log("lat is "+ resp.coords.latitude)
-    console.log("lat is "+ resp.coords.longitude)
+   this.lat=resp.coords.latitude;
+   this.lng=resp.coords.longitude;
+    console.log("lat is "+ this.lat)
+    console.log("lat is "+ this.lng)
        }).catch((error) => {
      console.log('Error getting location', error);
    });

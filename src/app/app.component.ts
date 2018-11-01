@@ -6,6 +6,7 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
+import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +14,8 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ReportDisasterPage;
+  // rootPage: any = LoginPage;
   // LoginPage ;
   // RegisFormPage
   // ReportDisasterPage
