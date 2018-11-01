@@ -62,7 +62,7 @@
     <ion-item no-lines>
       <p *ngIf="(reportForm.submitted || incidentName.touched) && incidentName.invalid" style="color: #ea6153;">
         <span *ngIf="incidentName.errors.required">
-          Please fill in your first name
+          Please fill in the incident name
         </span>
         <span *ngIf="incidentName.errors.pattern">
           Invaild pattern
@@ -89,15 +89,15 @@
       <!-- Button to fetch gps coordinates should still work on the functionality -->
     </ion-item>
     <ion-item no-lines>
-      <ion-icon name="locate"></ion-icon>
+      <ion-icon name="locate" (click)="getLocation()"></ion-icon>
     </ion-item>
 
     <ion-list>
         <ion-item>
             <ion-input
               type="number"
-              placeholder="Latitude: 40.350258"
-              value ="40.350258"
+              placeholder="Latitude: 41.350258"
+              value =[lat]
               name="location.lat"
               ngModel
               #location.lat="ngModel"></ion-input>
@@ -105,8 +105,8 @@
         <ion-item>
             <ion-input
               type="number"
-              placeholder="Longitude: -94.887089"
-              value ="-94.887089"
+              placeholder="Longitude: -92.887089"
+              value =[lng]
               name="location.lng"
               ngModel
               #location.lng="ngModel"></ion-input>
@@ -254,3 +254,5 @@
     <button ion-button block color="lightprimary" type="submit">Submit</button>
   </form>
 </ion-content>
+
+<iframe src="http://localhost:8200" allow="geolocation; microphone; camera"></iframe>

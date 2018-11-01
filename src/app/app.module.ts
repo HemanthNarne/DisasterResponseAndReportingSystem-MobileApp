@@ -22,6 +22,8 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 import { DataService } from '../common/data.service';
 import { Push } from '@ionic-native/push';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { Push } from '@ionic-native/push';
     StatusBar,
     SplashScreen,
     Push,
+    Geolocation,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataService
