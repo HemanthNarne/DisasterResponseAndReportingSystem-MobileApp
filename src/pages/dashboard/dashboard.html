@@ -20,7 +20,8 @@
 
   <div *ngFor="let item of incidents">
     <ion-card (click)="report(item)">
-      <img src="../../assets/imgs/Floods.jpeg" />
+      <!-- commenting image for incidents for now. shall upload dynamic images later -->
+      <!-- <img src="../../assets/imgs/Floods.jpeg" /> -->
       <ion-card-content>
         <ion-card-title>
           {{ item.incidentName }}
