@@ -1,4 +1,4 @@
-export interface ReportModel {
+export interface Report {
   reportID: string,
   reportedBy: string,
   incidentName: string,

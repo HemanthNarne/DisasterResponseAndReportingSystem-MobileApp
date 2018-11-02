@@ -14,7 +14,7 @@ import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ReportDisasterPage;
+  rootPage: any = DashboardPage;
   // rootPage: any = LoginPage;
   // LoginPage ;
   // RegisFormPage

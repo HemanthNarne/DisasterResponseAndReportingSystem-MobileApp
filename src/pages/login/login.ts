@@ -37,9 +37,11 @@ export class LoginPage {
     if(loginForm.invalid){
       return;
     }
+    
     this.dataService.login(loginForm.value)
       .subscribe((data) => {
-        console.log(data);
+        console.log("logged in data is "+data.toString);
+        // console.log(data.body.)
         let alert = this.alertCtrl.create({
           title: 'Login successfully',
           // subTitle: '10% of battery remaining',

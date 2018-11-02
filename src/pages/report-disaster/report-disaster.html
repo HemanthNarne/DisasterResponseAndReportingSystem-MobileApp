@@ -29,55 +29,21 @@
     </ion-item> -->
 
     <ion-item>
-      <ion-label floating>Reported By</ion-label>
-      <ion-input
-        type="text"
-        name="reportedBy"
-        ngModel
-        #reportedBy="ngModel"
-        pattern='[a-zA-Z ]+'
-        required></ion-input>
-    </ion-item>
-    <ion-item no-lines>
-      <p *ngIf="(reportForm.submitted || reportedBy.touched) && reportedBy.invalid" style="color: #ea6153;">
-        <span *ngIf="reportedBy.errors.required">
-          Please fill in your first name
-        </span>
-        <span *ngIf="reportedBy.errors.pattern">
-          Invaild pattern
-        </span>
-      </p>
+      <ion-label>Reported By</ion-label>
+      <ion-input  name="reportedBy" value={{user}} ngModel #reportedBy="ngModel"
+        readonly></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Incident</ion-label>
-      <ion-input
-        type="text"
-        name="incidentName"
-        ngModel
-        #incidentName="ngModel"
-        pattern='[a-zA-Z ]+'
-        required></ion-input>
-    </ion-item>
-    <ion-item no-lines>
-      <p *ngIf="(reportForm.submitted || incidentName.touched) && incidentName.invalid" style="color: #ea6153;">
-        <span *ngIf="incidentName.errors.required">
-          Please fill in the incident name
-        </span>
-        <span *ngIf="incidentName.errors.pattern">
-          Invaild pattern
-        </span>
-      </p>
+      <ion-label >Incident</ion-label>
+      <ion-input name="incidentName" value={{incidentClicked}}  ngModel  #incidentName="ngModel"
+        readonly></ion-input>
     </ion-item>
 
     <ion-item><ion-label color="primary">Choose a file to upload <br></ion-label></ion-item>
     <ion-item>
 
-        <ion-input
-          type="file"
-          name="files"
-          ngModel
-          #files="ngModel"
+        <ion-input  type="file"  name="files"  ngModel  #files="ngModel"
           accept="file_extension"></ion-input>
     </ion-item>
 
@@ -93,15 +59,22 @@
       <ion-icon name="locate" (click)="getLocation()"> Click to fetch current location</ion-icon>
     </ion-item>
 
-    <ion-list>
         <ion-item>
-            <ion-label>Latitude:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{lat}}</ion-label>
+            <ion-label>Latitude:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
+            <ion-input
+            value={{lat}}
+            name="location.lat"
+            ngModel
+            #location.lat="ngModel"
+            readonly></ion-input>
         </ion-item>
+
         <ion-item>
-          
-            <ion-label>Longitude:   &nbsp;{{lng}}</ion-label>
+            <ion-label>Longitude:</ion-label>
+            <ion-input name="location.lng" value={{lng}} ngModel #location.lng="ngModel"
+            readonly></ion-input>
         </ion-item>
-    </ion-list>
+
 
 
     <ion-item>

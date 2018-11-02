@@ -4,7 +4,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { NgForm } from '@angular/forms';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { DataService } from '../../common/data.service';
-import { ReportModel } from '../../common/model/reportModel';
+import { Report } from '../../common/model/Report';
 import { Geolocation } from '@ionic-native/geolocation';
 
 /**
@@ -20,11 +20,12 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'report-disaster.html',
 })
 export class ReportDisasterPage {
-
+  user: string;
+  incidentClicked: string;
   lat: number;
   lng: number;
 
-  report: ReportModel;
+  report: Report;
 
   public base64Image: string;
   constructor(
@@ -38,11 +39,13 @@ export class ReportDisasterPage {
 
 
   ionViewDidLoad() {
+    this.incidentClicked=this.navParams.get('incidentClicked')
+    this.user=this.navParams.get('user')
     console.log('ionViewDidLoad ReportDisasterPage');
   }
 
   getLocation(){  
-    console.log("ng items value is "+ "")
+  
  this.geolocation.getCurrentPosition().then((resp) => {
    this.lat=resp.coords.latitude;
    this.lng=resp.coords.longitude;

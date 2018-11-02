@@ -19,7 +19,7 @@
 <ion-content padding>
 
   <div *ngFor="let item of incidents">
-    <ion-card (click)="report()">
+    <ion-card (click)="report(item)">
       <img src="../../assets/imgs/Floods.jpeg" />
       <ion-card-content>
         <ion-card-title>

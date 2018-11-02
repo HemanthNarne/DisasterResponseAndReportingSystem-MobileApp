@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportDisasterPage } from '../report-disaster/report-disaster';
 import { DataService } from '../../common/data.service';
+import { Incident } from '../../common/model/incident';
 
 /**
  * Generated class for the DashboardPage page.
@@ -16,8 +17,9 @@ import { DataService } from '../../common/data.service';
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-
-  incidents: any;
+  incidentClicked: string;
+  incidents:any
+  user:string;
   isLoading: boolean;
 
   constructor(
@@ -31,6 +33,7 @@ export class DashboardPage {
       .subscribe((data) => {
         console.log(data)
         this.incidents = data['data'];
+
         this.isLoading = false;
     });
     console.log('ionViewDidLoad DashboardPage');
@@ -38,9 +41,10 @@ export class DashboardPage {
 
 
 
-  report()
+  report(item:Incident)
   {
-    this.navCtrl.push(ReportDisasterPage);
+    this.incidentClicked=item.incidentID
+    this.navCtrl.push(ReportDisasterPage,{incidentClicked:this.incidentClicked,user:this.user});
   }
 
 }
