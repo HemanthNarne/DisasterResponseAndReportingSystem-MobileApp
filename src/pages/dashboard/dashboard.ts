@@ -29,6 +29,7 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
+    this.user=this.navParams.get('user')
     this.dataService.getIncidentsList()
       .subscribe((data) => {
         console.log(data)
@@ -36,10 +37,8 @@ export class DashboardPage {
 
         this.isLoading = false;
     });
-    console.log('ionViewDidLoad DashboardPage');
+    console.log('ionViewDidLoad DashboardPage ' +this.user );
   }
-
-
 
   report(item:Incident)
   {

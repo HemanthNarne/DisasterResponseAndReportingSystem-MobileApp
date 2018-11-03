@@ -6,6 +6,7 @@ import { SignupPage } from '../signup/signup';
 // import { FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { User } from '../../common/model/user';
+import { Login } from '../../common/model/login';
 import { DataService } from '../../common/data.service';
 
 /**
@@ -21,8 +22,10 @@ import { DataService } from '../../common/data.service';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  user: User;
+  loginID:string
+  user: any;
+  login:any;
+  // email: string;
   // wrongPassword = false;
 
   constructor(public navCtrl: NavController, public dataService: DataService, private alertCtrl: AlertController) {
@@ -37,18 +40,20 @@ export class LoginPage {
     if(loginForm.invalid){
       return;
     }
-    
+
+    // this.user=    angular.element('#Text1').val();
     this.dataService.login(loginForm.value)
-      .subscribe((data) => {
-        console.log("logged in data is "+data.toString);
-        // console.log(data.body.)
+      .subscribe((data) => {        
+        this.login=(JSON.stringify(loginForm.value));
+        this.user=JSON.parse(this.login)
+        console.log(this.user.email);
         let alert = this.alertCtrl.create({
           title: 'Login successfully',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(StartRegisPage);
+        this.navCtrl.push(StartRegisPage,{userName:this.user.email});
       },(err)=> {
         let alert = this.alertCtrl.create({
           title: 'Incorrect email/password',

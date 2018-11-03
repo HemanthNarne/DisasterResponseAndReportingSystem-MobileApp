@@ -20,6 +20,7 @@
           Invalid Email/Password
       </p> -->
       <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+          <!-- <pre>{{loginForm.value | json}}</pre> -->
         <ion-item>
           <ion-label floating>Email *</ion-label>
           <ion-input

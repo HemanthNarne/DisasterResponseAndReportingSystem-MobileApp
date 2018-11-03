@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
 
 /**
@@ -15,18 +15,22 @@ import { DashboardPage } from '../dashboard/dashboard';
   templateUrl: 'regis-confirm.html',
 })
 export class RegisConfirmPage {
+  user:string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
+    this.user=this.navParams.get('user')
     console.log('ionViewDidLoad RegisConfirmPage');
     // this.navCtrl.push(DashboardPage);
   }
 
   Dashboardrun1(){
     window.alert("There is a flood disaster at South of Mozingo Lake, Polk Township, MO 64468 \n Do you want to accept this EOC request and visit the location?")
-  this.navCtrl.setRoot(DashboardPage);
+  this.navCtrl.setRoot(DashboardPage,{user:this.user});
   }
 
 

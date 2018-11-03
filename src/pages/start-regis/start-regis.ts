@@ -20,21 +20,23 @@ import { DashboardPage } from '../dashboard/dashboard';
   templateUrl: 'start-regis.html',
 })
 export class StartRegisPage {
+  user:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StartRegisPage');
+    this.user=this.navParams.get('userName')
+    console.log('ionViewDidLoad StartRegisPage '+this.user);
   }
   // onStart() deals with the navigation code
   onStart(){
     // When the button is clicked onStart() method is triggered. 
     // push() method is used to navigate from one page to another
-    this.navCtrl.push(RegisFormPage);
+    this.navCtrl.push(RegisFormPage,{user:this.user});
   }
   onStart1()
   {
-    this.navCtrl.setRoot(DashboardPage);
+    this.navCtrl.setRoot(DashboardPage,{user:this.user});
   }
 }

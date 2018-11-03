@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
 import { RegisConfirmPage } from "../regis-confirm/regis-confirm";
 import { NgForm } from '@angular/forms';
 import { User } from '../../common/model/user';
@@ -25,7 +25,7 @@ import { DataService } from '../../common/data.service';
 })
 export class RegisFormPage {
 
-  user: User;
+  user: string;
   pushNotification = 'Yes';
 
   @ViewChild('signupSlider') signupSlider: any;
@@ -34,12 +34,14 @@ export class RegisFormPage {
   // The constructor is used for the purpose of validation
   constructor(
     public navCtrl: NavController,
+    public navParams: NavParams,
     private camera: Camera,
     private dataService: DataService,
     private alertCtrl: AlertController) { }
 
 
   ionViewDidLoad() {
+    this.user=this.navParams.get('user');
     console.log('ionViewDidLoad RegisFormPage');
   }
 
@@ -69,7 +71,7 @@ export class RegisFormPage {
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(RegisConfirmPage);
+        this.navCtrl.push(RegisConfirmPage,{user:this.user});
       }), (err) => {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',
