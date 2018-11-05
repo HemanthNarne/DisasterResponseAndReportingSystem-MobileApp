@@ -93,7 +93,7 @@ export class ReportDisasterPage {
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.setRoot(DashboardPage);
+        this.navCtrl.push(DashboardPage,{user:this.user});
       }), (err) => {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',
