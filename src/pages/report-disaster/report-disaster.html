@@ -185,7 +185,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || hazmat.touched) && hazmat.invalid" style="color: #ea6153;">
           <span *ngIf="hazmat.errors.required">
-            Please fill in your first name
+            Please enter exploited hazardous material
           </span>
           <span *ngIf="hazmat.errors.pattern">
             Invaild pattern
@@ -206,7 +206,7 @@
         <ion-item no-lines>
           <p *ngIf="(reportForm.submitted || others.touched) && others.invalid" style="color: #ea6153;">
             <span *ngIf="others.errors.required">
-              Please fill in your first name
+              Please provide additional information<br> about the incident
             </span>
             <span *ngIf="others.errors.pattern">
               Invaild pattern
