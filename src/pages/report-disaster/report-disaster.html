@@ -79,7 +79,7 @@
 
     <ion-item>
       <ion-label color="primary">
-          Casualities
+          Casualities*
           <!-- List of types of casualities are provided user have to provide number for each type -->
       </ion-label>
     </ion-item>
@@ -89,9 +89,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.red"
+              name="casualties"
               ngModel
-              #casualties.red="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -100,9 +100,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.yellow"
+              name="casualties"
               ngModel
-              #casualties.yellow="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -111,9 +111,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.green"
+              name="casualties"
               ngModel
-              #casualties.green="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -122,13 +122,25 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.black"
+              name="casualties"
               ngModel
-              #casualties.black="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
+
+        <ion-item no-lines>
+          <p *ngIf="(reportForm.submitted || casualties.touched) && casualties.invalid" style="color: #ea6153;">
+            <span *ngIf="casualties.errors.required">
+              Please provide triage details
+            </span>
+            <span *ngIf="casualties.errors.pattern">
+              Invaild pattern
+            </span>
+          </p>
+        </ion-item>
     </ion-list>
+   
 
 
     <ion-item>
