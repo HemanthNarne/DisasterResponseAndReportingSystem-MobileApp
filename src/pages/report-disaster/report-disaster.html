@@ -52,7 +52,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary">GPS</ion-label>
+      <ion-label color="primary">GPS*</ion-label>
       <!-- Button to fetch gps coordinates should still work on the functionality -->
     </ion-item>
     <ion-item no-lines>
@@ -144,7 +144,7 @@
 
 
     <ion-item>
-        <ion-label color="primary">Structure Damage</ion-label>
+        <ion-label color="primary">Structure Damage*</ion-label>
         <ion-select multiple="false"
         name="structuralDamage"
         ngModel
@@ -155,9 +155,19 @@
           <ion-option>High</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || structuralDamage.touched) && structuralDamage.invalid" style="color: #ea6153;">
+          <span *ngIf="structuralDamage.errors.required">
+            <!-- Please provide triage details -->
+          </span>
+          <span *ngIf="structuralDamage.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
       <ion-item>
-        <ion-label color="primary">Fire</ion-label>
+        <ion-label color="primary">Fire*</ion-label>
         <ion-select multiple="false"
         name="fire"
         ngModel
@@ -168,10 +178,20 @@
           <ion-option>High</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || fire.touched) && fire.invalid" style="color: #ea6153;">
+          <span *ngIf="fire.errors.required">
+            <!-- Please provide triage details -->
+          </span>
+          <span *ngIf="fire.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
       <!-- utilities -->
       <ion-item>
-          <ion-label color="primary">Utilities</ion-label>
+          <ion-label color="primary">Utilities*</ion-label>
           <ion-select multiple="true"
           name="utilities"
           ngModel
@@ -182,10 +202,20 @@
             <ion-option>Chemical</ion-option>
           </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || utilities.touched) && utilities.invalid" style="color: #ea6153;">
+          <span *ngIf="utilities.errors.required">
+            <!-- Please provide triage details -->
+          </span>
+          <span *ngIf="utilities.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
 
       <ion-item>
-        <ion-label floating>HazMat</ion-label>
+        <ion-label floating>HazMat*</ion-label>
         <ion-input
           type="text"
           name="hazmat"
@@ -206,7 +236,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-label floating>Others</ion-label>
+          <ion-label floating>Others*</ion-label>
           <ion-input
             type="text"
             name="others"
