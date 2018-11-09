@@ -158,7 +158,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || structuralDamage.touched) && structuralDamage.invalid" style="color: #ea6153;">
           <span *ngIf="structuralDamage.errors.required">
-            <!-- Please provide triage details -->
+            Please provide the level of structural damage
           </span>
           <span *ngIf="structuralDamage.errors.pattern">
             Invaild pattern
@@ -181,7 +181,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || fire.touched) && fire.invalid" style="color: #ea6153;">
           <span *ngIf="fire.errors.required">
-            <!-- Please provide triage details -->
+            Please provide the level of fire damage
           </span>
           <span *ngIf="fire.errors.pattern">
             Invaild pattern
@@ -205,7 +205,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || utilities.touched) && utilities.invalid" style="color: #ea6153;">
           <span *ngIf="utilities.errors.required">
-            <!-- Please provide triage details -->
+            Please provide details on utilities
           </span>
           <span *ngIf="utilities.errors.pattern">
             Invaild pattern
@@ -227,7 +227,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || hazmat.touched) && hazmat.invalid" style="color: #ea6153;">
           <span *ngIf="hazmat.errors.required">
-            Please enter exploited hazardous material
+            Please enter exploited hazardous materials
           </span>
           <span *ngIf="hazmat.errors.pattern">
             Invaild pattern
