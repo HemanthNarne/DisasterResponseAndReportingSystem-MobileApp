@@ -61,6 +61,7 @@ export class RegisFormPage {
     if (regisForm.invalid) {
       return;
     }
+    console.log(regisForm.value)
     this.dataService.saveApplicant(regisForm.value)
       .subscribe((data) => {
         console.log(data);
