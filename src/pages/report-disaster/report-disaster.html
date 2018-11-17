@@ -52,7 +52,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary">GPS</ion-label>
+      <ion-label color="primary">GPS*</ion-label>
       <!-- Button to fetch gps coordinates should still work on the functionality -->
     </ion-item>
     <ion-item no-lines>
@@ -79,7 +79,7 @@
 
     <ion-item>
       <ion-label color="primary">
-          Casualities
+          Casualities*
           <!-- List of types of casualities are provided user have to provide number for each type -->
       </ion-label>
     </ion-item>
@@ -89,9 +89,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.red"
+              name="casualties"
               ngModel
-              #casualties.red="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -100,9 +100,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.yellow"
+              name="casualties"
               ngModel
-              #casualties.yellow="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -111,9 +111,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.green"
+              name="casualties"
               ngModel
-              #casualties.green="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -122,17 +122,29 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties.black"
+              name="casualties"
               ngModel
-              #casualties.black="ngModel"
+              #casualties="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
+
+        <ion-item no-lines>
+          <p *ngIf="(reportForm.submitted || casualties.touched) && casualties.invalid" style="color: #ea6153;">
+            <span *ngIf="casualties.errors.required">
+              Please provide triage details
+            </span>
+            <span *ngIf="casualties.errors.pattern">
+              Invaild pattern
+            </span>
+          </p>
+        </ion-item>
     </ion-list>
+   
 
 
     <ion-item>
-        <ion-label color="primary">Structure Damage</ion-label>
+        <ion-label color="primary">Structure Damage*</ion-label>
         <ion-select multiple="false"
         name="structuralDamage"
         ngModel
@@ -143,9 +155,19 @@
           <ion-option>High</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || structuralDamage.touched) && structuralDamage.invalid" style="color: #ea6153;">
+          <span *ngIf="structuralDamage.errors.required">
+            Please provide the level of structural damage
+          </span>
+          <span *ngIf="structuralDamage.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
       <ion-item>
-        <ion-label color="primary">Fire</ion-label>
+        <ion-label color="primary">Fire*</ion-label>
         <ion-select multiple="false"
         name="fire"
         ngModel
@@ -156,10 +178,20 @@
           <ion-option>High</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || fire.touched) && fire.invalid" style="color: #ea6153;">
+          <span *ngIf="fire.errors.required">
+            Please provide the level of fire damage
+          </span>
+          <span *ngIf="fire.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
       <!-- utilities -->
       <ion-item>
-          <ion-label color="primary">Utilities</ion-label>
+          <ion-label color="primary">Utilities*</ion-label>
           <ion-select multiple="true"
           name="utilities"
           ngModel
@@ -170,10 +202,20 @@
             <ion-option>Chemical</ion-option>
           </ion-select>
       </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || utilities.touched) && utilities.invalid" style="color: #ea6153;">
+          <span *ngIf="utilities.errors.required">
+            Please provide details on utilities
+          </span>
+          <span *ngIf="utilities.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
 
 
       <ion-item>
-        <ion-label floating>HazMat</ion-label>
+        <ion-label floating>HazMat*</ion-label>
         <ion-input
           type="text"
           name="hazmat"
@@ -185,7 +227,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || hazmat.touched) && hazmat.invalid" style="color: #ea6153;">
           <span *ngIf="hazmat.errors.required">
-            Please fill in your first name
+            Please enter exploited hazardous materials
           </span>
           <span *ngIf="hazmat.errors.pattern">
             Invaild pattern
@@ -194,7 +236,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-label floating>Others</ion-label>
+          <ion-label floating>Others*</ion-label>
           <ion-input
             type="text"
             name="others"
@@ -206,7 +248,7 @@
         <ion-item no-lines>
           <p *ngIf="(reportForm.submitted || others.touched) && others.invalid" style="color: #ea6153;">
             <span *ngIf="others.errors.required">
-              Please fill in your first name
+              Please provide additional information<br> about the incident
             </span>
             <span *ngIf="others.errors.pattern">
               Invaild pattern
