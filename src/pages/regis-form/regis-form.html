@@ -47,6 +47,7 @@
                 type="file"
                 name="files"
                 ngModel
+                (change)="onFileChange($event)"
                 #files="ngModel"
                 accept="file_extension"></ion-input>
           </ion-item>
@@ -56,7 +57,7 @@
                     <img [src]="base64Image" *ngIf="base64Image" />
                   <br>
 
-<!-- 
+
           <ion-item>
               <ion-label floating>Limitations</ion-label>
               <ion-input
@@ -66,7 +67,7 @@
                 #limitations="ngModel"
                 pattern= "[a-zA-Z ]+"
                 required></ion-input>
-            </ion-item> -->
+            </ion-item>
             <!-- The below code refers to incase the above validation
             conditions fail then an error message is displayed -->
             <!-- <ion-item no-lines>
