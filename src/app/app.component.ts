@@ -16,11 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = ReportDisaionsterPage;
-<<<<<<< .mine
   // rootPage: any = LoginPage;
-=======
-  rootPage: any = ReportDisasterPage;
->>>>>>> .theirs
   // LoginPage ;
   rootPage: any =  RegisFormPage;
   // ReportDisasterPage
