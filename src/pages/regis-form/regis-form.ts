@@ -26,6 +26,7 @@ import { DataService } from '../../common/data.service';
 export class RegisFormPage {
 
   user: string;
+  selectedFile : File
   pushNotification = 'Yes';
 
   @ViewChild('signupSlider') signupSlider: any;
@@ -53,6 +54,11 @@ export class RegisFormPage {
     this.signupSlider.slidePrev();
   }
 
+  onFileChange(event) {
+    if(event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
 
 
   // onSubmit() method refers to navigation to regis-confirmation page only if the
@@ -61,13 +67,19 @@ export class RegisFormPage {
     if (regisForm.invalid) {
       return;
     }
-    console.log(regisForm.value)
-    this.dataService.saveApplicant(regisForm.value)
+    console.log("regisFormobject is "+regisForm.value.limitations)
+    let input = new FormData();
+    // input=regisForm.value
+    // This can be done a lot prettier; for example automatically assigning values by looping through `this.form.controls`, but we'll keep it as simple as possible here
+    input.append('files', this.selectedFile);
+    input.append('formData', JSON.stringify(regisForm.value));
+  
+    this.dataService.saveApplicant(input)
       .subscribe((data) => {
         console.log(data);
         console.log("success");
         let alert = this.alertCtrl.create({
-          title: 'Your Application is\nsubmitted successfully',
+          title: 'Your Application is \n submitted successfully',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
