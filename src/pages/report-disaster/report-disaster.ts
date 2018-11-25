@@ -24,7 +24,7 @@ export class ReportDisasterPage {
   incidentClicked: string;
   lat: number;
   lng: number;
-
+  selectedFile : File;
   report: Report;
 
   public base64Image: string;
@@ -73,6 +73,13 @@ export class ReportDisasterPage {
     });
   }
 
+  onFileChange(event) {
+    if(event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
+
+
   onSubmit(reportForm: NgForm) {
 
     // console.log(reportForm.value);
@@ -83,8 +90,12 @@ export class ReportDisasterPage {
     if (reportForm.invalid) {
       return;
     }
-    this.dataService.saveReport(reportForm.value)
-      .subscribe((data) => {
+
+    let input = new FormData();
+    input.append('files', this.selectedFile);
+    input.append('formData', JSON.stringify(reportForm.value));
+    // this.dataService.saveReport(reportForm.value)
+    this.dataService.saveReport(input).subscribe((data) => {
         console.log(data);
         console.log("success");
         let alert = this.alertCtrl.create({

@@ -15,10 +15,10 @@ import { RegisFormPage } from '../pages/regis-form/regis-form';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // rootPage: any = ReportDisaionsterPage;
+  rootPage: any = ReportDisasterPage;
   // rootPage: any = LoginPage;
   // LoginPage ;
-  rootPage: any =  RegisFormPage;
+  // rootPage: any =  RegisFormPage;
   // ReportDisasterPage
 
   pages: Array<{ title: string, component: any }>;

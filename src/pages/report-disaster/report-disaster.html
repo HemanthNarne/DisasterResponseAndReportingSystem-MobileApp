@@ -41,11 +41,16 @@
     </ion-item>
 
     <ion-item><ion-label color="primary">Choose a file to upload <br></ion-label></ion-item>
+
     <ion-item>
+        <ion-input type="file" name="files" ngModel (change)="onFileChange($event)" #files="ngModel" accept="file_extension"></ion-input>
+      </ion-item>
+
+    <!-- <ion-item>
 
         <ion-input  type="file"  name="files"  ngModel  #files="ngModel"
           accept="file_extension"></ion-input>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item no-lines>
         <ion-icon name="camera" (click)="takePicture()"></ion-icon>
