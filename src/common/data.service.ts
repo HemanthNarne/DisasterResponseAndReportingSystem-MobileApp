@@ -10,26 +10,26 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   signup(signupData) {
-    return this.http.post("https://drrs.herokuapp.com/signup", signupData);
+    return this.http.post("https://drrs2.herokuapp.com/signup", signupData);
     // return true;
   }
 
   login(loginData){
-    return this.http.post("https://drrs.herokuapp.com/signin", loginData);
+    return this.http.post("https://drrs2.herokuapp.com/signin", loginData);
   }
 
   saveApplicant(regisFormData){
-    return this.http.post("http://localhost:3000/saveApplicant", regisFormData);
-    // return this.http.post("https://drrs.herokuapp.com/saveApplicant", regisFormData);
+    // return this.http.post("http://localhost:3000/saveApplicant", regisFormData);
+    return this.http.post("https://drrs2.herokuapp.com/saveApplicant", regisFormData);
   }
 
   saveReport(reportFormData){
-    // return this.http.post("https://drrs.herokuapp.com/saveReport", reportFormData);
+    // return this.http.post("https://drrs2.herokuapp.com/saveReport", reportFormData);
     return this.http.post("http://localhost:3000/saveReport", reportFormData);
   }
 
   getIncidentsList(){
-    return this.http.get("https://drrs.herokuapp.com/getIncidentsList");
+    return this.http.get("https://drrs2.herokuapp.com/getIncidentsList");
   }
 
 }
