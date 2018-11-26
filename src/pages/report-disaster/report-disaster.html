@@ -140,7 +140,7 @@
               Please provide triage details
             </span>
             <span *ngIf="casualties.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only numbers
             </span>
           </p>
         </ion-item>
@@ -167,7 +167,7 @@
             Please provide the level of structural damage
           </span>
           <span *ngIf="structuralDamage.errors.pattern">
-            Invaild pattern
+            Invaild pattern. 
           </span>
         </p>
       </ion-item>
@@ -188,7 +188,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || fire.touched) && fire.invalid" style="color: #ea6153;">
           <span *ngIf="fire.errors.required">
-            Please provide the level of fire damage
+            Please provide the level of fire intensity
           </span>
           <span *ngIf="fire.errors.pattern">
             Invaild pattern
@@ -213,7 +213,7 @@
       <ion-item no-lines>
         <p *ngIf="(reportForm.submitted || utilities.touched) && utilities.invalid" style="color: #ea6153;">
           <span *ngIf="utilities.errors.required">
-            Please provide details on utilities
+            Please provide details on utilities damaged
           </span>
           <span *ngIf="utilities.errors.pattern">
             Invaild pattern
