@@ -15,8 +15,8 @@ import { RegisFormPage } from '../pages/regis-form/regis-form';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = RegisFormPage;
-  // rootPage: any = LoginPage;
+  // rootPage: any = ReportDisasterPage;
+  rootPage: any = LoginPage;
   // LoginPage ;
   // rootPage: any =  RegisFormPage;
   // ReportDisasterPage
