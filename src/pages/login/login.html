@@ -28,6 +28,7 @@
             name="email"
             email="true"
             ngModel
+            pattern="[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+"
             #email="ngModel"
             required></ion-input>
         </ion-item>
@@ -37,9 +38,11 @@
         <ion-item no-lines>
           <p *ngIf="(loginForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
             <span *ngIf="email.errors.required">
-              Please fill in your email
+              Please fill in your email address<br>
+              Format: example@example.com
             </span>
-            <span *ngIf="!email.errors.required && email.errors.email">
+            <span *ngIf="(!email.errors.required || email.errors.email) ||  password.errors.pattern">
+                <!--  -->
               Invaild pattern
             </span>
           </p>
@@ -61,7 +64,9 @@
         <ion-item no-lines>
           <p *ngIf="(loginForm.submitted || password.touched) && password.invalid" style="color: #ea6153;">
             <span *ngIf="password.errors.required">
-              Please fill in your password
+              Please fill in your password<br>
+              Minimum Length: 8 characters          
+
             </span>
             <span *ngIf="password.errors.minlength" >
               <!-- Your password must include both <br> lower, upper case, a number, and <br> a special  characters <br> -->

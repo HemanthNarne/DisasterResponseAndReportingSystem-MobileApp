@@ -44,7 +44,7 @@ export class SignupPage {
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(LoginPage);
+        this.navCtrl.setRoot(LoginPage);
       }), (err) => {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',

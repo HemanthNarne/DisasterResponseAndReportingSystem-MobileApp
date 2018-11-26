@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 import { RegisFormPage } from '../pages/regis-form/regis-form';
 import { StartRegisPage } from '../pages/start-regis/start-regis';
+import { RegisConfirmPage } from '../pages/regis-confirm/regis-confirm';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = ReportDisasterPage;
-  rootPage: any = StartRegisPage ;
+  rootPage: any = RegisConfirmPage ;
   // StartRegisPage
   // LoginPage ;
   // rootPage: any =  RegisFormPage;

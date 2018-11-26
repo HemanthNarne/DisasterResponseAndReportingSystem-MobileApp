@@ -31,7 +31,8 @@
               Please fill in your first name
             </span>
             <span *ngIf="firstName.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
+
             </span>
           </p>
         </ion-item>
@@ -48,14 +49,14 @@
               Please fill in your last name
             </span>
             <span *ngIf="lastName.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
 
         <ion-item>
           <ion-label floating>Email *</ion-label>
-          <ion-input type="email" email="true" name="email" ngModel #email="ngModel" required></ion-input>
+          <ion-input type="email" email="true" name="email" pattern="[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+" ngModel #email="ngModel" required></ion-input>
         </ion-item>
 
         <!-- The below code refers to incase the above validation
@@ -63,10 +64,11 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
             <span *ngIf="email.errors.required">
-              Please fill in your email
+              Please fill in your email address<br>
+              Format: example@example.com
             </span>
-            <span *ngIf="!email.errors.required && email.errors.email">
-              Fomate should be abc@xyz.com
+            <span *ngIf="!email.errors.required && email.errors.email || email.errors.pattern">
+              Invalid pattern. Format: abc@xyz.com
             </span>
           </p>
         </ion-item>
@@ -81,16 +83,17 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || dob.touched) && dob.invalid" style="color: #ea6153;">
             <span *ngIf="dob.errors.required">
-              Please fill in your date of birth correctly. Format:MM/DD/YYYY
+              Please fill in your date of birth.<br> Format: MM/DD/YYYY
             </span>
             <span *ngIf="dob.errors.pattern">
               Invaild pattern
+              Format: MM/DD/YYYY
             </span>
           </p>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Mobile Number</ion-label>
+          <ion-label floating>Mobile Number*</ion-label>
           <ion-input type="text" name="mobileNumber" ngModel #mobileNumber="ngModel" pattern='[0-9]{10}' required></ion-input>
         </ion-item>
         <!-- The below code refers to incase the above validation
@@ -101,7 +104,7 @@
               Please fill in your phone number
             </span>
             <span *ngIf="mobileNumber.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only numbers
             </span>
           </p>
         </ion-item>
@@ -116,7 +119,7 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || address1.touched) && address1.invalid" style="color: #ea6153;">
             <span *ngIf="address1.errors.required">
-              Please fill in your last name
+              Please fill in your address
             </span>
             <!-- <span *ngIf="address1.errors.pattern">
                   Invaild pattern
@@ -141,10 +144,10 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || county.touched) && county.invalid" style="color: #ea6153;">
             <span *ngIf="county.errors.required">
-              Please fill in your address
+              Please fill in your county
             </span>
             <span *ngIf="county.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
@@ -161,7 +164,7 @@
               Please fill in your city
             </span>
             <span *ngIf="city.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
@@ -175,10 +178,10 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || state.touched) && state.invalid" style="color: #ea6153;">
             <span *ngIf="state.errors.required">
-              Please fill in your State
+              Please fill in your state
             </span>
             <span *ngIf="state.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
@@ -192,10 +195,10 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || country.touched) && country.invalid" style="color: #ea6153;">
             <span *ngIf="country.errors.required">
-              Please fill in your Country
+              Please fill in your country
             </span>
             <span *ngIf="country.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
@@ -211,7 +214,7 @@
 
 
         <ion-item>
-          <ion-label color="primary">Skills</ion-label>
+          <ion-label color="primary">Skills*</ion-label>
           <!-- <ion-input
                   name="skills"
                   ngModel
@@ -230,14 +233,14 @@
             <ion-option>RN-NP</ion-option>
             <ion-option>PA</ion-option>
             <ion-option>MD/DO</ion-option>
-            <ion-option>Others</ion-option>
+            <ion-option>None</ion-option>
             <!-- </ion-input>   -->
           </ion-select>
         </ion-item>
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || skills.touched) && skills.invalid" style="color: #ea6153;">
             <span *ngIf="skills.errors.required">
-              Please select your skills
+              Please select your respective skills 
             </span>
             <!-- <span *ngIf="skills.errors.pattern">
                       Invaild pattern
@@ -246,7 +249,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-label floating>License/Certification</ion-label>
+          <ion-label floating>License/Certification*</ion-label>
           <ion-input type="text" name="licenseNumber" ngModel #licenseNumber="ngModel" pattern="[a-zA-Z0-9]+" required></ion-input>
         </ion-item>
         <!-- The below code refers to incase the above validation
@@ -254,10 +257,11 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || licenseNumber.touched) && licenseNumber.invalid" style="color: #ea6153;">
             <span *ngIf="licenseNumber.errors.required">
-              Please fill in your license Number
+              Please fill in your license number.<br>
+              If not enter "none"
             </span>
             <span *ngIf="licenseNumber.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets and numbers
             </span>
           </p>
         </ion-item>
@@ -276,7 +280,7 @@
 
 
         <ion-item>
-          <ion-label floating>Limitations</ion-label>
+          <ion-label floating>Limitations*</ion-label>
           <ion-input type="text" name="limitations" ngModel #limitations="ngModel" pattern="[a-zA-Z ]+" required></ion-input>
         </ion-item>
         <!-- The below code refers to incase the above validation
@@ -284,16 +288,17 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || limitations.touched) && limitations.invalid" style="color: #ea6153;">
             <span *ngIf="limitations.errors.required">
-              Please fill in limitations if any
+              Please fill in limitations if any.<br>
+              If not enter "none"
             </span>
             <span *ngIf="limitations.errors.pattern">
-              Invaild pattern
+              Invaild pattern. Only alphabets
             </span>
           </p>
         </ion-item>
         <ion-item>
-          <ion-label>I agree to recieve push
-            <br> notification</ion-label>
+          <ion-label>I agree to receive push
+            <br> notifications*</ion-label>
           <!-- <ion-input
               name="skills"
               ngModel
@@ -309,7 +314,7 @@
         <ion-item no-lines>
           <p *ngIf="(regisForm.submitted || pushNotification.touched) && pushNotification.invalid" style="color: #ea6153;">
             <span *ngIf="pushNotification.errors.required">
-              Please select your skills
+              Select "Yes"
             </span>
             <!-- <span *ngIf="skills.errors.pattern">
                   Invaild pattern

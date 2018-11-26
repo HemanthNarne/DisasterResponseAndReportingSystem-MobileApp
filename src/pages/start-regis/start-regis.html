@@ -13,8 +13,8 @@
     <!-- The title is Start Registration -->
     <ion-title>Start Registration</ion-title>
     <ion-buttons end>
-      <button ion-button icon-right (click)="next()">Logout
-        <ion-icon name=""></ion-icon>
+      <button ion-button icon-right (click)="next()" >Logout
+        <!-- <ion-icon name=""></ion-icon> -->
       </button>
     </ion-buttons>
    
@@ -26,7 +26,7 @@
 <ion-content padding>
 
     <!-- h1 tag is used for heading purpose  -->
-  <h1> Press start to fill the Registartion from</h1>
+  <h1> Press start to fill the registartion form</h1>
     <!-- The field deals with button, which on clicking navigates to regis-form page. When th button is clicked the
     onStart() method is called. The implementation of onStart() is written in start-regis.ts      -->
     <button ion-button full class="style"(click)="onStart()">Start</button><br>
