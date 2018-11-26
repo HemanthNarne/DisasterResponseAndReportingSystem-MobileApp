@@ -48,7 +48,7 @@ export class LoginPage {
         this.user=JSON.parse(this.login)
         console.log(this.user.email);
         let alert = this.alertCtrl.create({
-          title: 'Login successfully',
+          title: 'Login successful!',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
