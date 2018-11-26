@@ -6,6 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { RegisFormPage } from '../regis-form/regis-form';
 import { DashboardPage } from '../dashboard/dashboard';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the StartRegisPage page.
@@ -38,5 +39,8 @@ export class StartRegisPage {
   onStart1()
   {
     this.navCtrl.setRoot(DashboardPage,{user:this.user});
+  }
+  next(){
+    this.navCtrl.setRoot(LoginPage);
   }
 }
