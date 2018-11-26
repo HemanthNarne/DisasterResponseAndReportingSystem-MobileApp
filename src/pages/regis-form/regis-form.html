@@ -56,7 +56,7 @@
 
         <ion-item>
           <ion-label floating>Email *</ion-label>
-          <ion-input type="email" email="true" name="email" pattern="[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+" ngModel #email="ngModel" required></ion-input>
+          <ion-input type="email" email="true" name="email" pattern="[a-zA-Z0-9]+[.]*[a-zA-Z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+" ngModel #email="ngModel" required></ion-input>
         </ion-item>
 
         <!-- The below code refers to incase the above validation
@@ -67,7 +67,7 @@
               Please fill in your email address<br>
               Format: example@example.com
             </span>
-            <span *ngIf="!email.errors.required && email.errors.email || email.errors.pattern">
+            <span *ngIf="(!email.errors.required || email.errors.email) ||  password.errors.pattern">
               Invalid pattern. Format: abc@xyz.com
             </span>
           </p>

@@ -28,7 +28,7 @@
             name="email"
             email="true"
             ngModel
-            pattern="[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+"
+            pattern="[a-zA-Z0-9]+[.]*[a-zA-Z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+"
             #email="ngModel"
             required></ion-input>
         </ion-item>
@@ -43,7 +43,7 @@
             </span>
             <span *ngIf="(!email.errors.required || email.errors.email) ||  password.errors.pattern">
                 <!--  -->
-              Invaild pattern
+              Invaild pattern.<br> Format: example@example.com
             </span>
           </p>
         </ion-item>
