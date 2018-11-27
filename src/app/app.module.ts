@@ -23,6 +23,7 @@ import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 import { DataService } from '../common/data.service';
 import { Push } from '@ionic-native/push';
 import { Geolocation } from '@ionic-native/geolocation';
+import { PasswordPage } from '../pages/password/password';
 
 
 
@@ -37,7 +38,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     RegisFormPage,
     RegisConfirmPage,
     DashboardPage,
-    ReportDisasterPage
+    ReportDisasterPage,
+    PasswordPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     RegisFormPage,
     RegisConfirmPage,
     DashboardPage,
-    ReportDisasterPage
+    ReportDisasterPage,
+    PasswordPage
   ],
   providers: [
     StatusBar,

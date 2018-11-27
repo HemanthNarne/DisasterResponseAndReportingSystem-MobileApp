@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { PasswordPage } from '../password/password';
+import { NgForm } from '@angular/forms';
 
 /**
- * Generated class for the ForgotPasswordPage page.
+ * Generated class for the PasswordPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,19 +12,23 @@ import { PasswordPage } from '../password/password';
 
 @IonicPage()
 @Component({
-  selector: 'page-forgot-password',
-  templateUrl: 'forgot-password.html',
+  selector: 'page-password',
+  templateUrl: 'password.html',
 })
-export class ForgotPasswordPage {
+export class PasswordPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPasswordPage');
+    console.log('ionViewDidLoad PasswordPage');
   }
   Submit(){
-    this.navCtrl.push(PasswordPage);
+    // this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
+
+  
+
 
 }

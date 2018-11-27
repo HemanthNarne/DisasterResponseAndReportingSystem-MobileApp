@@ -10,6 +10,7 @@ import { ReportDisasterPage } from '../pages/report-disaster/report-disaster';
 import { RegisFormPage } from '../pages/regis-form/regis-form';
 import { StartRegisPage } from '../pages/start-regis/start-regis';
 import { RegisConfirmPage } from '../pages/regis-confirm/regis-confirm';
+import { PasswordPage } from '../pages/password/password';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = ReportDisasterPage;
-  rootPage: any = LoginPage ;
+  rootPage: any = LoginPage;
+  // PasswordPage
   // StartRegisPage
   // LoginPage ;
   // rootPage: any =  RegisFormPage;
