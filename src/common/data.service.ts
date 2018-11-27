@@ -14,8 +14,14 @@ export class DataService {
     // return true;
   }
 
-  resetPassword(resetEmail) {
-    return this.http.post("http://localhost:3000/resetPassword", resetEmail);
+  updatePassword(tempAndNewPWD) {
+    return this.http.get("http://localhost:3000/updatePassword/"+ tempAndNewPWD.tempPassword+"/"+tempAndNewPWD.newPassword);
+    // return this.http.post("https://drrs.herokuapp.com/updatePassword", tempAndNewPWD);
+    // return true;
+  }
+
+  resetPassword(data) {
+    return this.http.get("http://localhost:3000/resetPassword/"+data.email);
     // return this.http.post("https://drrs.herokuapp.com/resetPassword", resetEmail);
     // return true;
   }
