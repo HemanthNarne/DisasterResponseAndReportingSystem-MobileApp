@@ -20,58 +20,33 @@
     <ion-slides #signupSlider>
       <ion-slide>
         <ion-item>
-          <ion-label floating>First Name *</ion-label>
-          <ion-input type="text" name="firstName" ngModel #firstName="ngModel" pattern='[a-zA-Z ]+' required></ion-input>
+          <ion-label>First Name</ion-label>
+          <ion-input  name="firstName"  [(ngModel)]="firstName"
+            readonly></ion-input>
         </ion-item>
-        <!-- The below code refers to incase the above validation
-          conditions fail then an error message is displayed -->
         <ion-item no-lines>
-          <p *ngIf="(regisForm.submitted || firstName.touched) && firstName.invalid" style="color: #ea6153;">
-            <span *ngIf="firstName.errors.required">
-              Please fill in your first name
-            </span>
-            <span *ngIf="firstName.errors.pattern">
-              Invaild pattern. Only alphabets
 
-            </span>
-          </p>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Last Name *</ion-label>
-          <ion-input type="text" name="lastName" ngModel #lastName="ngModel" pattern='[a-zA-Z ]+' required></ion-input>
-        </ion-item>
-        <!-- The below code refers to incase the above validation
-            conditions fail then an error message is displayed -->
-        <ion-item no-lines>
-          <p *ngIf="(regisForm.submitted || lastName.touched) && lastName.invalid" style="color: #ea6153;">
-            <span *ngIf="lastName.errors.required">
-              Please fill in your last name
-            </span>
-            <span *ngIf="lastName.errors.pattern">
-              Invaild pattern. Only alphabets
-            </span>
-          </p>
-        </ion-item>
+            <ion-label>Last Name</ion-label>
+            <ion-input  name="lastName"  [(ngModel)]="lastName"
+              readonly></ion-input>
+          </ion-item>
 
-        <ion-item>
-          <ion-label floating>Email *</ion-label>
-          <ion-input type="email" email="true" name="email" pattern="[a-zA-Z0-9]+[.]*[a-zA-Z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+" ngModel #email="ngModel" required></ion-input>
-        </ion-item>
+          <ion-item no-lines>
 
-        <!-- The below code refers to incase the above validation
-              conditions fail then an error message is displayed -->
-        <ion-item no-lines>
-          <p *ngIf="(regisForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
-            <span *ngIf="email.errors.required">
-              Please fill in your email address<br>
-              Format: example@example.com
-            </span>
-            <span *ngIf="(!email.errors.required || email.errors.email) ||  password.errors.pattern">
-              Invalid pattern. Format: abc@xyz.com
-            </span>
-          </p>
-        </ion-item>
+            </ion-item>
+
+          <ion-item>
+              <ion-label>Email</ion-label>
+              <ion-input  name="user"  [(ngModel)]="user"
+                readonly></ion-input>
+            </ion-item>
+
+            <ion-item no-lines>
+
+              </ion-item>
 
 
         <ion-item>

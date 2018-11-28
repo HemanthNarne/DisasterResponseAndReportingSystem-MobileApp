@@ -61,7 +61,7 @@
       <!-- Button to fetch gps coordinates should still work on the functionality -->
     </ion-item>
     <ion-item no-lines>
-      <ion-icon name="locate" (click)="getLocation()"> Click to fetch current location</ion-icon>
+      <ion-icon name="locate" color="primary" (click)="getLocation()"> Click here to fetch current location</ion-icon>
     </ion-item>
 
         <ion-item>
@@ -99,6 +99,10 @@
               #casualties.red="ngModel"
               pattern='[0-9]+'
               required></ion-input>
+              
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label>Implies "Requires immediate treatment"</ion-label>
         </ion-item>
         
         <ion-item>
@@ -112,6 +116,9 @@
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
+        <ion-item no-lines>
+          <ion-label>Implies "Requires observation"</ion-label>
+        </ion-item>
         <ion-item>
             <ion-label color="green" Fixed>Green</ion-label>
             <ion-input
@@ -123,6 +130,9 @@
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
+        <ion-item no-lines>
+          <ion-label>Implies "No or little wounded"</ion-label>
+        </ion-item>
         <ion-item>
             <ion-label color="black" Fixed>Black</ion-label>
             <ion-input
@@ -133,6 +143,9 @@
               #casualties.black="ngModel"
               pattern='[0-9]+'
               required></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label>Implies "Number of people deceased"</ion-label>
         </ion-item>
 
         <!-- <ion-item no-lines>

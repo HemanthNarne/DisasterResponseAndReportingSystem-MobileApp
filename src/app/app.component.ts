@@ -12,6 +12,7 @@ import { StartRegisPage } from '../pages/start-regis/start-regis';
 import { RegisConfirmPage } from '../pages/regis-confirm/regis-confirm';
 import { PasswordPage } from '../pages/password/password';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { SignupPage } from '../pages/signup/signup';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,12 +21,13 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = ReportDisasterPage;
-  // rootPage: any = LoginPage;
-  rootPage: any = ForgotPasswordPage;
+   rootPage: any = LoginPage;
+  // rootPage: any = ReportDisasterPage;
 
   // PasswordPage
   // StartRegisPage
   // LoginPage ;
+  // SignupPage
   // rootPage: any =  RegisFormPage;
   // ReportDisasterPage
 
