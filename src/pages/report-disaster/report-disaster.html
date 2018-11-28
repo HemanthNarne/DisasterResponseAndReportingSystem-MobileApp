@@ -94,20 +94,21 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties"
+              name="casualties.red"
               ngModel
-              #casualties="ngModel"
+              #casualties.red="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
+        
         <ion-item>
             <ion-label color="yellow" Fixed>Yellow</ion-label>
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties"
+              name="casualties.yellow"
               ngModel
-              #casualties="ngModel"
+              #casualties.yellow="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -116,9 +117,9 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties"
+              name="casualties.green"
               ngModel
-              #casualties="ngModel"
+              #casualties.green="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
@@ -127,14 +128,14 @@
             <ion-input
               type="number"
               placeholder="Enter number"
-              name="casualties"
+              name="casualties.black"
               ngModel
-              #casualties="ngModel"
+              #casualties.black="ngModel"
               pattern='[0-9]+'
               required></ion-input>
         </ion-item>
 
-        <ion-item no-lines>
+        <!-- <ion-item no-lines>
           <p *ngIf="(reportForm.submitted || casualties.touched) && casualties.invalid" style="color: #ea6153;">
             <span *ngIf="casualties.errors.required">
               Please provide triage details
@@ -143,7 +144,7 @@
               Invaild pattern. Only numbers
             </span>
           </p>
-        </ion-item>
+        </ion-item> -->
     </ion-list>
    
 
