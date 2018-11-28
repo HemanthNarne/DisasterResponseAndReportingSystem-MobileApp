@@ -25,7 +25,7 @@ import { DataService } from '../../common/data.service';
 })
 export class RegisFormPage {
 
-  user: string;
+  email: string;
   selectedFile : File
   pushNotification = 'Yes';
   firstName:string;
@@ -44,10 +44,10 @@ export class RegisFormPage {
 
 
   ionViewDidLoad() {
-    this.user=this.navParams.get('user');
+    this.email=this.navParams.get('user');
     this.firstName=this.navParams.get('firstName');
     this.lastName=this.navParams.get('lastName');
-    console.log('ionViewDidLoad RegisFormPage'+this.firstName+this.lastName);
+    console.log('ionViewDidLoad RegisFormPage'+this.firstName+this.lastName+"email is "+ this.email);
   }
 
   next() {
@@ -77,18 +77,18 @@ export class RegisFormPage {
     // This can be done a lot prettier; for example automatically assigning values by looping through `this.form.controls`, but we'll keep it as simple as possible here
     input.append('files', this.selectedFile);
     input.append('formData', JSON.stringify(regisForm.value));
-  
+    console.log("form is "+JSON.stringify(regisForm.value))
     this.dataService.saveApplicant(input)
       .subscribe((data) => {
         console.log(data);
         console.log("success");
         let alert = this.alertCtrl.create({
-          title: 'Your Application is \n submitted successfully',
+          title: 'Your application has been \n submitted successfully',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(RegisConfirmPage,{user:this.user});
+        this.navCtrl.push(RegisConfirmPage,{user:this.email});
       }), (err) => {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',

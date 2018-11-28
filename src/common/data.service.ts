@@ -21,7 +21,7 @@ export class DataService {
 
   resetPassword(data) {
     // return this.http.get("http://localhost:3000/resetPassword/"+data.email);
-    return this.http.post("https://drrs.herokuapp.com/resetPassword", data.email);
+    return this.http.get("https://drrs.herokuapp.com/resetPassword/"+data.email);
     // return true;
   }
 

@@ -38,12 +38,11 @@
         <ion-item no-lines>
           <p *ngIf="(loginForm.submitted || email.touched) && email.invalid" style="color: #ea6153;">
             <span *ngIf="email.errors.required">
-              Please fill in your email address<br>
-              Format: example@example.com
+              Please fill in your email address
             </span>
             <span *ngIf="(!email.errors.required || email.errors.email) ||  password.errors.pattern">
                 <!--  -->
-              Invaild pattern.<br> Format: example@example.com
+              <br> Format: example@example.com
             </span>
           </p>
         </ion-item>
