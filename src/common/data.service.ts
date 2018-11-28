@@ -15,14 +15,13 @@ export class DataService {
   }
 
   updatePassword(tempAndNewPWD) {
-    return this.http.get("http://localhost:3000/updatePassword/"+ tempAndNewPWD.tempPassword+"/"+tempAndNewPWD.newPassword);
-    // return this.http.post("https://drrs.herokuapp.com/updatePassword", tempAndNewPWD);
-    // return true;
+    // return this.http.get("http://localhost:3000/updatePassword/"+ tempAndNewPWD.tempPassword+"/"+tempAndNewPWD.newPassword);
+    return this.http.get("https://drrs.herokuapp.com/updatePassword/"+ tempAndNewPWD.tempPassword+"/"+tempAndNewPWD.newPassword);
   }
 
   resetPassword(data) {
-    return this.http.get("http://localhost:3000/resetPassword/"+data.email);
-    // return this.http.post("https://drrs.herokuapp.com/resetPassword", resetEmail);
+    // return this.http.get("http://localhost:3000/resetPassword/"+data.email);
+    return this.http.post("https://drrs.herokuapp.com/resetPassword", data.email);
     // return true;
   }
 
@@ -31,17 +30,24 @@ export class DataService {
   }
 
   saveApplicant(regisFormData){
-    return this.http.post("http://localhost:3000/saveApplicant", regisFormData);
-    // return this.http.post("https://drrs.herokuapp.com/saveApplicant", regisFormData);
+    // return this.http.post("http://localhost:3000/saveApplicant", regisFormData);
+    return this.http.post("https://drrs.herokuapp.com/saveApplicant", regisFormData);
   }
 
   saveReport(reportFormData){
-    // return this.http.post("https://drrs.herokuapp.com/saveReport", reportFormData);
-    return this.http.post("http://localhost:3000/saveReport", reportFormData);
+    return this.http.post("https://drrs.herokuapp.com/saveReport", reportFormData);
+    // return this.http.post("http://localhost:3000/saveReport", reportFormData);
   }
+
+  getUser(userEmail){
+    return this.http.get("https://drrs.herokuapp.com/getUser/"+ userEmail);
+    // return this.http.get("http://localhost:3000/getUser/"+ userEmail);
+  }
+
 
   getIncidentsList(){
     return this.http.get("https://drrs.herokuapp.com/getIncidentsList");
+    // return this.http.get("http://localhost:3000/getIncidentsList");
   }
 
 }

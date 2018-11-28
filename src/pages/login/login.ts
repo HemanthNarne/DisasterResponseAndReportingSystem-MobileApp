@@ -54,13 +54,27 @@ export class LoginPage {
         console.log(this.user.email);
         console.log(this.firstName);
         console.log(this.lastName);
+        console.log("data is "+JSON.stringify(data))
         let alert = this.alertCtrl.create({
           title: 'Login successful!',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(StartRegisPage,{userName:this.user.email,firstName:this.firstName,lastName:this.lastName});
+
+        // get user
+        
+        this.dataService.getUser(this.user.email)
+        .subscribe((data) => {
+          console.log("user is "+data["msg"])
+          var name = data['data'];
+          this.firstName=name[0].firstName
+          this.lastName=name[0].lastName
+          console.log("name is "+this.firstName +" "+this.lastName)
+          this.navCtrl.push(StartRegisPage,{userName:this.user.email,firstName:this.firstName,lastName:this.lastName});
+      });
+        // get user end
+
       },(err)=> {
         let alert = this.alertCtrl.create({
           title: 'Incorrect email/password',
