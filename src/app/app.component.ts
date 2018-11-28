@@ -21,8 +21,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = ReportDisasterPage;
-  // rootPage: any = LoginPage;
-  rootPage: any = SignupPage;
+   rootPage: any = LoginPage;
+  // rootPage: any = ReportDisasterPage;
 
   // PasswordPage
   // StartRegisPage
