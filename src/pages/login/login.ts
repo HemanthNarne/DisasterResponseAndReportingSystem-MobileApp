@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
 import { StartRegisPage } from '../start-regis/start-regis';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { SignupPage } from '../signup/signup';
@@ -25,14 +25,19 @@ export class LoginPage {
   loginID:string
   user: any;
   login:any;
+  firstName:string;
+  lastName:string;
+
   // email: string;
   // wrongPassword = false;
 
-  constructor(public navCtrl: NavController, public dataService: DataService, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public dataService: DataService, private alertCtrl: AlertController, public navParams: NavParams) {
     // this.wrongPassword = false;
   }
 
   ionViewDidLoad() {
+    this.firstName=this.navParams.get('firstName')
+    this.lastName=this.navParams.get('lastName')
     console.log('ionViewDidLoad LoginPage');
   }
 
@@ -47,13 +52,15 @@ export class LoginPage {
         this.login=(JSON.stringify(loginForm.value));
         this.user=JSON.parse(this.login)
         console.log(this.user.email);
+        console.log(this.firstName);
+        console.log(this.lastName);
         let alert = this.alertCtrl.create({
           title: 'Login successful!',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.push(StartRegisPage,{userName:this.user.email});
+        this.navCtrl.push(StartRegisPage,{userName:this.user.email,firstName:this.firstName,lastName:this.lastName});
       },(err)=> {
         let alert = this.alertCtrl.create({
           title: 'Incorrect email/password',

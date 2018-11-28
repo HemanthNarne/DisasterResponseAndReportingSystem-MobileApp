@@ -19,6 +19,8 @@ import { User } from '../../common/model/user';
 export class SignupPage {
 
   user: User;
+  userr:any;
+  signup:any;
 
   constructor(
     public navCtrl: NavController,
@@ -36,6 +38,10 @@ export class SignupPage {
     }
     this.dataService.signup(signupForm.value)
       .subscribe((data) => {
+        this.signup=(JSON.stringify(signupForm.value));
+        this.userr=JSON.parse(this.signup)
+        console.log(this.userr.firstName);
+        console.log(this.userr.lastName);
         console.log(data);
         console.log("success");
         let alert = this.alertCtrl.create({
@@ -44,7 +50,7 @@ export class SignupPage {
           buttons: ['ok']
         });
         alert.present();
-        this.navCtrl.setRoot(LoginPage);
+        this.navCtrl.setRoot(LoginPage,{firstName:this.userr.firstName,lastName:this.userr.lastName});
       }), (err) => {
         let alert = this.alertCtrl.create({
           title: 'Something went wrong/try again later',

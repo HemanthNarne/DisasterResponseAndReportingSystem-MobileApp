@@ -22,19 +22,24 @@ import { LoginPage } from '../login/login';
 })
 export class StartRegisPage {
   user:string;
+  firstName:string;
+  lastName:string;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     this.user=this.navParams.get('userName')
-    console.log('ionViewDidLoad StartRegisPage '+this.user);
+    this.firstName=this.navParams.get('firstName')
+    this.lastName=this.navParams.get('lastName')
+    console.log('ionViewDidLoad StartRegisPage '+this.user+this.firstName+this.lastName);
   }
   // onStart() deals with the navigation code
   onStart(){
     // When the button is clicked onStart() method is triggered. 
     // push() method is used to navigate from one page to another
-    this.navCtrl.push(RegisFormPage,{user:this.user});
+    this.navCtrl.push(RegisFormPage,{user:this.user,firstName:this.firstName,lastName:this.lastName});
   }
   onStart1()
   {

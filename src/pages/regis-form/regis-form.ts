@@ -28,6 +28,8 @@ export class RegisFormPage {
   user: string;
   selectedFile : File
   pushNotification = 'Yes';
+  firstName:string;
+  lastName:string;
 
   @ViewChild('signupSlider') signupSlider: any;
 
@@ -43,7 +45,9 @@ export class RegisFormPage {
 
   ionViewDidLoad() {
     this.user=this.navParams.get('user');
-    console.log('ionViewDidLoad RegisFormPage');
+    this.firstName=this.navParams.get('firstName');
+    this.lastName=this.navParams.get('lastName');
+    console.log('ionViewDidLoad RegisFormPage'+this.firstName+this.lastName);
   }
 
   next() {
