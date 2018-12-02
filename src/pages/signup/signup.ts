@@ -51,14 +51,14 @@ export class SignupPage {
         });
         alert.present();
         this.navCtrl.setRoot(LoginPage,{firstName:this.userr.firstName,lastName:this.userr.lastName});
-      }), (err) => {
+      }, (err) => {
         let alert = this.alertCtrl.create({
-          title: 'Something went wrong/try again later',
+          title: 'User with this email already exists. \n Please try with different email-id!',
           // subTitle: '10% of battery remaining',
           buttons: ['ok']
         });
         alert.present();;
         // console.log(signupForm.value);
-      }
+      })
   }
 }
