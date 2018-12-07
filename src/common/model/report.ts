@@ -17,5 +17,6 @@ export interface Report {
   fire: string,
   utilities: string,
   hazmat: string,
+  rescueteam:string,
   others: string
 }
