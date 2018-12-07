@@ -93,11 +93,12 @@
             <ion-label color="red" Fixed>Red</ion-label>
             <ion-input
               type="number"
+              min=0
               placeholder="Enter number"
               name="casualties.red"
               ngModel
               #casualties.red="ngModel"
-              pattern='[0-9]+'
+              pattern='[0-9]'
               required></ion-input>
               
         </ion-item>
@@ -109,6 +110,7 @@
             <ion-label color="yellow" Fixed>Yellow</ion-label>
             <ion-input
               type="number"
+              min=0              
               placeholder="Enter number"
               name="casualties.yellow"
               ngModel
@@ -123,6 +125,7 @@
             <ion-label color="green" Fixed>Green</ion-label>
             <ion-input
               type="number"
+              min=0              
               placeholder="Enter number"
               name="casualties.green"
               ngModel
@@ -137,6 +140,7 @@
             <ion-label color="black" Fixed>Black</ion-label>
             <ion-input
               type="number"
+              min=0              
               placeholder="Enter number"
               name="casualties.black"
               ngModel
@@ -213,7 +217,7 @@
       <!-- utilities -->
       <ion-item>
           <ion-label color="primary">Utilities*</ion-label>
-          <ion-select multiple="true"
+          <ion-select multiple="false"
           name="utilities"
           ngModel
           #utilities="ngModel"
@@ -243,7 +247,7 @@
           name="hazmat"
           ngModel
           #hazmat="ngModel"
-          pattern='[a-zA-Z]+'
+          pattern='[a-z A-Z ]+'
           required></ion-input>
       </ion-item>
       <ion-item no-lines>
@@ -258,16 +262,41 @@
       </ion-item>
 
       <ion-item>
-          <ion-label floating>Others*</ion-label>
+          <ion-label color="primary">Immediate rescue team needed*</ion-label>
+          <ion-select multiple="false"
+          name="rescueteam"
+          ngModel
+          #rescueteam="ngModel"
+          required>
+            <ion-option>Ambulance</ion-option>
+            <ion-option>Fire Truck</ion-option>
+            <ion-option>Police/Law</ion-option>
+            <ion-option>All</ion-option>
+            <ion-option>None</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+        <p *ngIf="(reportForm.submitted || rescueteam.touched) && rescueteam.invalid" style="color: #ea6153;">
+          <span *ngIf="rescueteam.errors.required">
+            Please provide details if any immediate <br>help needed
+          </span>
+          <span *ngIf="rescueteam.errors.pattern">
+            Invaild pattern
+          </span>
+        </p>
+      </ion-item>
+
+      <ion-item>
+
+          <ion-label floating>Additional information</ion-label>
           <ion-input
             type="text"
             name="others"
             ngModel
             #others="ngModel"
-            pattern='[a-zA-Z]+'
-            required></ion-input>
+            ></ion-input>
         </ion-item>
-        <ion-item no-lines>
+        <!-- <ion-item no-lines>
           <p *ngIf="(reportForm.submitted || others.touched) && others.invalid" style="color: #ea6153;">
             <span *ngIf="others.errors.required">
               Please provide additional information<br> about the incident
@@ -276,7 +305,7 @@
               Invaild pattern
             </span>
           </p>
-        </ion-item>
+        </ion-item> -->
 
     <button ion-button block color="lightprimary" type="submit">Submit</button>
   </form>
