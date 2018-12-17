@@ -23,7 +23,7 @@ export class MyApp {
    rootPage: any = LoginPage;
   // rootPage: any = ReportDisasterPage;
   // PasswordPage
-  // StartRegisPage
+  // rootPage: any =StartRegisPage
   // LoginPage ;
   // SignupPage
   // rootPage: any =  RegisFormPage;
