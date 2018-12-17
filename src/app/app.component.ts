@@ -20,8 +20,8 @@ import { SignupPage } from '../pages/signup/signup';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-   rootPage: any = LoginPage;
-  // rootPage: any = ReportDisasterPage;
+  //  rootPage: any = LoginPage;
+  rootPage: any = ReportDisasterPage;
   // PasswordPage
   // rootPage: any =StartRegisPage
   // LoginPage ;
